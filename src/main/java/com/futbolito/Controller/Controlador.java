@@ -8,4 +8,10 @@ public class Controlador {
 	public String index() {
 		return "index";
 	}
+	
+	
+	public static String algo() {
+		return "algo";
+		
+	}
 }
