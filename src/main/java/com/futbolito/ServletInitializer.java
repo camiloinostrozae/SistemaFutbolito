@@ -1,4 +1,4 @@
-package com.futbolito.cl;
+package com.futbolito;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
