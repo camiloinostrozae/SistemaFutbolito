@@ -7,6 +7,9 @@ public class Controlador {
 	@RequestMapping(value="/")
 	public String index() {
 		return "index";
+	} 
+	public String modificar() {
+		return "hola";
 	}
 	
 	public String qwerty() {
