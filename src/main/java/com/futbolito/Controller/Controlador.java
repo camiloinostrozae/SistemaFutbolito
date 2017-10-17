@@ -12,7 +12,11 @@ public class Controlador {
 		return "hola";
 	}
 	
+
 	public String qwerty() {
 		return null;
+	}
+	public static String algo() {
+		return "algo";
 	}
 }
