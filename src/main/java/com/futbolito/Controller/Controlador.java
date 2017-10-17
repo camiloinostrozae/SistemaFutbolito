@@ -8,15 +8,5 @@ public class Controlador {
 	public String index() {
 		return "index";
 	} 
-	public String modificar() {
-		return "hola";
-	}
-	
 
-	public String qwerty() {
-		return null;
-	}
-	public static String algo() {
-		return "algo";
-	}
 }
