@@ -11,7 +11,7 @@ import com.mysql.jdbc.Connection;
 
 public class UsuarioDAO {
     
-   
+	private static final String READ_QUERY="select * from usuario where nombre=? and contrasena=?";
     private static final String INSERT_QUERY="insert into usuario (Nombre,Apellido,Email,Telefono,Contrasena,idRol) values (?,?,?,?,?,?)";
     private static final String DB_NAME="futbolito";
     private static final String PORT="3306";
@@ -19,6 +19,20 @@ public class UsuarioDAO {
     private static final String USER="root";
     private static final String PASSWORD="";
     
+    public int login(UsuarioTO usuario) {
+        //put your code here
+        Connection conn=null;
+        try{
+            conn=getConnection();
+            PreparedStatement ps=conn.prepareStatement(READ_QUERY);
+            ps.setString(1, usuario.getNombre());
+            ps.setString(2, usuario.getContraseña());
+            ps.executeUpdate();
+            return 1;
+        }catch(Exception e){
+            return 0;
+        }
+    }
     
     
     public void  insertar(UsuarioTO tic) throws SQLException{
