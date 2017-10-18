@@ -11,7 +11,7 @@
         <h3>Crear Equipo</h3>
         <br>
         
-        <form class="form-horizontal span4 " action="crearEquipo" method = "POST" >
+        <form class="form-horizontal span4 " action="crear" method = "POST" >
             <div class="control-group">
                 <label class="control-label" >Nombre Equipo</label>
                 <div class="controls">
@@ -21,14 +21,16 @@
              <div class="control-group">
                 <label class="control-label" >Número de Partidos</label>
                 <div class="controls">
-                    <input class="form-control" type="text" name="apellido" required style="width: 300px"/>
-
+                    <input class="form-control" type="text" name="numPartidos" required style="width: 300px"/>
                 </div>
             </div>
-         
-            
-            
-            <input class="btn btn-success" value="Registrar" type="submit">
+            <div class="control-group">
+                <label class="control-label" >Número de Jugadores</label>
+                <div class="controls">
+                    <input class="form-control" type="text" name="numJugadores" required style="width: 300px"/>
+                </div>
+            </div>
+            <input class="btn btn-warning" value="Crear" type="submit">
         </form>
         </center>
     </body>

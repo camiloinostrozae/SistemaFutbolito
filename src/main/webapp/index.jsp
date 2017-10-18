@@ -9,7 +9,7 @@
 <body>
 		<h1>Login</h1>
         
-        <form action="login" method="get">
+        <form action="login" method="POST">
             <table>
             <tr>
             <td><label>Nombre: </label></td>
@@ -21,6 +21,7 @@
             </tr>
             
             </table>
+            <h4>${mensaje}</h4>
             <br>
             <input type="submit" value="Enviar"/>
         </form>
@@ -28,6 +29,8 @@
         <form action="registrarse" method="get">
         <input type="submit" value="Registrarse"/>
         </form>
+        
+
 
 </body>
 </html>
