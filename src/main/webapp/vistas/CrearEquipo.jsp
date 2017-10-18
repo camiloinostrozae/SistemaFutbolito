@@ -1,3 +1,5 @@
+
+    
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,17 +21,28 @@
                 </div>
             </div>
              <div class="control-group">
-                <label class="control-label" >NÃºmero de Partidos</label>
+                <label class="control-label" >Número de Partidos</label>
                 <div class="controls">
-                    <input class="form-control" type="text" name="numPartidos" required style="width: 300px"/>
+                    <input class="form-control" type="number" name="numPartidos" required style="width: 300px"/>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" >NÃºmero de Jugadores</label>
+                <label class="control-label" >Número de Jugadores</label>
                 <div class="controls">
-                    <input class="form-control" type="text" name="numJugadores" required style="width: 300px"/>
+                    <input class="form-control" type="number" name="numJugadores" required style="width: 300px"/>
                 </div>
             </div>
+            <div class="control-group">
+                <label class="control-label" >Usuario</label>
+                <div class="controls">
+                  <select class="form-control" name="usuario" style="width: 300px">
+                    <option value="">Usuario a Cargo</option> 
+            		<option value=""></option> 
+            		<option value=""></option>
+                 </select>
+                </div>
+            </div>
+            <br>
             <input class="btn btn-warning" value="Crear" type="submit">
         </form>
         </center>

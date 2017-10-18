@@ -11,7 +11,7 @@
 <center>
 <h3>Administrador</h3>
  <br>
- <form class="form-horizontal span4 " action="crearequipo" method = "POST" >
+ <form class="form-horizontal span4 " action="crearequipo" method = "get" >
             <input class="btn btn-info" value="Crear Nuevo Equipo" type="submit">
         </form>
         </center>

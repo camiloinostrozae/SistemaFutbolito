@@ -15,9 +15,9 @@ import com.futbolito.to.UsuarioTO;
 
 @Controller
 public class EquipoControlador {
-	@RequestMapping(value = "/crearequipo",method=RequestMethod.POST)
+	@RequestMapping(value = "/crearequipo",method=RequestMethod.GET)
 	public String crearEquipo() {
-		return "vistas/CrearEquipo.html";
+		return "vistas/CrearEquipo.jsp";
 	} 
 		
 
