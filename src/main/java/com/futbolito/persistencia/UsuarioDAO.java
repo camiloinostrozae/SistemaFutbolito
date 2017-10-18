@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import com.futbolito.to.UsuarioTO;
 import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class UsuarioDAO {
 	private static final String READ_QUERY="select * from usuario where nombre=? and contrasena=?";
@@ -16,18 +17,28 @@ public class UsuarioDAO {
     private static final String PASSWORD="188084796g";
     
     
-    public int login(UsuarioTO usuario) {
+    public UsuarioTO login(UsuarioTO usuario) {
         //put your code here
         Connection conn=null;
+        UsuarioTO result = null;
         try{
             conn=getConnection();
             PreparedStatement ps=conn.prepareStatement(READ_QUERY);
             ps.setString(1, usuario.getNombre());
             ps.setString(2, usuario.getContraseña());
-            ps.executeUpdate();
-            return 1;
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            result = new UsuarioTO();
+            result.setId(rs.getInt("idUsuario"));
+            result.setNombre(rs.getString("nombre"));
+            result.setApellido(rs.getString("apellido"));
+            result.setEmail(rs.getString("email"));
+            result.setTelefono(rs.getString("telefono"));
+            result.setContraseña(rs.getString("contrasena"));
+            result.setIdRol(rs.getInt("idRol"));
+            return result;
         }catch(Exception e){
-            return 0;
+            return null;
         }
     }
     
