@@ -4,10 +4,27 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Futbolito</title>
 </head>
 <body>
-<h1>hola</h1>
+		<h1>Login</h1>
+        
+        <form action="login" method="get">
+            <table>
+            <tr>
+            <td><label>Nombre: </label></td>
+            <td><input type="text" name="usuario" /></td>
+            </tr>
+            <tr>
+            <td><label>Contraseña: </label></td>
+            <td><input type="password" name="password"/></td>
+            </tr>
+            
+            </table>
+            <br>
+            <input type="submit" value="Enviar"/>
+        </form>
+        <a href="registrarse">Registrarse</a>
 
 </body>
 </html>
