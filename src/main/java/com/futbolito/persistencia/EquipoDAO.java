@@ -50,7 +50,7 @@ public class EquipoDAO {
         return list;
     }
     public EquipoTO buscarPorId(int id) throws SQLException{
-        LinkedList<EquipoTO> list = new LinkedList<>();
+        
         EquipoTO result = null;
         Connection conn=null;
         try {

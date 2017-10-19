@@ -18,6 +18,7 @@ import java.sql.ResultSet;
 public class UsuarioDAO {
     
 	private static final String READ_QUERY="select * from usuario where nombre=? and contrasena=?";
+	private static final String BUSCAR_POR_ID="select * from usuario where idUsuario=?";
 	private static final String READ_NOMBRES="select idUsuario,Nombre,Apellido from usuario";
     private static final String INSERT_QUERY="insert into usuario (Nombre,Apellido,Email,Telefono,Contrasena,idRol) values (?,?,?,?,?,?)";
     private static final String DB_NAME="futbolito";
@@ -113,5 +114,33 @@ public class UsuarioDAO {
             conn.close();
         }
         return list;
+    }
+    public UsuarioTO buescarUsuarioPorID(int id) throws SQLException {
+    	UsuarioTO result = null;
+        Connection conn=null;
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(BUSCAR_POR_ID);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result= new UsuarioTO();
+                result.setId(rs.getInt("idUsuario"));
+                result.setNombre(rs.getString("nombre"));
+                result.setApellido(rs.getString("apellido"));
+                result.setEmail(rs.getString("email"));
+                result.setTelefono(rs.getString("telefono"));
+                result.setContraseña(rs.getString("contrasena"));
+                result.setIdRol(rs.getInt("idRol"));
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            conn.close();
+        }
+        return result;
+    	
+    	
     }
 }
