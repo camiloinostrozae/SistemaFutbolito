@@ -9,44 +9,55 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/ionicons.min.css" rel="stylesheet">
 <link href="css/estilo.css" rel="stylesheet">
 <title>Equipos</title>
 </head>
 <body>
-<center>
-        <h1>Listado de Equipos</h1>
-        <table class="bordered" border="1">
-            <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Partidos Jugados</th>
-                <th>Numero de jugadores</th>
-                <th>Eliminar Equipo</th>
-                <th>Actualizar Equipo</th>
-                
-                
-            </tr>
-            </thead>
-           <c:forEach var="equipos" items="${listaEquipos}">
-            <tr>
-                <td><c:out value="${equipos.nombre}"/></td>
-                <td><c:out value="${equipos.nroPartidos}"/></td> 
-                <td><c:out value="${equipos.nroJugadores}"/></td>
-                <td>
-                <form class="form-horizontal span4 " action="eliminarEquipo" method = "post" >
-                <input type="text"  size="1" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
-            <input class="btn btn-info" value="eliminar" type="submit">
-        </form>
-                 </td><td><form class="form-horizontal span4 " action="actualizarEquipo" method = "post" >
-                <input type="text" size="1" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
-            <input class="btn btn-info" value="actualizar" type="submit">
-        </form>
-                </td>
-                
-            </tr>
-          </c:forEach>     
-        </table>
-        </center>
+	<div class="color-fondo-login">
+	    <div class="imagen-fondo"></div>
+	</div>
+	<div  class="container-fluid">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4" id="login" >
+				<h1>Listado de Equipos</h1>
+		        <table class="table table-bordered">
+		            <thead>
+		            <tr>
+		                <th>Nombre</th>
+		                <th>Partidos Jugados</th>
+		                <th>Número de jugadores</th>
+		                <th>Eliminar Equipo</th>
+		                <th>Actualizar Equipo</th>
+		                
+		                
+		            </tr>
+		            </thead>
+		           <c:forEach var="equipos" items="${listaEquipos}">
+		            <tr>
+		                <td><c:out value="${equipos.nombre}"/></td>
+		                <td><c:out value="${equipos.nroPartidos}"/></td> 
+		                <td><c:out value="${equipos.nroJugadores}"/></td>
+		                <td>
+		                <form class="form-horizontal span4 " action="eliminarEquipo" method = "post" >
+		                <input type="text"  size="1" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
+		            <input class="btn btn-info" value="eliminar" type="submit">
+			        </form>
+			                 </td><td><form class="form-horizontal span4 " action="actualizarEquipo" method = "post" >
+			                <input type="text" size="1" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
+			            <input class="btn btn-info" value="actualizar" type="submit">
+			        </form>
+		                </td>
+		                
+		            </tr>
+		          </c:forEach>     
+		        </table>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
+
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
     </body>

@@ -5,21 +5,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/ionicons.min.css" rel="stylesheet">
 <link href="css/estilo.css" rel="stylesheet">
 <title>Futbolito</title>
 </head>
 <body>
-
-<br>
-        <div class="text-center">
-        <h3>Futbolito</h3>
-        </div>
-        <br>
-        <center>
-        <form class="form-horizontal span4 " action="listarequipos" method = "get" >
-            <input class="btn btn-danger" value="Listar Equipo" type="submit">
-        </form>
-        </center>
+	<div class="color-fondo-login">
+	    <div class="imagen-fondo"></div>
+	</div>
+	<div  class="container-fluid">
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4" id="login" >
+				<center>
+					<h3>Fubolito</h3>
+				    <form class="form-horizontal span4 " action="listarequipos" method = "get" >
+			            <input class="btn btn-info" value="Listar Equipo" type="submit">
+			        </form>
+				</center>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>

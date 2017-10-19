@@ -5,21 +5,33 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/ionicons.min.css" rel="stylesheet">
 <link href="css/estilo.css" rel="stylesheet">
 <title>futbolito</title>
 </head>
 <body>
-<center>
-<h3>Administrador</h3>
- <br>
- <form class="form-horizontal span4 " action="crearequipo" method = "get" >
-            <input class="btn btn-info" value="Crear Nuevo Equipo" type="submit">
-        </form>
-        <br>
-   <form class="form-horizontal span4 " action="listarequipos" method = "get" >
-            <input class="btn btn-danger" value="Listar Equipo" type="submit">
-        </form>
- </center>
+	<div class="color-fondo-login">
+	    <div class="imagen-fondo"></div>
+	</div>
+	<div  class="container-fluid">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4" id="login" >
+			<center>
+					<h3>Administrador</h3>
+					 <br>
+					 <form action="crearequipo" method = "get" >
+					     <input class="btn btn-info" value="Nuevo Equipo" type="submit">
+					 </form>
+					 <form action="listarequipos" method = "get" >
+					 	<input class="btn btn-info" value="Listar Equipo" type="submit">
+					 </form>
+			</center>
+
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+	</div>
  	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
