@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.futbolito.persistencia.EquipoDAO;
+import com.futbolito.persistencia.UsuarioDAO;
 import com.futbolito.to.EquipoTO;
+import com.futbolito.to.UsuarioTO;
 
 
 
@@ -42,15 +44,23 @@ public class EquipoControlador {
 	public String actualizarEquipo(@RequestParam(value="id", required=false, defaultValue="World") String id,Model model) throws SQLException {
 		EquipoDAO dao=new EquipoDAO();
 		EquipoTO equipo= new EquipoTO();
+		UsuarioTO usuario= new UsuarioTO();
+		UsuarioDAO usuarioDao = new UsuarioDAO();
 		int idE=Integer.parseInt(id);
 		equipo = dao.buscarPorId(idE);
 		String nombre =equipo.getNombre();
 		int partidos = equipo.getNroPartidos();
 		int numJugadores= equipo.getNroJugadores();
+		usuario= usuarioDao.buescarUsuarioPorID(equipo.getIdUsuario());
+		String nombreUsuario = usuario.getNombre();
 		model.addAttribute("id", equipo.getIdEquipo());
 		model.addAttribute("nombre",nombre);
 		model.addAttribute("partidos",partidos);
 		model.addAttribute("numJugadores",numJugadores);
+		
+		model.addAttribute("usuario", nombreUsuario+" "+ usuario.getApellido());
+		
+		model.addAttribute("");
 		System.out.println(equipo.getIdEquipo());
 		return "vistas/modificar.jsp";
 	} 
