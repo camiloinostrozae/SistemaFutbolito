@@ -1,6 +1,5 @@
 package com.futbolito.persistencia;
 
-public class UsuarioDAO {
+public class EquipoDAO {
 
-   
 }
