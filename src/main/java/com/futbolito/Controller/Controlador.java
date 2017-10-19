@@ -27,14 +27,12 @@ public class Controlador {
 			,@RequestParam(value="apellido")String apellido
 			,@RequestParam(value="email")String email
 			,@RequestParam(value="telefono")String telefono
-			,@RequestParam(value="pass")String contrasena
-			,@RequestParam(value="rol")int rol) throws SQLException {
+			,@RequestParam(value="pass")String contrasena) throws SQLException {
 		model.addAttribute("nombre",name);
 		model.addAttribute("apellido",apellido);
 		model.addAttribute("email",email);
 		model.addAttribute("telefono",telefono);
 		model.addAttribute("contraseña",contrasena);
-		model.addAttribute("idrol",rol);
 		
 		UsuarioDAO dao = new UsuarioDAO();
 		UsuarioTO tic = new UsuarioTO();
@@ -43,7 +41,6 @@ public class Controlador {
 		tic.setEmail(email);
 		tic.setTelefono(telefono);
 		tic.setContraseña(contrasena);
-		tic.setIdRol(rol);
 	    dao.insertar(tic);
 	    
 	    return "vistas/mensaje.jsp";

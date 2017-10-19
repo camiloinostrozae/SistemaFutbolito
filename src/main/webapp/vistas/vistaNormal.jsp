@@ -4,20 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-<title>futbolito</title>
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<title>Futbolito</title>
 </head>
 <body>
-<center>
-<h3>Administrador</h3>
- <br>
- <form class="form-horizontal span4 " action="crearequipo" method = "get" >
-            <input class="btn btn-info" value="Crear Nuevo Equipo" type="submit">
-        </form>
+
+<br>
+        <div class="text-center">
+        <h3>Futbolito</h3>
+        </div>
         <br>
-   <form class="form-horizontal span4 " action="listarequipos" method = "get" >
+        <center>
+        <form class="form-horizontal span4 " action="listarequipos" method = "get" >
             <input class="btn btn-danger" value="Listar Equipo" type="submit">
         </form>
- </center>
+        </center>
+
 </body>
 </html>

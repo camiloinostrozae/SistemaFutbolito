@@ -63,7 +63,7 @@ public class UsuarioDAO {
             ps.setString(3, tic.getEmail());
             ps.setString(4, tic.getTelefono());
             ps.setString(5, tic.getContraseña());
-            ps.setInt(6, tic.getIdRol());
+            ps.setInt(6, 2);
             
             ps.executeUpdate();
             

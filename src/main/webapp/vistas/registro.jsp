@@ -43,16 +43,6 @@
                     <input class="form-control" type="password" name="pass" required style="width: 300px" maxlength="8"/>
                 </div>
             </div>
-            <div class="control-group">
-                <label class="control-label" >Rol</label>
-                <div class="controls">
-                  <select class="form-control" name="rol" style="width: 300px">
-                    <option value="">Seleccione Rol</option> 
-            		<option value="1">Administrador</option> 
-            		<option value="2">Normal</option>
-                 </select>
-                </div>
-            </div>
             <br>
             <br>
             <input class="btn btn-success" value="Registrar" type="submit">

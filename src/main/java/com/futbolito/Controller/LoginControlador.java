@@ -34,7 +34,7 @@ public class LoginControlador {
 	    	if(resultado.getIdRol()==1){
 	    		return "vistas/vistaAdmin.jsp";
 	    	}else {
-	    		 return "vistas/listarEquipos.jsp";
+	    		 return "vistas/vistaNormal.jsp";
 	    	}
 	    	
 	    }
