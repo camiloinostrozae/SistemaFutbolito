@@ -12,6 +12,7 @@
 <title>Futbolito</title>
 </head>
 <body>
+	<center>
 		<h1>Login</h1>
         
         <form action="login" method="POST">
@@ -34,7 +35,7 @@
         <form action="registrarse" method="get">
         <input type="submit" value="Registrarse"/>
         </form>
-        
+        </center>
 
 
 

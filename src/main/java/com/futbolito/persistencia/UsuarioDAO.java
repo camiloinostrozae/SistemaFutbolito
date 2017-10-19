@@ -3,9 +3,11 @@ package com.futbolito.persistencia;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.futbolito.to.EquipoTO;
 import com.futbolito.to.UsuarioTO;
 import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +18,7 @@ import java.sql.ResultSet;
 public class UsuarioDAO {
     
 	private static final String READ_QUERY="select * from usuario where nombre=? and contrasena=?";
+	private static final String READ_NOMBRES="select idUsuario,Nombre,Apellido from usuario";
     private static final String INSERT_QUERY="insert into usuario (Nombre,Apellido,Email,Telefono,Contrasena,idRol) values (?,?,?,?,?,?)";
     private static final String DB_NAME="futbolito";
     private static final String PORT="3306";
@@ -86,5 +89,29 @@ public class UsuarioDAO {
             System.err.println("Quedo la parte hermano!!!");
         }
         return conn;
+    }
+    
+    public LinkedList<UsuarioTO> listarNombresUsuarios() throws SQLException{
+        LinkedList<UsuarioTO> list = new LinkedList<>();
+        UsuarioTO result = null;
+        Connection conn=null;
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(READ_NOMBRES);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result= new UsuarioTO();
+                result.setId(rs.getInt("idUsuario"));
+                result.setNombre(rs.getString("Nombre"));
+                result.setApellido(rs.getString("Apellido"));
+                
+                list.add(result);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            conn.close();
+        }
+        return list;
     }
 }

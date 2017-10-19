@@ -12,6 +12,7 @@
 <title>Equipos</title>
 </head>
 <body>
+<center>
         <h1>Listado de Equipos</h1>
         <table class="bordered" border="1">
             <thead>
@@ -30,7 +31,7 @@
                 <td><c:out value="${equipos.nroJugadores}"/></td>
                 <td>
                 <form class="form-horizontal span4 " action="eliminarEquipo" method = "post" >
-                <input type="text" id="id" name="id" value="${equipos.idEquipo}" required="requerid" />
+                <input type="text" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
             <input class="btn btn-info" value="eliminar" type="submit">
         </form>
                 <button type="button" class="btn btn-warning">Modificar</button>
@@ -39,5 +40,7 @@
             </tr>
           </c:forEach>     
         </table>
+        </center>
     </body>
+    
 </html>

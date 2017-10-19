@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.futbolito.persistencia.EquipoDAO;
-import com.futbolito.persistencia.UsuarioDAO;
-import com.futbolito.to.UsuarioTO;
+import com.futbolito.to.EquipoTO;
+
 
 
 
@@ -30,6 +30,7 @@ public class EquipoControlador {
 		System.out.println(equipo);
 		return "vistas/listarEquipos.jsp";
 	} 
+
 	@RequestMapping(value = "/eliminarEquipo",method=RequestMethod.POST)
 	public String eliminarEquipo(@RequestParam(value="id", required=false, defaultValue="World") String id,Model model) throws SQLException {
 		EquipoDAO dao=new EquipoDAO();
@@ -38,5 +39,34 @@ public class EquipoControlador {
 		return "vistas/mensajeEliminado.jsp";
 	} 
 	
+
+	
+	
+	@RequestMapping(value="/crear", method=RequestMethod.POST)
+	public String IngresarEquipo(@RequestParam(value="nombreEquipo", required=false,defaultValue="World")String nameEquipo, Model model
+			,@RequestParam(value="numPartidos")int numPartidos
+			,@RequestParam(value="numJugadores")int numJugadores 
+			,@RequestParam(value="usuario")String usuario) throws SQLException {
+		int idUsuario = Integer.parseInt(usuario);
+		model.addAttribute("nombreE",nameEquipo);
+		model.addAttribute("numerosP",numPartidos);
+		model.addAttribute("numerosJ",numJugadores);
+		model.addAttribute("usuario",idUsuario);
+		
+		EquipoDAO dao = new EquipoDAO();
+		EquipoTO tic = new EquipoTO();
+		tic.setNombre(nameEquipo);
+		tic.setNroPartidos(numPartidos);
+		tic.setNroJugadores(numJugadores);
+		tic.setIdUsuario(idUsuario);
+	    dao.insertarEquipo(tic);
+	    
+	    return "vistas/mensajeEquipo.jsp";
+	}
+	
+	
+	
+		
+
 
 }
