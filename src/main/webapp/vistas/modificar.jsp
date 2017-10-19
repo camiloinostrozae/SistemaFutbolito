@@ -52,6 +52,7 @@
 				     userto = user.listarNombresUsuarios();
 				     if(userto != null){
 			                for (int i = 0; i < userto.size(); i++) {
+
 			                    UsuarioTO usuario = userto.get(i);
                 %>
             	<option value="<%=usuario.getId()%>"><%=usuario.getNombre()+" "+usuario.getApellido()%></option>
