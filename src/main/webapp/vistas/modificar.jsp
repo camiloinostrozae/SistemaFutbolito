@@ -14,7 +14,7 @@
         <title>futbolito</title>
     </head>
     <body>
-    ${requestScope.id}
+   
         <br>
     <center>
         <h3>Actualizar Equipo</h3>
