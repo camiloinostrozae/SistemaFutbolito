@@ -38,7 +38,22 @@ public class EquipoControlador {
 		dao.eliminarEquipo(idE);
 		return "vistas/mensajeEliminado.jsp";
 	} 
-	
+	@RequestMapping(value = "/actualizarEquipo",method=RequestMethod.POST)
+	public String actualizarEquipo(@RequestParam(value="id", required=false, defaultValue="World") String id,Model model) throws SQLException {
+		EquipoDAO dao=new EquipoDAO();
+		EquipoTO equipo= new EquipoTO();
+		int idE=Integer.parseInt(id);
+		equipo = dao.buscarPorId(idE);
+		String nombre =equipo.getNombre();
+		int partidos = equipo.getNroPartidos();
+		int numJugadores= equipo.getNroJugadores();
+		model.addAttribute("id", equipo.getIdEquipo());
+		model.addAttribute("nombre",nombre);
+		model.addAttribute("partidos",partidos);
+		model.addAttribute("numJugadores",numJugadores);
+		System.out.println(equipo.getIdEquipo());
+		return "vistas/modificar.jsp";
+	} 
 
 	
 	
@@ -63,6 +78,26 @@ public class EquipoControlador {
 	    
 	    return "vistas/mensajeEquipo.jsp";
 	}
+	@RequestMapping(value="/actualizar", method=RequestMethod.POST)
+	public String actualizar(@RequestParam(value="id", required=false, defaultValue="World") String id,Model model
+			,@RequestParam(value="nombreEquipo", required=false,defaultValue="World")String nombreEquipo,
+			@RequestParam(value="numPartidos")int numPartidos,
+			@RequestParam(value="numJugadores")int numJugadores 
+			) throws SQLException {
+		EquipoDAO dao=new EquipoDAO();
+		EquipoTO equipo= new EquipoTO();
+		int idE=Integer.parseInt(id);
+		System.out.println(id+", " +nombreEquipo+", "+ numPartidos+","+numJugadores );
+		equipo.setIdEquipo(idE);
+		equipo.setNombre(nombreEquipo);
+		equipo.setNroPartidos(numPartidos);
+		equipo.setNroJugadores(numJugadores);
+		
+		dao.actualizarEquipo(equipo);
+		
+		
+		return "vistas/mensajeActualizar.jsp";
+	} 
 	
 	
 	

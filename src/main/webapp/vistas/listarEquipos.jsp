@@ -34,7 +34,10 @@
                 <input type="text" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
             <input class="btn btn-info" value="eliminar" type="submit">
         </form>
-                <button type="button" class="btn btn-warning">Modificar</button>
+                 <form class="form-horizontal span4 " action="actualizarEquipo" method = "post" >
+                <input type="text" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
+            <input class="btn btn-info" value="actualizar" type="submit">
+        </form>
                 </td>
                 
             </tr>
