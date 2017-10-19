@@ -20,7 +20,9 @@
                 <th>Nombre</th>
                 <th>Partidos Jugados</th>
                 <th>Numero de jugadores</th>
-                <th>Accion</th>
+                <th>Eliminar Equipo</th>
+                <th>Actualizar Equipo</th>
+                
                 
             </tr>
             </thead>
@@ -31,11 +33,11 @@
                 <td><c:out value="${equipos.nroJugadores}"/></td>
                 <td>
                 <form class="form-horizontal span4 " action="eliminarEquipo" method = "post" >
-                <input type="text" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
+                <input type="text"  size="1" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
             <input class="btn btn-info" value="eliminar" type="submit">
         </form>
-                 <form class="form-horizontal span4 " action="actualizarEquipo" method = "post" >
-                <input type="text" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
+                 </td><td><form class="form-horizontal span4 " action="actualizarEquipo" method = "post" >
+                <input type="text" size="1" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
             <input class="btn btn-info" value="actualizar" type="submit">
         </form>
                 </td>
