@@ -4,8 +4,11 @@ public class EquipoTO {
 	
 	private int idEquipo;
 	private String nombre;
-	private int numeroPartidos;
-	private int numeroJugadores;
+
+
+	private int nroPartidos;
+	private int nroJugadores;
+
 	private int idUsuario;
 	
 	public int getIdEquipo() {
@@ -20,17 +23,20 @@ public class EquipoTO {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public int getNumeroPartidos() {
-		return numeroPartidos;
+
+	
+	public int getNroPartidos() {
+		return nroPartidos;
 	}
-	public void setNumeroPartidos(int numeroPartidos) {
-		this.numeroPartidos = numeroPartidos;
+	public void setNroPartidos(int nroPartidos) {
+		this.nroPartidos = nroPartidos;
 	}
-	public int getNumeroJugadores() {
-		return numeroJugadores;
+	public int getNroJugadores() {
+		return nroJugadores;
 	}
-	public void setNumeroJugadores(int numeroJugadores) {
-		this.numeroJugadores = numeroJugadores;
+	public void setNroJugadores(int nroJugadores) {
+		this.nroJugadores = nroJugadores;
+
 	}
 	public int getIdUsuario() {
 		return idUsuario;
@@ -39,6 +45,6 @@ public class EquipoTO {
 		this.idUsuario = idUsuario;
 	}
 	
-	
+
 
 }

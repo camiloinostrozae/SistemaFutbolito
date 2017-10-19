@@ -4,11 +4,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<<<<<<< HEAD
-<title>Insert title here</title>
-</head>
-<body>
-
 <title>Futbolito</title>
 </head>
 <body>
@@ -35,7 +30,6 @@
         <input type="submit" value="Registrarse"/>
         </form>
         
-
 
 
 </body>
