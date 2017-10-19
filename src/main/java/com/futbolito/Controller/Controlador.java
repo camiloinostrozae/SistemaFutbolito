@@ -28,13 +28,13 @@ public class Controlador {
 			,@RequestParam(value="apellido")String apellido
 			,@RequestParam(value="email")String email
 			,@RequestParam(value="telefono")String telefono
-			,@RequestParam(value="contraseña")String contraseña
+			,@RequestParam(value="pass")String contrasena
 			,@RequestParam(value="rol")int rol) throws SQLException {
 		model.addAttribute("nombre",name);
 		model.addAttribute("apellido",apellido);
 		model.addAttribute("email",email);
 		model.addAttribute("telefono",telefono);
-		model.addAttribute("contraseña",contraseña);
+		model.addAttribute("contraseña",contrasena);
 		model.addAttribute("idrol",rol);
 		
 		UsuarioDAO dao = new UsuarioDAO();
@@ -43,7 +43,7 @@ public class Controlador {
 		tic.setApellido(apellido);
 		tic.setEmail(email);
 		tic.setTelefono(telefono);
-		tic.setContraseña(contraseña);
+		tic.setContraseña(contrasena);
 		tic.setIdRol(rol);
 	    dao.insertar(tic);
 	    

@@ -12,6 +12,7 @@
 <title>Equipos</title>
 </head>
 <body>
+<center>
         <h1>Listado de Equipos</h1>
         <table class="bordered" border="1">
             <thead>
@@ -36,5 +37,7 @@
             </tr>
           </c:forEach>     
         </table>
+        </center>
     </body>
+    
 </html>

@@ -40,7 +40,7 @@
             <div class="control-group">
                 <label class="control-label" >Contraseña</label>
                 <div class="controls">
-                    <input class="form-control" type="password" name="contraseña" required style="width: 300px" maxlength="8"/>
+                    <input class="form-control" type="password" name="pass" required style="width: 300px" maxlength="8"/>
                 </div>
             </div>
             <div class="control-group">
