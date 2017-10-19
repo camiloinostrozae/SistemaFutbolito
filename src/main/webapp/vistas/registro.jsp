@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/estilo.css" rel="stylesheet">
         <title>futbolito</title>
     </head>
     <body>
@@ -48,5 +49,7 @@
             <input class="btn btn-success" value="Registrar" type="submit">
         </form>
         </center>
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
     </body>
 </html>

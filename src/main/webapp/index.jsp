@@ -3,7 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/estilo.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
 <title>Futbolito</title>
@@ -32,9 +33,10 @@
         <br>
         <br>
         <form action="registrarse" method="get">
-        <input type="submit" class="btn btn-danger"  value="Registrarse"/>
+        	<input type="submit" class="btn btn-danger"  value="Registrarse"/>
         </form>
         </center>
-
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

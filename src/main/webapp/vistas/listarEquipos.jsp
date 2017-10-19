@@ -8,7 +8,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/estilo.css" rel="stylesheet">
 <title>Equipos</title>
 </head>
 <body>
@@ -46,6 +47,8 @@
           </c:forEach>     
         </table>
         </center>
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
     </body>
     
 </html>
