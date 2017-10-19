@@ -20,7 +20,7 @@ public class Controlador {
 	
 	@RequestMapping(value = "/registrarse" , method=RequestMethod.GET)
 	public String registrar() {
-		return "vistas/registro.html";
+		return "vistas/registro.jsp";
 	} 
 	
 	@RequestMapping(value="/ingresar", method=RequestMethod.POST)

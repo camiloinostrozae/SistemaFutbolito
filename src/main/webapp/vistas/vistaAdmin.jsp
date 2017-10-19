@@ -14,7 +14,7 @@
  <form class="form-horizontal span4 " action="crearequipo" method = "get" >
             <input class="btn btn-info" value="Crear Nuevo Equipo" type="submit">
         </form>
-        
+        <br>
    <form class="form-horizontal span4 " action="listarequipos" method = "get" >
             <input class="btn btn-info" value="Listar Equipo" type="submit">
         </form>

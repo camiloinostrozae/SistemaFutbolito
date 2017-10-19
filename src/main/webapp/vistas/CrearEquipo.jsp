@@ -1,6 +1,12 @@
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="com.futbolito.to.UsuarioTO"%>
+    <%@page import="com.futbolito.persistencia.UsuarioDAO"%>
+    <%@page import="org.springframework.ui.Model"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@page import="java.util.LinkedList"%>
     
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -35,15 +41,25 @@
             <div class="control-group">
                 <label class="control-label" >Usuario</label>
                 <div class="controls">
-                  <select class="form-control" name="usuario" style="width: 300px">
-                    <option value="">Usuario a Cargo</option> 
-            		<option value=""></option> 
-            		<option value=""></option>
+                <select class="form-control" name="usuario" style="width: 300px">
+                <option value="">Usuario a Cargo</option> 
+				<%
+                     UsuarioDAO user = new UsuarioDAO();
+				     LinkedList<UsuarioTO> userto = new LinkedList<>();
+				     userto = user.listarNombresUsuarios();
+				     if(userto != null){
+			                for (int i = 0; i < userto.size(); i++) {
+			                    UsuarioTO usuario = userto.get(i);
+                %>
+            	<option value="<%=usuario.getId()%>"><%=usuario.getNombre()+" "+usuario.getApellido()%></option>
+                 <%}} %>
                  </select>
+                 
                 </div>
             </div>
             <br>
-            <input class="btn btn-warning" value="Crear" type="submit">
+            <br>
+            <input class="btn btn-warning" value="Crear Equipo" type="submit">
         </form>
         </center>
     </body>

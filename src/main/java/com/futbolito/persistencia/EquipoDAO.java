@@ -9,11 +9,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.futbolito.to.EquipoTO;
+import com.futbolito.to.UsuarioTO;
 import com.mysql.jdbc.Connection;
 
 public class EquipoDAO {
 	
 	private static final String READ_ALL = "select * from equipo";
+	private static final String INSERT_QUERY = "insert into equipo (Nombre,numeroPartidos,numeroJugadores,idUsuario) values (?,?,?,?)";
     private static final String DB_NAME = "futbolito";
     private static final String PORT="3306";
     private static final String URL="jdbc:mysql://localhost:"+PORT+"/"+DB_NAME;
@@ -57,6 +59,32 @@ public class EquipoDAO {
             System.err.println("Quedo la parte hermano!!!");
         }
         return conn;
+    }
+    
+    
+    public void  insertarEquipo(EquipoTO tic) throws SQLException{
+        Connection conn=null;
+        
+        try{
+            conn=getConnection();
+            PreparedStatement ps=conn.prepareStatement(INSERT_QUERY);
+            ps.setString(1, tic.getNombre());
+            ps.setInt(2, tic.getNroPartidos());
+            ps.setInt(3, tic.getNroJugadores());
+            ps.setInt(4, tic.getIdUsuario());
+            
+            ps.executeUpdate();
+            
+            
+        }catch(SQLException ex){
+            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(conn!=null){
+                conn.close();
+            }
+        }
+       
+        
     }
     
     

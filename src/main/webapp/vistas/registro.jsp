@@ -32,15 +32,15 @@
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" >TelÃ©fono</label>
+                <label class="control-label" >Teléfono</label>
                 <div class="controls">
                     <input class="form-control" type="tel" name="telefono" required style="width: 300px"/>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" >ContraseÃ±a</label>
+                <label class="control-label" >Contraseña</label>
                 <div class="controls">
-                    <input class="form-control" type="password" name="contraseÃ±a" required style="width: 300px" maxlength="8"/>
+                    <input class="form-control" type="password" name="contraseña" required style="width: 300px" maxlength="8"/>
                 </div>
             </div>
             <div class="control-group">
