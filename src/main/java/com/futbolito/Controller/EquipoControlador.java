@@ -51,7 +51,7 @@ public class EquipoControlador {
 		String nombre =equipo.getNombre();
 		int partidos = equipo.getNroPartidos();
 		int numJugadores= equipo.getNroJugadores();
-		usuario= usuarioDao.buescarUsuarioPorID(equipo.getIdUsuario());
+		usuario = usuarioDao.buescarUsuarioPorID(equipo.getIdUsuario());
 		String nombreUsuario = usuario.getNombre();
 		model.addAttribute("id", equipo.getIdEquipo());
 		model.addAttribute("nombre",nombre);
