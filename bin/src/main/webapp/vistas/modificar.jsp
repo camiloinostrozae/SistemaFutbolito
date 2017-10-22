@@ -14,28 +14,30 @@
         <title>futbolito</title>
     </head>
     <body>
+    ${requestScope.id}
         <br>
     <center>
-        <h3>Crear Equipo</h3>
+        <h3>Actualizar Equipo</h3>
         <br>
         
-        <form class="form-horizontal span4 " action="crear" method = "POST" >
+        <form class="form-horizontal span4 " action="actualizar" method = "POST" >
             <div class="control-group">
                 <label class="control-label" >Nombre Equipo</label>
                 <div class="controls">
-                    <input class="form-control" type="text" name="nombreEquipo" required style="width: 300px"/>
+                    <input class="form-control" type="text" name="nombreEquipo" value="${requestScope.nombre}" required style="width: 300px"/>
                 </div>
             </div>
              <div class="control-group">
                 <label class="control-label" >Número de Partidos</label>
                 <div class="controls">
-                    <input class="form-control" type="number" name="numPartidos" required style="width: 300px"/>
+                    <input class="form-control" type="number" name="numPartidos" value="${requestScope.partidos}" required style="width: 300px"/>
                 </div>
             </div>
             <div class="control-group">
                 <label class="control-label" >Número de Jugadores</label>
                 <div class="controls">
-                    <input class="form-control" type="number" name="numJugadores" required style="width: 300px"/>
+                    <input class="form-control" type="number" name="numJugadores" value="${requestScope.numJugadores}" required style="width: 300px"/>
+                	<input type="text" id="id" name="id" value="${requestScope.id}" required="requerid"  style="visibility:hidden" />
                 </div>
             </div>
             <div class="control-group">
@@ -59,7 +61,7 @@
             </div>
             <br>
             <br>
-            <input class="btn btn-warning" value="Crear Equipo" type="submit">
+            <input class="btn btn-warning" value="Actualizar Equipo" type="submit">
         </form>
         </center>
     </body>

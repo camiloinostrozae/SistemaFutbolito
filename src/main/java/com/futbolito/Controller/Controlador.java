@@ -22,6 +22,11 @@ public class Controlador {
 		return "vistas/registro.jsp";
 	} 
 	
+	@RequestMapping(value = "/contenidoLogin" , method=RequestMethod.GET)
+	public String login() {
+		return "vistas/login.jsp";
+	} 
+	
 	@RequestMapping(value="/ingresar", method=RequestMethod.POST)
 	public String IngresarUsuario(@RequestParam(value="nombre", required=false,defaultValue="World")String name, Model model
 			,@RequestParam(value="apellido")String apellido

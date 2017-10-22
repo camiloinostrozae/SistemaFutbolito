@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
 <title>Futbolito</title>
 </head>
 <body>
+	<center>
 		<h1>Login</h1>
         
         <form action="login" method="POST">
@@ -29,7 +34,8 @@
         <form action="registrarse" method="get">
         <input type="submit" value="Registrarse"/>
         </form>
-        
+        </center>
+
 
 
 </body>

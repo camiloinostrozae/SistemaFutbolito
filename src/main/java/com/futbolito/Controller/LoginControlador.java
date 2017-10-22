@@ -32,7 +32,7 @@ public class LoginControlador {
 	    	return "index.jsp";
 	    }else {
 	    	if(resultado.getIdRol()==1){
-	    		return "vistas/vistaAdmin.jsp";
+	    		return "vistas/vistaAdministrador.jsp";
 	    	}else {
 	    		 return "vistas/vistaNormal.jsp";
 	    	}
