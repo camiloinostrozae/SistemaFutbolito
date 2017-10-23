@@ -19,8 +19,16 @@
 				<div class="col-md-4" id="login" >
 				<center>
 					<h3>Fubolito</h3>
-				    <form class="form-horizontal span4 " action="listarequipos" method = "get" >
+				    <form class="form-horizontal span4 " action="listarequiposNormal" method = "get" >
 			            <input class="btn btn-info" value="Listar Equipo" type="submit">
+			        </form>
+				</center>
+			
+			<br>
+				<center>
+					
+				    <form class="form-horizontal span4 " action="" method = "get" >
+			            <input class="btn btn-info" value="Solicitud para Crear Equipo" type="submit">
 			        </form>
 				</center>
 			</div>

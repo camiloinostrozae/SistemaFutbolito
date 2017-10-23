@@ -32,6 +32,14 @@ public class EquipoControlador {
 		System.out.println(equipo);
 		return "vistas/listarEquipos.jsp";
 	} 
+	@RequestMapping(value = "/listarequiposNormal")
+	public String listarequiposNormal(Model model) throws SQLException {
+		
+		EquipoDAO equipo = new EquipoDAO();
+		model.addAttribute("listaEquipos",equipo.readAll());
+		System.out.println(equipo);
+		return "vistas/ListarEquipoNormal.jsp";
+	} 
 
 	@RequestMapping(value = "/eliminarEquipo",method=RequestMethod.POST)
 	public String eliminarEquipo(@RequestParam(value="id", required=false, defaultValue="World") String id,Model model) throws SQLException {
