@@ -1,2 +1,2 @@
 
-<jsp:include page="/vistas/inicio.jsp" />  
+ <jsp:include page="/vistas/inicio.jsp" /> 

@@ -51,12 +51,14 @@ public class EquipoControlador {
 		String nombre =equipo.getNombre();
 		int partidos = equipo.getNroPartidos();
 		int numJugadores= equipo.getNroJugadores();
+		int idUser = equipo.getIdUsuario();
 		usuario = usuarioDao.buescarUsuarioPorID(equipo.getIdUsuario());
 		String nombreUsuario = usuario.getNombre();
 		model.addAttribute("id", equipo.getIdEquipo());
 		model.addAttribute("nombre",nombre);
 		model.addAttribute("partidos",partidos);
 		model.addAttribute("numJugadores",numJugadores);
+		model.addAttribute("idUser", idUser);
 		
 		model.addAttribute("usuario", nombreUsuario+" "+ usuario.getApellido());
 		
@@ -92,7 +94,9 @@ public class EquipoControlador {
 	public String actualizar(@RequestParam(value="id", required=false, defaultValue="World") String id,Model model
 			,@RequestParam(value="nombreEquipo", required=false,defaultValue="World")String nombreEquipo,
 			@RequestParam(value="numPartidos")int numPartidos,
-			@RequestParam(value="numJugadores")int numJugadores 
+			@RequestParam(value="numJugadores")int numJugadores,
+			@RequestParam(value="idUser")int idUser
+			
 			) throws SQLException {
 		EquipoDAO dao=new EquipoDAO();
 		EquipoTO equipo= new EquipoTO();
@@ -102,6 +106,7 @@ public class EquipoControlador {
 		equipo.setNombre(nombreEquipo);
 		equipo.setNroPartidos(numPartidos);
 		equipo.setNroJugadores(numJugadores);
+		equipo.setIdUsuario(idUser);
 		
 		dao.actualizarEquipo(equipo);
 		

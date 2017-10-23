@@ -13,7 +13,7 @@ import com.mysql.jdbc.Connection;
 public class EquipoDAO {
 	
 	private static final String READ_ALL = "select * from equipo";
-	private static final String UPDATE="UPDATE `equipo` SET `Nombre`=?,`numeroPartidos`=?,`numeroJugadores`=? WHERE `idEquipo`=?";
+	private static final String UPDATE="UPDATE `equipo` SET `Nombre`=?,`numeroPartidos`=?,`numeroJugadores`=? ,`idUsuario`=? WHERE `idEquipo`=?";
 	private static final String DELETE ="DELETE FROM `equipo` WHERE `idEquipo`=?";
 	private static final String INSERT_QUERY = "insert into equipo (Nombre,numeroPartidos,numeroJugadores,idUsuario) values (?,?,?,?)";
 	private static final String BUSCAR_POR_ID = "select * from equipo where `idEquipo`=?";
@@ -135,7 +135,8 @@ public class EquipoDAO {
             ps.setString(1, tic.getNombre());
             ps.setInt(2, tic.getNroPartidos());
             ps.setInt(3, tic.getNroJugadores());
-            ps.setInt(4, tic.getIdEquipo());
+            ps.setInt(4, tic.getIdUsuario());
+            ps.setInt(5, tic.getIdEquipo());
             
             ps.executeUpdate();
             
