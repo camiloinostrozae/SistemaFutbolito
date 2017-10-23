@@ -118,7 +118,7 @@
 	            	<option value="<%=usuario.getId()%>"><%=usuario.getNombre()+" "+usuario.getApellido()%></option>
 	                 <%}} %>
 	                 </select>
-	                 <input type="text" id="iduser" name="iduser" value="${requestScope.idUser}" required="requerid"  style="visibility:hidden" />
+	                 <input type="text" id="idUser" name="idUser" value="${requestScope.idUser}" required="requerid"  style="visibility:hidden" />
 	                 
 	                </div>
 	            </div>
