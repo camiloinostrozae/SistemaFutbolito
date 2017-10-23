@@ -95,9 +95,10 @@ public class EquipoControlador {
 			,@RequestParam(value="nombreEquipo", required=false,defaultValue="World")String nombreEquipo,
 			@RequestParam(value="numPartidos")int numPartidos,
 			@RequestParam(value="numJugadores")int numJugadores,
-			@RequestParam(value="idUser")int idUser
+			@RequestParam(value="usuario")String usuario
 			
 			) throws SQLException {
+		int idUsuario = Integer.parseInt(usuario);
 		EquipoDAO dao=new EquipoDAO();
 		EquipoTO equipo= new EquipoTO();
 		int idE=Integer.parseInt(id);
@@ -106,7 +107,7 @@ public class EquipoControlador {
 		equipo.setNombre(nombreEquipo);
 		equipo.setNroPartidos(numPartidos);
 		equipo.setNroJugadores(numJugadores);
-		equipo.setIdUsuario(idUser);
+		equipo.setIdUsuario(idUsuario);
 		
 		dao.actualizarEquipo(equipo);
 		
