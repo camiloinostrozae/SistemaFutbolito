@@ -53,7 +53,7 @@
 	                <div class="controls">
 	                <select class="form-control" name="usuario" style="width: 300px">
 	                
-	                <option value="${requestScope.usuario}">${requestScope.usuario}</option> 
+	                <option value="${requestScope.idUser}">${requestScope.usuario}</option> 
 					<%
                      UsuarioDAO user = new UsuarioDAO();
 				     LinkedList<UsuarioTO> userto = new LinkedList<>();
