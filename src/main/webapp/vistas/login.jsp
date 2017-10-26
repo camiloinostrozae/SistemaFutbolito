@@ -26,7 +26,7 @@
 			            <div class="form-group">
 			                <div class="input-group">
 			                    <div class="input-group-addon"><i class="ion-android-person"></i></div>
-			                    <input type="text" class="form-control input-lg" placeholder="Nombre" name="usuario" required autofocus>
+			                    <input type="email" class="form-control input-lg" placeholder="Email" name="usuario" required autofocus>
 			                </div>
 			            </div>
 			            <div class="form-group">

@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 
 public class UsuarioDAO {
     
-	private static final String READ_QUERY="select * from usuario where nombre=? and contrasena=?";
+	private static final String READ_QUERY="select * from usuario where email=? and contrasena=?";
 	private static final String BUSCAR_POR_ID="select * from usuario where idUsuario=?";
 	private static final String READ_NOMBRES="select idUsuario,Nombre,Apellido from usuario";
     private static final String INSERT_QUERY="insert into usuario (Nombre,Apellido,Email,Telefono,Contrasena,idRol) values (?,?,?,?,?,?)";
@@ -34,7 +34,7 @@ public class UsuarioDAO {
         try{
             conn=getConnection();
             PreparedStatement ps=conn.prepareStatement(READ_QUERY);
-            ps.setString(1, usuario.getNombre());
+            ps.setString(1, usuario.getEmail());
             ps.setString(2, usuario.getContraseña());
             ResultSet rs = ps.executeQuery();
             rs.next();

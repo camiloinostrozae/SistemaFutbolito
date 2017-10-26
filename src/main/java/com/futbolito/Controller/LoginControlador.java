@@ -28,11 +28,11 @@ public class LoginControlador {
 		UsuarioTO resultado = null;
 		UsuarioDAO dao = new UsuarioDAO();
 		UsuarioTO tic = new UsuarioTO();
-		tic.setNombre(name);
+		tic.setEmail(name);
 		tic.setContraseña(password);
 		resultado = dao.login(tic);
 	    if(resultado == null) {
-	    	return "index.jsp";
+	    	return "vistas/login.jsp";
 	    }else {
 	    	if(resultado.getIdRol()==1){
 	    		return "vistas/vistaAdministrador.jsp";
