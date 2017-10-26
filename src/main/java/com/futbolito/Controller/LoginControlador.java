@@ -2,6 +2,8 @@ package com.futbolito.Controller;
 
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ public class LoginControlador {
 	@RequestMapping(value = "/login",method=RequestMethod.POST)
 	public String ValidarUsuario(@RequestParam(value="usuario", required=false,defaultValue="World")String name, Model model
 			,@RequestParam(value="password")String password) throws SQLException {
+		
 		model.addAttribute("usuario",name);
 		model.addAttribute("password",password);
 		String msj = "Usuario o contraseña incorrectos";

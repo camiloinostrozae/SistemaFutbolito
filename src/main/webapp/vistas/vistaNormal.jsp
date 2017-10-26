@@ -27,7 +27,7 @@
 			<br>
 				<center>
 					
-				    <form class="form-horizontal span4 " action="" method = "get" >
+				    <form class="form-horizontal span4 " action="solicitud" method = "get" >
 			            <input class="btn btn-info" value="Solicitud para Crear Equipo" type="submit">
 			        </form>
 				</center>
