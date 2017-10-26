@@ -40,13 +40,13 @@
 		                <td><c:out value="${equipos.nroPartidos}"/></td> 
 		                <td><c:out value="${equipos.nroJugadores}"/></td>
 		                <td>
-		                <form class="form-horizontal span4 " action="eliminarEquipo" method = "post" >
+		                <form  class="form-horizontal span4 " action="eliminarEquipo" method = "post" onSubmit="return enviar()">
 		                <input type="text"  size="1" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
 		            <input class="btn btn-info" value="eliminar" type="submit">
 			        </form>
 			                 </td><td><form class="form-horizontal span4 " action="actualizarEquipo" method = "post" >
 			                <input type="text" size="1" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
-			            <input class="btn btn-info" value="actualizar" type="submit">
+			            <input class="btn btn-info"  value="actualizar" type="submit">
 			        </form>
 		                </td>
 		                
@@ -57,7 +57,26 @@
 			<div class="col-md-4"></div>
 		</div>
 	</div>
-
+	<script type="text/javascript"> 
+	function enviar(){
+		//Ingresamos un mensaje a mostrar
+		//var formulario = document.getElementById("myform");
+		var mensaje = confirm("¿Está seguro?");
+		//var dato = formulario[0];
+		//Detectamos si el usuario acepto el mensaje
+		if (mensaje) {	
+		//formulario.submit();
+		alert("Equipo eliminado");
+		return true;
+		}
+		
+		else {
+			;
+			return false;
+		exit()
+		}
+		}
+	</script>
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
     </body>

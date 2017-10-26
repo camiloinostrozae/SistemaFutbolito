@@ -26,9 +26,8 @@
 		<div class="col-md-4" id="login" >
 			<center>
 			<h3>Actualizar Equipo</h3>
-	        <br>
-	        
-	        <form class="form-horizontal span4 " action="actualizar" method = "POST" >
+	        <br>   
+	        <form onSubmit="return enviar()" class="form-horizontal span4 " action="actualizar" method = "POST">
 	            <div class="control-group">
 	                <label class="control-label" >Nombre Equipo</label>
 	                <div class="controls">
@@ -80,6 +79,25 @@
 			<div class="col-md-4"></div>
 		</div>
 	</div>
+	<script type="text/javascript"> 
+	function enviar(){
+		//Ingresamos un mensaje a mostrar
+		
+		var mensaje = confirm("¿Está seguro?");
+		//var dato = formulario[0];
+		//Detectamos si el usuario acepto el mensaje
+		if (mensaje) {	
+		//formulario.submit();
+		alert("Nuevo equipo creado.")
+		return true;
+		}		
+		
+		else {
+			return false;
+		exit()
+		}
+		}
+	</script>
         	
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

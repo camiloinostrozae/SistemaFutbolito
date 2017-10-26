@@ -27,7 +27,7 @@
 					<h3>Crear Equipo</h3>
 			        <br>
 			        
-			        <form class="form-horizontal span4 " action="crear" method = "POST" >
+			        <form class="form-horizontal span4 " action="crear" method = "POST" onSubmit="return enviar()">
 			            <div class="control-group">
 			                <label class="control-label" >Nombre Equipo</label>
 			                <div class="controls">
@@ -75,6 +75,12 @@
 			<div class="col-md-4"></div>
 		</div>
 	</div>
+	<script type="text/javascript"> 
+	function enviar(){
+		alert("Equipo Creado");
+		return true;
+	}
+	</script>
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

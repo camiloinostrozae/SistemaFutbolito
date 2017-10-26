@@ -37,7 +37,6 @@ public class EquipoControlador {
 		
 		EquipoDAO equipo = new EquipoDAO();
 		model.addAttribute("listaEquipos",equipo.readAll());
-		System.out.println(equipo);
 		return "vistas/ListarEquipoNormal.jsp";
 	} 
 
@@ -46,7 +45,8 @@ public class EquipoControlador {
 		EquipoDAO dao=new EquipoDAO();
 		int idE=Integer.parseInt(id);
 		dao.eliminarEquipo(idE);
-		return "vistas/mensajeEliminado.jsp";
+		model.addAttribute("listaEquipos",dao.readAll());
+		return "vistas/listarEquipos.jsp";
 	} 
 	@RequestMapping(value = "/actualizarEquipo",method=RequestMethod.POST)
 	public String actualizarEquipo(@RequestParam(value="id", required=false, defaultValue="World") String id,Model model) throws SQLException {
@@ -67,10 +67,7 @@ public class EquipoControlador {
 		model.addAttribute("partidos",partidos);
 		model.addAttribute("numJugadores",numJugadores);
 		model.addAttribute("idUser", idUser);
-		
-		model.addAttribute("usuario", nombreUsuario+" "+ usuario.getApellido());
-		
-		model.addAttribute("");
+		model.addAttribute("usuario", nombreUsuario+" "+ usuario.getApellido());model.addAttribute("");
 		System.out.println(equipo.getIdEquipo());
 		return "vistas/modificar.jsp";
 	} 
@@ -96,7 +93,7 @@ public class EquipoControlador {
 		tic.setIdUsuario(idUsuario);
 	    dao.insertarEquipo(tic);
 	    
-	    return "vistas/mensajeEquipo.jsp";
+	    return "vistas/CrearEquipo.jsp";
 	}
 	@RequestMapping(value="/actualizar", method=RequestMethod.POST)
 	public String actualizar(@RequestParam(value="id", required=false, defaultValue="World") String id,Model model
