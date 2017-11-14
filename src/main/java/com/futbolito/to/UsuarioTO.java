@@ -10,6 +10,8 @@ public class UsuarioTO {
 	private String telefono;
 	private String contraseña;
 	private int idRol;
+	
+	
 	public int getId() {
 		return id;
 	}

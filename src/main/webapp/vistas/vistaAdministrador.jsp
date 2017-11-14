@@ -85,7 +85,7 @@
         </script>
     </head>
     <body>
-            
+           ${user.nombre}
         <!--Header_section-->
        <jsp:include page="headerAdministrador.jsp" /> 
             

@@ -22,8 +22,10 @@
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
 				<h1>Solicitud para Crear Equipo</h1>
+				${datoNombre}
 				
 				 <form class="form-horizontal span4 " action="CrearSolicitud" method = "POST" >
+				
 			            <div class="control-group">
 			                <label class="control-label" >Ingrese el Nombre del Equipo</label>
 			                <div class="controls">
