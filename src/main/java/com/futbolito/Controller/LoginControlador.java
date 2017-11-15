@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,7 +21,7 @@ import com.futbolito.to.UsuarioTO;
 @SessionAttributes("user")
 public class LoginControlador {
 	@RequestMapping(value = "/login",method=RequestMethod.POST)
-	public String ValidarUsuario(@RequestParam(value="usuario", required=false,defaultValue="World")String name, Model model
+	public String ValidarUsuario(@RequestParam(value="usuario", required=false,defaultValue="World")String name, ModelMap model
 			,@RequestParam(value="password")String password) throws SQLException {
 		
 		model.addAttribute("usuario",name);

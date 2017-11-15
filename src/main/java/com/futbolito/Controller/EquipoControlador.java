@@ -122,25 +122,8 @@ public class EquipoControlador {
 		return "vistas/mensajeActualizar.jsp";
 	} 
 	//
-	@RequestMapping(value = "/solicitud")
-	public String solicitud(Model model) throws SQLException {
-		
-		return "vistas/solicitud.jsp";
-	}
-	@RequestMapping(value = "/CrearSolicitud", method=RequestMethod.POST)
-	public String CrearSolicitud(@RequestParam(value="nombreEquipo",
-	required=false, defaultValue="World") String nombreEquipo,Model model) throws SQLException {
-		
-		EquipoDAO equipo = new EquipoDAO();
-		model.addAttribute("nombreEquipo",nombreEquipo);
-		return "vistas/solicitud.jsp";
-	} 
 	
 	
-	
-	
-	
-		
 
 
 }
