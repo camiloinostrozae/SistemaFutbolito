@@ -22,7 +22,13 @@
 				<center>
 					<h3>Fubolito</h3>
 				    <form class="form-horizontal span4 " action="listarequiposNormal" method = "POST" >
-			            <input class="btn btn-info" value="Listar Equipo" type="submit">
+			            <input class="btn btn-info" value="Listar Todos los Equipos" type="submit">
+			        </form>
+				</center>
+				<br>
+				<center>
+				    <form class="form-horizontal span4 " action="listarequiposPropios" method = "POST" >
+			            <input class="btn btn-info" value="Listar Mis Equipos" type="submit">
 			        </form>
 				</center>
 			

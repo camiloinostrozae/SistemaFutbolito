@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import org.apache.catalina.connector.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,8 +16,6 @@ import com.futbolito.persistencia.EquipoDAO;
 import com.futbolito.persistencia.UsuarioDAO;
 import com.futbolito.to.EquipoTO;
 import com.futbolito.to.UsuarioTO;
-
-
 
 
 @Controller
@@ -122,8 +122,31 @@ public class EquipoControlador {
 		return "vistas/mensajeActualizar.jsp";
 	} 
 	//
+	@RequestMapping(value = "/solicitud")
+	public String solicitud(Model model) throws SQLException {
+		
+		return "vistas/solicitud.jsp";
+	}
+	@RequestMapping(value = "/CrearSolicitud", method=RequestMethod.POST)
+	public String CrearSolicitud(@RequestParam(value="nombreEquipo",
+	required=false, defaultValue="World") String nombreEquipo,Model model) throws SQLException {
+		
+		EquipoDAO equipo = new EquipoDAO();
+		model.addAttribute("nombreEquipo",nombreEquipo);
+		return "vistas/solicitud.jsp";
+	} 
+	
+	@RequestMapping(value = "/listarequiposPropios", method=RequestMethod.POST)
+	public String listarequiposPropios(ModelMap model,@ModelAttribute("user") UsuarioTO usuario) throws SQLException {
+		
+		EquipoDAO equipo = new EquipoDAO();
+		model.addAttribute("listaMisEquipos",equipo.listarEquiposPropios(usuario.getId()));
+		return "vistas/ListarMisEquiposNormal.jsp";
+	} 
 	
 	
+	
+		
 
 
 }
