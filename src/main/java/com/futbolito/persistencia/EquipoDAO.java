@@ -18,6 +18,7 @@ public class EquipoDAO {
 	private static final String DELETE ="DELETE FROM `equipo` WHERE `idEquipo`=?";
 	private static final String INSERT_QUERY = "insert into equipo (Nombre,numeroPartidos,numeroJugadores,idUsuario) values (?,?,?,?)";
 	private static final String BUSCAR_POR_ID = "select * from equipo where `idEquipo`=?";
+	private static final String ACTUALIZA_CANTJUG = "UPDATE `equipo` SET `numeroJugadores`=? WHERE `idEquipo`=?";
     private static final String DB_NAME = "futbolito";
     private static final String PORT="3306";
     private static final String URL="jdbc:mysql://localhost:"+PORT+"/"+DB_NAME;
@@ -178,5 +179,59 @@ public class EquipoDAO {
         }
         return list;
     }
+    
+    public void actualizarCantidadJugadoresEquipo(int idEquipo) throws SQLException {
+         Connection conn=null;
+         
+         EquipoTO equipito = new EquipoTO();
+         equipito = buscarPorId(idEquipo);
+         int valor = equipito.getNroJugadores();
+         int numeroJugadores = valor+1;
+        try{
+            conn=getConnection();
+            PreparedStatement ps=conn.prepareStatement(ACTUALIZA_CANTJUG);
+            ps.setInt(1,numeroJugadores );
+            ps.setInt(2,idEquipo);
+            
+            ps.executeUpdate();
+            
+            
+        }catch(SQLException ex){
+            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(conn!=null){
+                conn.close();
+            }
+        }
+       
+    	
+    }
+    
+    public void actualizarCantidadJugadoresEquipos(int idEquipo) throws SQLException {
+        Connection conn=null;
+        
+        EquipoTO equipito = new EquipoTO();
+        equipito = buscarPorId(idEquipo);
+        int valor = equipito.getNroJugadores();
+        int numeroJugadores = valor-1;
+       try{
+           conn=getConnection();
+           PreparedStatement ps=conn.prepareStatement(ACTUALIZA_CANTJUG);
+           ps.setInt(1,numeroJugadores );
+           ps.setInt(2,idEquipo);
+           
+           ps.executeUpdate();
+           
+           
+       }catch(SQLException ex){
+           Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+       }finally{
+           if(conn!=null){
+               conn.close();
+           }
+       }
+      
+   	
+   }
     
 }

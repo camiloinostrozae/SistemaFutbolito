@@ -26,7 +26,7 @@
 				<center>
 					<h3>Agregar Jugador</h3>
 			       
-			        <form class="form-horizontal span4 " action="agregarJ" method = "POST" >
+			        <form class="form-horizontal span4 " action="agregarJugadores" method = "POST" onSubmit="return enviar()">
 			            <div class="control-group">
 			                <label class="control-label" >Nombre Jugador</label>
 			                <div class="controls">
@@ -36,20 +36,31 @@
 			             <div class="control-group">
 			                <label class="control-label" >Apellido Jugador</label>
 			                <div class="controls">
-			                    <input class="form-control" type="text" name="apellidoJ" required style="width: 300px"/>
+			                    <input class="form-control" type="text" name="apellidoJugador" required style="width: 300px"/>
 			                </div>
 			            </div>
 			            <br>
 			            <br>
-			            <input class="btn btn-warning" value="Agregar" type="submit">
-			        </form>
+			            <input type="hidden" name ="idequipo" value="${idEquipo}"/>
+			            <input class="btn btn-warning" value="Agregar" type="submit" />
+			            </form>
+			            <br>
+			            <form action="listarequiposPropios" method = "post" >
+					 	<input class="btn btn-info" value="Volver" type="submit">
+					 </form>
+			        
 				</center>
 
 			</div>
 			<div class="col-md-4"></div>
 		</div>
 	</div>
-	
+	<script type="text/javascript"> 
+	function enviar(){
+		alert("Jugador Agregado con éxito");
+		return true;
+	}
+	</script>
 
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>

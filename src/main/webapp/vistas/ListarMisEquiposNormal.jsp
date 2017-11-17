@@ -21,13 +21,14 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
-				<h1>Listado de Equipos</h1>
+				<h1>Equipos</h1>
 		        <table class="table table-bordered">
 		            <thead>
 		            <tr>
 		                <th>Nombre</th>
 		                <th>Partidos Jugados</th>
 		                <th>Número de jugadores</th>
+		                <th>Acción</th>
 		                <th>Acción</th>
 		                
 		                
@@ -40,8 +41,15 @@
 		                <td><c:out value="${equipos.nroPartidos}"/></td> 
 		                <td><c:out value="${equipos.nroJugadores}"/></td> 
 		                <td><form  class="form-horizontal span4 " action="agregarJugador" method = "post">
-		                <input type="text"  size="1" id="id" name="id" value="${equipos.idEquipo}" required  style="visibility:hidden" />
-		            <input class="btn btn-success" value="Agregar Jugador" type="submit">
+		                <input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
+		                
+		            <button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-plus"></span> Agregar Jugador</button>
+		            
+			        </form> </td>
+			           <td><form  class="form-horizontal span4 " action="verJugadoresdelEquipo" method = "post">
+		                <input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
+		                
+		            <button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-user"></span> Ver Jugadores</button>
 		            
 			        </form> </td>
 		                

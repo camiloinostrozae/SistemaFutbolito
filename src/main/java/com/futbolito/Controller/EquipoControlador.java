@@ -144,6 +144,11 @@ public class EquipoControlador {
 		return "vistas/ListarMisEquiposNormal.jsp";
 	} 
 	
+	@RequestMapping(value = "/volver", method=RequestMethod.GET)
+	public String atras() {
+		return "vistas/vistaNormal.jsp";
+	} 
+	
 	
 	
 		

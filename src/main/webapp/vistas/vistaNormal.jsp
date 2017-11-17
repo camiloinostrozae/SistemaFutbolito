@@ -18,7 +18,7 @@
 			<div class="row">
 				<div class="col-md-4"></div>
 				<div class="col-md-4" id="login" >
-				 ${user.nombre}
+				
 				<center>
 					<h3>Fubolito</h3>
 				    <form class="form-horizontal span4 " action="listarequiposNormal" method = "POST" >
@@ -40,10 +40,12 @@
 			            <input class="btn btn-info" value="Solicitud para Crear Equipo" type="submit">
 			        </form>
 				</center>
+				
 			</div>
 			<div class="col-md-4"></div>
 		</div>
 	</div>
+	
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 </body>
