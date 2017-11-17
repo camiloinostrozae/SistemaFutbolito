@@ -25,7 +25,7 @@
 				
 				  ${nombre}
 				 
-				 <form class="form-horizontal span4 " action="CrearSolicitud" method = "POST" >
+				 <form class="form-horizontal span4 " action="CrearSolicitud" method = "POST" onSubmit="return enviar()">
 				 
 				
 				
@@ -44,6 +44,12 @@
 			<div class="col-md-4"></div>
 		</div>
 	</div>
+	<script type="text/javascript"> 
+	function enviar(){
+		alert("Usted a Enviado una solicitud para Crear un Equipo");
+		return true;
+	}
+	</script>
 	
     <script src="js/jquery.js"></script>
 	
