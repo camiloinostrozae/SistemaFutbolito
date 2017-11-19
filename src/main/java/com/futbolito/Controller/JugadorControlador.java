@@ -56,7 +56,7 @@ public class JugadorControlador {
 	}
 	
 	@RequestMapping(value = "/eliminarJugador",method=RequestMethod.POST)
-	public String eliminarJugador(@RequestParam(value="id", required=false, defaultValue="World") String id,Model model
+	public String eliminarJugador(@RequestParam(value="id", required=false, defaultValue="World") String id,ModelMap model
 	,@RequestParam(value = "idEquipo") String idEquipo) throws SQLException {
 		JugadorDAO jug=new JugadorDAO();
 		EquipoDAO eq = new EquipoDAO();
@@ -88,5 +88,14 @@ public class JugadorControlador {
 		jug.modificarJugador(jugador);
 		model.addAttribute("listarJugadoresdeEquipo",jug.listarJugadoresEquipo(jugador.getIdEquipo()));
 	    return "vistas/listarJugadoresPorEquipo.jsp";
-	} 
+	}
+	@RequestMapping(value = "/verJugadoresdelEquipoNormal",method=RequestMethod.POST)
+	public String verJugadoresdeEquipoNormal(@RequestParam(value="idequipo", required=false, defaultValue="World") String idequipo,Model model) throws SQLException {
+		int idE=Integer.parseInt(idequipo);
+		JugadorDAO jug = new JugadorDAO();
+		model.addAttribute("listarJugadoresdeEquipo",jug.listarJugadoresEquipo(idE));
+	    return "vistas/listarJugadoresNormal.jsp";
+	}
+
+	
 	}

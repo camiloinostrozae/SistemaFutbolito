@@ -11,7 +11,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/ionicons.min.css" rel="stylesheet">
 <link href="css/estilo.css" rel="stylesheet">
-<title>Equipos</title>
+<title>futbolito</title>
 </head>
 <body>
 	<div class="color-fondo-login">
@@ -21,46 +21,51 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
-				<h2>Equipos</h2>
-				<br>
+				<h1>Jugadores</h1>
 		        <table class="table table-bordered">
 		            <thead>
 		            <tr>
 		                <th>Nombre</th>
-		                <th>Partidos Jugados</th>
-		                <th>Número de jugadores</th>
-		                <th>Ver Jugadores</th>
-		                
-		                
-		                
-		            </tr>
+		                <th>Apellido</th>     
+		                </tr>
 		            </thead>
-		           <c:forEach var="equipos" items="${listaEquipos}">
+		           <c:forEach var="jugadores" items="${listarJugadoresdeEquipo}">
 		            <tr>
-		                <td><c:out value="${equipos.nombre}"/></td>
-		                <td><c:out value="${equipos.nroPartidos}"/></td> 
-		                <td><c:out value="${equipos.nroJugadores}"/></td>
-		                <td> <form action="verJugadoresdelEquipoNormal" method = "POST" >
-		                <input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
-					 	<input class="btn btn-warning" value="ver Jugadores" type="submit">
-					 </form></td>
-		                
-		                
-		            </tr>
+		                <td><c:out value="${jugadores.nombre}"/></td>
+		                <td><c:out value="${jugadores.apellido}"/></td> 
+		                            </tr>
 		          </c:forEach>     
 		        </table>
-		        
-		       <br>
-			            <form action="volver" method = "get" >
-					 	<input class="btn btn-warning" value="Volver" type="submit">
+		        <br>
+			            <form action="listarequiposNormal" method = "post" >
+					 	<input class="btn btn-info" value="Volver" type="submit">
 					 </form>
 			</div>
 			<div class="col-md-4"></div>
 		</div>
 	</div>
-
+	<script type="text/javascript"> 
+	function enviar(){
+		//Ingresamos un mensaje a mostrar
+		//var formulario = document.getElementById("myform");
+		var mensaje = confirm("¿Está seguro de eliminar a este jugador?");
+		//var dato = formulario[0];
+		//Detectamos si el usuario acepto el mensaje
+		if (mensaje) {	
+		//formulario.submit();
+		alert("Jugador eliminado con éxito");
+		return true;
+		}
+		
+		else {
+			;
+			return false;
+		exit()
+		}
+		}
+	</script>
     <script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	
     </body>
     
 </html>

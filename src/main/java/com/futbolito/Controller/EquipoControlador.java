@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
 import com.futbolito.persistencia.EquipoDAO;
 import com.futbolito.persistencia.UsuarioDAO;
 import com.futbolito.to.EquipoTO;
@@ -140,6 +139,7 @@ public class EquipoControlador {
 	public String atras2() {
 		return "vistas/vistaAdministrador.jsp";
 	} 
+	
 	
 	
 	

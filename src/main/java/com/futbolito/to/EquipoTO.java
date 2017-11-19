@@ -4,8 +4,6 @@ public class EquipoTO {
 	
 	private int idEquipo;
 	private String nombre;
-
-
 	private int nroPartidos;
 	private int nroJugadores;
 
