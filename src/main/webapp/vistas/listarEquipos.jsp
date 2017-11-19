@@ -50,7 +50,12 @@
 			            <button class="btn btn-info" type="submit"><Span class = "glyphicon glyphicon-pencil"></Span> Actualizar</button>
 			        </form>
 		                </td>
-		                
+		                <td>
+		                <form class="form-horizontal span4 " action="verJugadoresdelEquipo" method = "post" >
+			                <input type="text" size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
+			            <button class="btn btn-info" type="submit"><Span class = "glyphicon glyphicon-pencil"></Span>Ver Jugadores</button>
+			        </form>
+		                </td>
 		            </tr>
 		          </c:forEach>     
 		        </table>
