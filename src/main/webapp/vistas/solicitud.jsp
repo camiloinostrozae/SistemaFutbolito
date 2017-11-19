@@ -21,14 +21,10 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
-				<h1>Solicitud para Crear Equipo</h1>
-				
-				  ${nombre}
+			<center>
+				<h2>Solicitud para Crear Equipo</h2>
+		<form class="form-horizontal span4 " action="CrearSolicitud" method = "POST" onSubmit="return enviar()">
 				 
-				 <form class="form-horizontal span4 " action="CrearSolicitud" method = "POST" onSubmit="return enviar()">
-				 
-				
-				
 			            <div class="control-group">
 			                <label class="control-label" >Ingrese el Nombre del Equipo</label>
 			                <div class="controls">
@@ -37,8 +33,14 @@
 			            </div>
 			            <br>
 			            <br>
-			            <input class="btn btn-warning" value="enviar" type="submit">
+			            <button class="btn btn-warning" type="submit"><Span class = "glyphicon glyphicon-envelope"></span> Enviar</button>
 			        </form>
+			        <br>
+			            <form action="volver" method = "get" >
+					 	<input class="btn btn-info" value="Volver" type="submit">
+					 </form>
+			        </center>
+			        
 		        
 			</div>
 			<div class="col-md-4"></div>

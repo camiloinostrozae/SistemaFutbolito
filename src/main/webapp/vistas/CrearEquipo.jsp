@@ -69,6 +69,10 @@
 			            <br>
 			            <input class="btn btn-warning" value="Crear Equipo" type="submit">
 			        </form>
+			        <br>
+			            <form action="volver2" method = "get" >
+					 	<input class="btn btn-info" value="Volver" type="submit">
+					 </form>
 				</center>
 
 			</div>

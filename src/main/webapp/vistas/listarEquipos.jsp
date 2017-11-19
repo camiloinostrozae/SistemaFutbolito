@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
-				<h1>Listado de Equipos</h1>
+				<h2>Equipos</h2>
 		        <table class="table table-bordered">
 		            <thead>
 		            <tr>
@@ -42,17 +42,22 @@
 		                <td>
 		                <form  class="form-horizontal span4 " action="eliminarEquipo" method = "post" onSubmit="return enviar()">
 		                <input type="text"  size="1" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
-		            <input class="btn btn-info" value="eliminar" type="submit">
+		            <button class="btn btn-danger" type="submit"><Span class = "glyphicon glyphicon-trash"></Span> Eliminar</button>
+		            
 			        </form>
 			                 </td><td><form class="form-horizontal span4 " action="actualizarEquipo" method = "post" >
 			                <input type="text" size="1" id="id" name="id" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
-			            <input class="btn btn-info"  value="actualizar" type="submit">
+			            <button class="btn btn-info" type="submit"><Span class = "glyphicon glyphicon-pencil"></Span> Actualizar</button>
 			        </form>
 		                </td>
 		                
 		            </tr>
 		          </c:forEach>     
 		        </table>
+		        <br>
+			            <form action="volver2" method = "get" >
+					 	<input class="btn btn-warning" value="Volver" type="submit">
+					 </form>
 			</div>
 			<div class="col-md-4"></div>
 		</div>

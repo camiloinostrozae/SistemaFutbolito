@@ -37,13 +37,17 @@
 		                <td>
 		                <form  class="form-horizontal span4 " action="eliminarJugador" method = "post" onSubmit="return enviar()">
 		                <input type="text"  size="1" id="id" name="id" value="${jugadores.idJugador}" required="requerid"  style="visibility:hidden" />
-		            <button class="btn btn-danger"  type="submit"><span class = "glyphicon glyphicon-trash"></span> eliminar</button>
+		            <button class="btn btn-danger"  type="submit"><span class = "glyphicon glyphicon-trash"></span> Eliminar</button>
 			        <input type="hidden" name="idEquipo" value="${jugadores.idEquipo}" />
 			        </form>
 		            
 		            </tr>
 		          </c:forEach>     
 		        </table>
+		        <br>
+			            <form action="listarequiposPropios" method = "post" >
+					 	<input class="btn btn-info" value="Volver" type="submit">
+					 </form>
 			</div>
 			<div class="col-md-4"></div>
 		</div>

@@ -73,6 +73,10 @@
 	            <br>
 	            <input class="btn btn-warning" value="Actualizar Equipo" type="submit">
 	        </form>
+	        <br>
+			            <form action="listarequipos" method = "get" >
+					 	<input class="btn btn-info" value="Volver" type="submit">
+					 </form>
 			</center>
 
 			</div>
@@ -88,7 +92,7 @@
 		//Detectamos si el usuario acepto el mensaje
 		if (mensaje) {	
 		//formulario.submit();
-		alert("Nuevo equipo creado.")
+		alert("Equipo actualizado con éxito")
 		return true;
 		}		
 		

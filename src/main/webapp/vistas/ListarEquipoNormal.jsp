@@ -21,7 +21,8 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
-				<h1>Listado de Equipos</h1>
+				<h2>Equipos</h2>
+				<br>
 		        <table class="table table-bordered">
 		            <thead>
 		            <tr>
@@ -42,6 +43,11 @@
 		            </tr>
 		          </c:forEach>     
 		        </table>
+		        
+		       <br>
+			            <form action="volver" method = "get" >
+					 	<input class="btn btn-warning" value="Volver" type="submit">
+					 </form>
 			</div>
 			<div class="col-md-4"></div>
 		</div>

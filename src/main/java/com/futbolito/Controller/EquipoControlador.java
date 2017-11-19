@@ -119,7 +119,7 @@ public class EquipoControlador {
 		dao.actualizarEquipo(equipo);
 		
 		
-		return "vistas/mensajeActualizar.jsp";
+		return "vistas/vistaAdministrador.jsp";
 	} 
 	
 	
@@ -134,6 +134,11 @@ public class EquipoControlador {
 	@RequestMapping(value = "/volver", method=RequestMethod.GET)
 	public String atras() {
 		return "vistas/vistaNormal.jsp";
+	} 
+	
+	@RequestMapping(value = "/volver2", method=RequestMethod.GET)
+	public String atras2() {
+		return "vistas/vistaAdministrador.jsp";
 	} 
 	
 	
