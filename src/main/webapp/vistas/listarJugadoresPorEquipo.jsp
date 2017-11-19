@@ -40,6 +40,14 @@
 		            <button class="btn btn-danger"  type="submit"><span class = "glyphicon glyphicon-trash"></span> Eliminar</button>
 			        <input type="hidden" name="idEquipo" value="${jugadores.idEquipo}" />
 			        </form>
+			        </td>
+			        <td>
+		                <form  class="form-horizontal span4 " action="modificarJugador" method = "post" >
+		                <input type="text"  size="1" id="id" name="id" value="${jugadores.idJugador}" required="requerid"  style="visibility:hidden" />
+		            <button class="btn btn-danger"  type="submit"><span class = "glyphicon glyphicon-trash"></span> Actualizar</button>
+			        <input type="hidden" name="idEquipo" value="${jugadores.idEquipo}" />
+			        </form>
+			        </td>
 		            
 		            </tr>
 		          </c:forEach>     

@@ -4,16 +4,21 @@ import java.sql.SQLException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.futbolito.persistencia.EquipoDAO;
 import com.futbolito.persistencia.JugadorDAO;
 import com.futbolito.to.EquipoTO;
 import com.futbolito.to.JugadorTO;
+import com.futbolito.to.UsuarioTO;
 
 @Controller
+@SessionAttributes({"user","jugador"})
 public class JugadorControlador {
 
 	
@@ -60,5 +65,28 @@ public class JugadorControlador {
 		jug.eliminarJugador(idJ);
 		eq.actualizarCantidadJugadoresEquipos(idE);
 		return "vistas/vistaNormal.jsp";
+	} 
+	@RequestMapping(value = "/modificarJugador",method=RequestMethod.POST)
+	public String modificarJugador(@RequestParam(value="id", required=false, defaultValue="World") int id,ModelMap model
+	,@RequestParam(value = "idEquipo") int idEquipo) throws SQLException {
+		JugadorDAO jug=new JugadorDAO();
+		JugadorTO jugador= new JugadorTO();
+		EquipoDAO eq = new EquipoDAO();
+		int idJ=id;
+		jugador= jug.buscarPorId(idJ);
+		model.addAttribute("jugador", jugador);
+		return "vistas/modificarJugador.jsp";
+	} 
+	@RequestMapping(value = "/modificarUnJugador",method=RequestMethod.POST)
+	public String modificarUnJugador(@ModelAttribute("jugador") JugadorTO player,@RequestParam(value="nombreJugador", required=false,defaultValue="World")String nameJugador, ModelMap model
+			,@RequestParam(value="apellidoJugador")String apellidoJ) throws SQLException {
+		JugadorDAO jug=new JugadorDAO();
+		JugadorTO jugador= new JugadorTO();
+		jugador= player;
+		jugador.setNombre(nameJugador);
+		jugador.setApellido(apellidoJ);
+		jug.modificarJugador(jugador);
+		model.addAttribute("listarJugadoresdeEquipo",jug.listarJugadoresEquipo(jugador.getIdEquipo()));
+	    return "vistas/listarJugadoresPorEquipo.jsp";
 	} 
 	}
