@@ -41,14 +41,7 @@
 			            <input class="btn btn-info" value="Solicitud para Crear Equipo" type="submit">
 			        </form>
 				</center>
-				<br>
-				<center>
-					
-				    <form class="form-horizontal span4 " action="contenidoLogin" method = "get" >
-				   
-			            <input class="btn btn-danger" value="Salir" type="submit">
-			        </form>
-				</center>
+				
 				
 				
 				
@@ -67,6 +60,15 @@
 				    <form class="form-horizontal span4 " action="verReserva" method = "POST" >
 				   
 			            <input class="btn btn-info" value="Ver reservas" type="submit">
+			        </form>
+				</center>
+				
+				<br>
+				<center>
+					
+				    <form class="form-horizontal span4 " action="contenidoLogin" method = "get" >
+				   
+			            <input class="btn btn-danger" value="Salir" type="submit">
 			        </form>
 				</center>
 				
