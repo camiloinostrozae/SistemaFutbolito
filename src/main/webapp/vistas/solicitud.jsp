@@ -22,11 +22,11 @@
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
 			<center>
-				<h2>Solicitud para Crear Equipo</h2>
+				<h2>Solicitud de Manejo de Equipo</h2>
 		<form class="form-horizontal span4 " action="CrearSolicitud" method = "POST" onSubmit="return enviar()">
 				 
 			            <div class="control-group">
-			                <label class="control-label" >Ingrese el Nombre del Equipo</label>
+			                <label class="control-label" >Ingrese el Nombre de su Equipo</label>
 			                <div class="controls">
 			                    <input class="form-control" type="text" name="nombreEquipo" required style="width: 300px"/>
 			                </div>
@@ -39,6 +39,27 @@
 			                 
 			                 </select>
 			                
+			            </div>
+			            <br>
+			             <div class="control-group">
+			                <label class="control-label" >Seleccione la Acción a realizar</label>
+			                <div class="controls">
+			                    <select class="form-control" name="accion" required style="width: 300px">
+			                      <option value=" "></option>
+								  <option value="Crear">Crear</option> 
+								  <option value="Eliminar">Eliminar</option>
+								  <option value="Modificar">Modificar</option>
+								</select>
+			                </div>
+			            </div>
+			            <br>
+			             <div class="control-group">
+			                <label class="control-label" >Descripción (Solo si es Modificación)</label>
+			                <div class="controls">
+			                    <textarea rows="4" cols="50" name="descripcion">
+			                    
+			                    </textarea>
+			                </div>
 			            </div>
 			            <br>
 			            <br>
@@ -57,7 +78,7 @@
 	</div>
 	<script type="text/javascript"> 
 	function enviar(){
-		alert("Usted a Enviado una solicitud para Crear un Equipo");
+		alert("Usted a Enviado una Solicitud");
 		return true;
 	}
 	</script>

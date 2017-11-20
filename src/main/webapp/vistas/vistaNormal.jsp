@@ -38,9 +38,31 @@
 					
 				    <form class="form-horizontal span4 " action="solicitud" method = "POST" >
 				   
-			            <input class="btn btn-info" value="Solicitud para Crear Equipo" type="submit">
+			            <input class="btn btn-info" value="Solicitud de Manejo de Mis Equipos" type="submit">
 			        </form>
 				</center>
+				
+				
+				
+				
+					<br>
+				<center>
+					
+				    <form class="form-horizontal span4 " action="seleccionarRecinto" method = "POST" >
+				   
+			            <input class="btn btn-info" value="Realizar reserva" type="submit">
+			        </form>
+				</center>
+				
+					<br>
+				<center>
+					
+				    <form class="form-horizontal span4 " action="verReserva" method = "POST" >
+				   
+			            <input class="btn btn-info" value="Ver reservas" type="submit">
+			        </form>
+				</center>
+				
 				<br>
 				<center>
 					
@@ -49,8 +71,6 @@
 			            <input class="btn btn-danger" value="Salir" type="submit">
 			        </form>
 				</center>
-				
-				
 				
 			</div>
 			<div class="col-md-4"></div>
