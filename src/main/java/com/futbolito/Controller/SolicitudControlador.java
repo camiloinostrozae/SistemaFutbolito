@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.futbolito.persistencia.EquipoDAO;
 import com.futbolito.persistencia.SolicitudDAO;
+import com.futbolito.persistencia.UsuarioDAO;
+import com.futbolito.to.EquipoTO;
 import com.futbolito.to.SolicitudTO;
 import com.futbolito.to.UsuarioTO;
 
@@ -29,13 +31,44 @@ public class SolicitudControlador {
 	
 	@RequestMapping(value = "/CrearSolicitud", method=RequestMethod.POST)
 	public String CrearSolicitud(@ModelAttribute("user") UsuarioTO usuario, @RequestParam(value="nombreEquipo") 
-	String nombreEquipo, Model model) throws SQLException {
+	String nombreEquipo, @RequestParam(value="accion") String accion,
+	@RequestParam(value="descripcion") String descripcion,Model model) throws SQLException {
 		SolicitudDAO dao = new SolicitudDAO();
 		SolicitudTO to = new SolicitudTO();
 		to.setNombre_equipo(nombreEquipo);
+		to.setAccion(accion);
+		to.setDescripcion(descripcion);
 		to.setId_usuario(usuario.getId());
 		dao.CrearSolicitud(to); 
 		
 		return "vistas/solicitud.jsp";
 	}
+	
+	@RequestMapping(value = "/verSolicitudes")
+	public String verSolicitud(Model model) throws SQLException {
+		
+		SolicitudDAO sol = new SolicitudDAO();
+		model.addAttribute("listarSolicitud",sol.readAllSolicitudes());
+		return "vistas/verSolicitudes.jsp";
+	} 
+	
+	@RequestMapping(value = "/cambiarEstado",method=RequestMethod.POST)
+	public String cambiarEstado(@RequestParam(value="id") String id, Model model) {
+		int idS = Integer.parseInt(id);
+		model.addAttribute("idSolicitud", idS);
+		return "vistas/cambiarEstado.jsp";
+	} 
+	
+	@RequestMapping(value="/actualizarEstado", method=RequestMethod.POST)
+	public String actualizarEstado(@RequestParam(value="idSolicitud") String id,Model model
+			,@RequestParam(value="state")String estado) throws SQLException {
+		int idSolicitud = Integer.parseInt(id);
+		SolicitudDAO dao=new SolicitudDAO();
+		SolicitudTO solicitud= new SolicitudTO();
+		solicitud.setId_solicitud(idSolicitud);
+		solicitud.setEstado(estado);
+		dao.actualizarState(solicitud);
+		return "vistas/cambiarEstado.jsp";
+	} 
+	
 }

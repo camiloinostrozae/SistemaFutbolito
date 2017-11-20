@@ -38,7 +38,7 @@
 					
 				    <form class="form-horizontal span4 " action="solicitud" method = "POST" >
 				   
-			            <input class="btn btn-info" value="Solicitud para Crear Equipo" type="submit">
+			            <input class="btn btn-info" value="Solicitud de Manejo de Mis Equipos" type="submit">
 			        </form>
 				</center>
 				
