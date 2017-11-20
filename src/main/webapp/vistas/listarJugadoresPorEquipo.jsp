@@ -20,9 +20,9 @@
 	<div  class="container-fluid">
 		<div class="row">
 			<div class="col-md-4"></div>
-			<div class="col-md-4" id="login" >
+			<div class="modal fade" id="modal_form_proceso" >
 				<h1>Jugadores</h1>
-		        <table class="table table-bordered">
+		        <table class="table table-inverse">
 		            <thead>
 		            <tr>
 		                <th>Nombre</th>
@@ -55,8 +55,13 @@
 		          </c:forEach>     
 		        </table>
 		        <br>
+
 			            <form action="listarequiposPropios" method = "post" >
 					 	<input class="btn btn-success" value="Volver" type="submit">
+
+			            <form action="listarequipos" method = "post" >
+					 	<input class="btn btn-info" value="Volver" type="submit">
+
 					 </form>
 			</div>
 			<div class="col-md-4"></div>

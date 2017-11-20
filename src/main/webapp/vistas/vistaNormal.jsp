@@ -52,6 +52,24 @@
 				
 				
 				
+					<br>
+				<center>
+					
+				    <form class="form-horizontal span4 " action="seleccionarRecinto" method = "POST" >
+				   
+			            <input class="btn btn-info" value="Realizar reserva" type="submit">
+			        </form>
+				</center>
+				
+					<br>
+				<center>
+					
+				    <form class="form-horizontal span4 " action="verReserva" method = "POST" >
+				   
+			            <input class="btn btn-info" value="Ver reservas" type="submit">
+			        </form>
+				</center>
+				
 			</div>
 			<div class="col-md-4"></div>
 		</div>
