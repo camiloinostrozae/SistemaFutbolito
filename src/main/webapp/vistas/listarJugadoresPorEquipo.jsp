@@ -20,7 +20,7 @@
 	<div  class="container-fluid">
 		<div class="row">
 			<div class="col-md-4"></div>
-			<div class="modal fade" id="modal_form_proceso" >
+			<div class="col-md-4" id="login" >
 				<h1>Jugadores</h1>
 		        <table class="table table-inverse">
 		            <thead>

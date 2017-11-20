@@ -30,6 +30,15 @@
 			                <div class="controls">
 			                    <input class="form-control" type="text" name="nombreEquipo" required style="width: 300px"/>
 			                </div>
+			                <div class="controls">
+			                  <label class="control-label" >Seleccione Una Accion</label>
+			                <select class="form-control" name="usuario" style="width: 300px">
+			                <option value="Agregar">Agregar</option> 
+			            	<option value="Editar">Editar</option>
+			            	<option value="Eliminar">Eliminar</option>
+			                 
+			                 </select>
+			                
 			            </div>
 			            <br>
 			            <br>

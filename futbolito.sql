@@ -1,20 +1,20 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 14-11-2017 a las 15:42:03
--- Versión del servidor: 5.5.24-log
--- Versión de PHP: 5.4.3
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 20-11-2017 a las 02:41:11
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `futbolito`
@@ -26,14 +26,21 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `cancha`
 --
 
-CREATE TABLE IF NOT EXISTS `cancha` (
-  `idCancha` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `cancha` (
+  `idCancha` int(11) NOT NULL,
   `Numero` int(11) DEFAULT NULL,
   `Estado` varchar(45) DEFAULT NULL,
-  `idRecinto` int(11) NOT NULL,
-  PRIMARY KEY (`idCancha`,`idRecinto`),
-  KEY `fk_Cancha_Recinto1_idx` (`idRecinto`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `idRecinto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `cancha`
+--
+
+INSERT INTO `cancha` (`idCancha`, `Numero`, `Estado`, `idRecinto`) VALUES
+(1, 1, 'Libre', 1),
+(3, 2, 'Libre', 2),
+(4, 2, 'Libre', 1);
 
 -- --------------------------------------------------------
 
@@ -41,12 +48,9 @@ CREATE TABLE IF NOT EXISTS `cancha` (
 -- Estructura de tabla para la tabla `competir`
 --
 
-CREATE TABLE IF NOT EXISTS `competir` (
+CREATE TABLE `competir` (
   `idTorneo` int(11) NOT NULL,
-  `idEquipo` int(11) NOT NULL,
-  PRIMARY KEY (`idTorneo`,`idEquipo`),
-  KEY `fk_Torneo_has_Equipo_Equipo1_idx` (`idEquipo`),
-  KEY `fk_Torneo_has_Equipo_Torneo1_idx` (`idTorneo`)
+  `idEquipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -55,24 +59,21 @@ CREATE TABLE IF NOT EXISTS `competir` (
 -- Estructura de tabla para la tabla `equipo`
 --
 
-CREATE TABLE IF NOT EXISTS `equipo` (
-  `idEquipo` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `equipo` (
+  `idEquipo` int(11) NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
   `numeroPartidos` int(11) DEFAULT NULL,
   `numeroJugadores` varchar(45) DEFAULT NULL,
-  `idUsuario` int(11) NOT NULL,
-  PRIMARY KEY (`idEquipo`,`idUsuario`),
-  KEY `fk_Equipo_Usuario1_idx` (`idUsuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=42 ;
+  `idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `equipo`
 --
 
 INSERT INTO `equipo` (`idEquipo`, `Nombre`, `numeroPartidos`, `numeroJugadores`, `idUsuario`) VALUES
-(38, 't43gre', 4, '98', 3),
-(40, 'hgsfi', 84, '93', 3),
-(41, 'jgfdks', 4, '4', 3);
+(1, 'Liverpool FC', 0, '0', 9),
+(2, 'Parral City', 0, '0', 7);
 
 -- --------------------------------------------------------
 
@@ -80,16 +81,36 @@ INSERT INTO `equipo` (`idEquipo`, `Nombre`, `numeroPartidos`, `numeroJugadores`,
 -- Estructura de tabla para la tabla `horario`
 --
 
-CREATE TABLE IF NOT EXISTS `horario` (
-  `idHorario` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `horario` (
+  `idHorario` int(11) NOT NULL,
   `Precio` int(11) DEFAULT NULL,
-  `Dia` varchar(45) DEFAULT NULL,
-  `horaInicio` time DEFAULT NULL,
-  `horaFin` time DEFAULT NULL,
-  `idRecinto` int(11) NOT NULL,
-  PRIMARY KEY (`idHorario`,`idRecinto`),
-  KEY `fk_Horario_Recinto1_idx` (`idRecinto`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `horaInicio` varchar(20) DEFAULT NULL,
+  `horaFin` varchar(10) DEFAULT NULL,
+  `idRecinto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `horario`
+--
+
+INSERT INTO `horario` (`idHorario`, `Precio`, `horaInicio`, `horaFin`, `idRecinto`) VALUES
+(10, 25000, '10:00-11:00', '10', 1),
+(11, 25000, '11:00-12:00', '10', 1),
+(12, 25000, '12:00-13:00', '10', 1),
+(13, 25000, '13:00-14:00', '10', 1),
+(14, 25000, '14:00-15:00', '10', 1),
+(15, 25000, '15:00-16:00', '10', 1),
+(16, 25000, '16:00-17:00', '10', 1),
+(17, 25000, '17:00-18:00', '10', 1),
+(18, 25000, '18:00-19:00', '10', 1),
+(19, 30000, '19:00-20:00', '10', 1),
+(20, 30000, '20:00-21:00', '10', 1),
+(21, 30000, '21:00-22:00', '10', 1),
+(22, 30000, '22:00-23:00', '10', 1),
+(23, 25000, '10:00-11:00', '10', 2),
+(24, 25000, '11:00-12:00', '10', 2),
+(25, 25000, '12:00-13:00', '10', 2),
+(26, 25000, '13:00-14:00', '10', 2);
 
 -- --------------------------------------------------------
 
@@ -97,14 +118,12 @@ CREATE TABLE IF NOT EXISTS `horario` (
 -- Estructura de tabla para la tabla `jugador`
 --
 
-CREATE TABLE IF NOT EXISTS `jugador` (
-  `idJugador` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jugador` (
+  `idJugador` int(11) NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
   `Apellido` varchar(45) DEFAULT NULL,
-  `idEquipo` int(11) NOT NULL,
-  PRIMARY KEY (`idJugador`),
-  KEY `fk_Jugador_Equipo1_idx` (`idEquipo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `idEquipo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -112,8 +131,8 @@ CREATE TABLE IF NOT EXISTS `jugador` (
 -- Estructura de tabla para la tabla `partido`
 --
 
-CREATE TABLE IF NOT EXISTS `partido` (
-  `idPartido` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `partido` (
+  `idPartido` int(11) NOT NULL,
   `Fecha` date DEFAULT NULL,
   `horaInicio` time DEFAULT NULL,
   `horaFin` time DEFAULT NULL,
@@ -123,13 +142,8 @@ CREATE TABLE IF NOT EXISTS `partido` (
   `idEquipo1` int(11) NOT NULL,
   `idEquipo2` int(11) NOT NULL,
   `idCancha` int(11) NOT NULL,
-  `idUsuario` int(11) NOT NULL,
-  PRIMARY KEY (`idPartido`),
-  KEY `fk_Partido_Equipo1_idx` (`idEquipo1`),
-  KEY `fk_Partido_Equipo2_idx` (`idEquipo2`),
-  KEY `fk_Partido_Cancha1_idx` (`idCancha`),
-  KEY `fk_Partido_Usuario1_idx` (`idUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -137,12 +151,21 @@ CREATE TABLE IF NOT EXISTS `partido` (
 -- Estructura de tabla para la tabla `recinto`
 --
 
-CREATE TABLE IF NOT EXISTS `recinto` (
-  `idRecinto` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `recinto` (
+  `idRecinto` int(11) NOT NULL,
   `Direccion` varchar(45) DEFAULT NULL,
-  `Horario` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idRecinto`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `Telefono` varchar(45) DEFAULT NULL,
+  `Nombre` varchar(45) NOT NULL,
+  `numeroCanchas` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `recinto`
+--
+
+INSERT INTO `recinto` (`idRecinto`, `Direccion`, `Telefono`, `Nombre`, `numeroCanchas`) VALUES
+(1, 'Chillan 123', '12345', 'La curva', 2),
+(2, 'Las rosas 142', '12331231', 'Mas Futbol', 4);
 
 -- --------------------------------------------------------
 
@@ -150,12 +173,10 @@ CREATE TABLE IF NOT EXISTS `recinto` (
 -- Estructura de tabla para la tabla `reserva`
 --
 
-CREATE TABLE IF NOT EXISTS `reserva` (
+CREATE TABLE `reserva` (
   `Usuario_idUsuario` int(11) NOT NULL,
   `Cancha_idCancha` int(11) NOT NULL,
-  PRIMARY KEY (`Usuario_idUsuario`,`Cancha_idCancha`),
-  KEY `fk_Usuario_has_Cancha_Cancha1_idx` (`Cancha_idCancha`),
-  KEY `fk_Usuario_has_Cancha_Usuario_idx` (`Usuario_idUsuario`)
+  `Fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -164,11 +185,10 @@ CREATE TABLE IF NOT EXISTS `reserva` (
 -- Estructura de tabla para la tabla `rol`
 --
 
-CREATE TABLE IF NOT EXISTS `rol` (
-  `idRol` int(11) NOT NULL AUTO_INCREMENT,
-  `Tipo` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idRol`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+CREATE TABLE `rol` (
+  `idRol` int(11) NOT NULL,
+  `Tipo` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `rol`
@@ -184,13 +204,22 @@ INSERT INTO `rol` (`idRol`, `Tipo`) VALUES
 -- Estructura de tabla para la tabla `solicitud`
 --
 
-CREATE TABLE IF NOT EXISTS `solicitud` (
-  `id_solicitud` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `solicitud` (
+  `id_solicitud` int(11) NOT NULL,
   `nombre_equipo` varchar(30) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  PRIMARY KEY (`id_solicitud`),
-  KEY `id_usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `accion` varchar(20) NOT NULL,
+  `descripcion` varchar(500) DEFAULT NULL,
+  `estado` varchar(20) NOT NULL,
+  `id_usuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `solicitud`
+--
+
+INSERT INTO `solicitud` (`id_solicitud`, `nombre_equipo`, `accion`, `descripcion`, `estado`, `id_usuario`) VALUES
+(1, 'Barcelona', 'Eliminar', NULL, 'pendiente', 9),
+(3, 'Liverpool ', 'Modificar', 'cambiar nombre a Liverpool FC		                    \r\n			                    ', 'pendiente', 9);
 
 -- --------------------------------------------------------
 
@@ -198,15 +227,13 @@ CREATE TABLE IF NOT EXISTS `solicitud` (
 -- Estructura de tabla para la tabla `torneo`
 --
 
-CREATE TABLE IF NOT EXISTS `torneo` (
-  `idTorneo` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `torneo` (
+  `idTorneo` int(11) NOT NULL,
   `FechaInicio` date DEFAULT NULL,
   `numeroParticipantes` int(11) DEFAULT NULL,
   `idCampeon` int(11) DEFAULT NULL,
-  `idUsuario` int(11) NOT NULL,
-  PRIMARY KEY (`idTorneo`),
-  KEY `fk_Torneo_Usuario1_idx` (`idUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -214,28 +241,171 @@ CREATE TABLE IF NOT EXISTS `torneo` (
 -- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE IF NOT EXISTS `usuario` (
-  `idUsuario` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `usuario` (
+  `idUsuario` int(11) NOT NULL,
   `Nombre` varchar(45) DEFAULT NULL,
   `Apellido` varchar(45) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
   `Telefono` varchar(45) DEFAULT NULL,
   `Contrasena` varchar(45) DEFAULT NULL,
-  `idRol` int(11) NOT NULL,
-  PRIMARY KEY (`idUsuario`),
-  KEY `fk_Usuario_Rol1_idx` (`idRol`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+  `idRol` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`idUsuario`, `Nombre`, `Apellido`, `Email`, `Telefono`, `Contrasena`, `idRol`) VALUES
-(2, 'daniel', 'salinas', 'dsa@gmail.com', '857478439', 'daniel123*', 1),
-(3, 'd', 's', 'a@g.com', '332', '123456789', 2),
-(4, 'Daniela', 'jraeae', 'd@g.com', '64674743', '13579', 2),
-(5, 'Camilo', 'Saotme', 'c@g.com', '7457474', '24680', 2);
+(6, 'Juan', 'Dominguez', 'Juan@hotmail.com', '12345678', '1234', 1),
+(7, 'Juanitio', 'D', 'j@gmail.com', '123123', '4321', 2),
+(8, 'Camilo', 'Inostroza', 'caminost@alumnos.ubiobio.cl', '93912171', 'qwerty123', 1),
+(9, 'Roman', 'Reigns', 'roman@empire.cl', '90612786', '123456789', 2);
 
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `cancha`
+--
+ALTER TABLE `cancha`
+  ADD PRIMARY KEY (`idCancha`,`idRecinto`),
+  ADD KEY `fk_Cancha_Recinto1_idx` (`idRecinto`);
+
+--
+-- Indices de la tabla `competir`
+--
+ALTER TABLE `competir`
+  ADD PRIMARY KEY (`idTorneo`,`idEquipo`),
+  ADD KEY `fk_Torneo_has_Equipo_Equipo1_idx` (`idEquipo`),
+  ADD KEY `fk_Torneo_has_Equipo_Torneo1_idx` (`idTorneo`);
+
+--
+-- Indices de la tabla `equipo`
+--
+ALTER TABLE `equipo`
+  ADD PRIMARY KEY (`idEquipo`,`idUsuario`),
+  ADD KEY `fk_Equipo_Usuario1_idx` (`idUsuario`);
+
+--
+-- Indices de la tabla `horario`
+--
+ALTER TABLE `horario`
+  ADD PRIMARY KEY (`idHorario`,`idRecinto`),
+  ADD KEY `fk_Horario_Recinto1_idx` (`idRecinto`);
+
+--
+-- Indices de la tabla `jugador`
+--
+ALTER TABLE `jugador`
+  ADD PRIMARY KEY (`idJugador`),
+  ADD KEY `fk_Jugador_Equipo1_idx` (`idEquipo`);
+
+--
+-- Indices de la tabla `partido`
+--
+ALTER TABLE `partido`
+  ADD PRIMARY KEY (`idPartido`),
+  ADD KEY `fk_Partido_Equipo1_idx` (`idEquipo1`),
+  ADD KEY `fk_Partido_Equipo2_idx` (`idEquipo2`),
+  ADD KEY `fk_Partido_Cancha1_idx` (`idCancha`),
+  ADD KEY `fk_Partido_Usuario1_idx` (`idUsuario`);
+
+--
+-- Indices de la tabla `recinto`
+--
+ALTER TABLE `recinto`
+  ADD PRIMARY KEY (`idRecinto`);
+
+--
+-- Indices de la tabla `reserva`
+--
+ALTER TABLE `reserva`
+  ADD PRIMARY KEY (`Usuario_idUsuario`,`Cancha_idCancha`),
+  ADD KEY `fk_Usuario_has_Cancha_Cancha1_idx` (`Cancha_idCancha`),
+  ADD KEY `fk_Usuario_has_Cancha_Usuario_idx` (`Usuario_idUsuario`);
+
+--
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`idRol`);
+
+--
+-- Indices de la tabla `solicitud`
+--
+ALTER TABLE `solicitud`
+  ADD PRIMARY KEY (`id_solicitud`),
+  ADD KEY `id_usuario` (`id_usuario`);
+
+--
+-- Indices de la tabla `torneo`
+--
+ALTER TABLE `torneo`
+  ADD PRIMARY KEY (`idTorneo`),
+  ADD KEY `fk_Torneo_Usuario1_idx` (`idUsuario`);
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`idUsuario`),
+  ADD KEY `fk_Usuario_Rol1_idx` (`idRol`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `cancha`
+--
+ALTER TABLE `cancha`
+  MODIFY `idCancha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `equipo`
+--
+ALTER TABLE `equipo`
+  MODIFY `idEquipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `horario`
+--
+ALTER TABLE `horario`
+  MODIFY `idHorario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT de la tabla `jugador`
+--
+ALTER TABLE `jugador`
+  MODIFY `idJugador` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `partido`
+--
+ALTER TABLE `partido`
+  MODIFY `idPartido` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `recinto`
+--
+ALTER TABLE `recinto`
+  MODIFY `idRecinto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `idRol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT de la tabla `solicitud`
+--
+ALTER TABLE `solicitud`
+  MODIFY `id_solicitud` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `torneo`
+--
+ALTER TABLE `torneo`
+  MODIFY `idTorneo` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Restricciones para tablas volcadas
 --
