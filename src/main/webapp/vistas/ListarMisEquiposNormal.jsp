@@ -49,13 +49,17 @@
 			           <td><form  class="form-horizontal span4 " action="verJugadoresdelEquipo" method = "post">
 		                <input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
 		                
-		            <button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-user"></span> Ver Jugadores</button>
+		            <button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-eye-open"></span> Ver Jugadores</button>
 		            
 			        </form> </td>
 		                
 		            </tr>
 		          </c:forEach>     
 		        </table>
+		        <br>
+			            <form action="volver" method = "get" >
+					 	<input class="btn btn-warning" value="Volver" type="submit">
+					 </form>
 			</div>
 			<div class="col-md-4"></div>
 		</div>

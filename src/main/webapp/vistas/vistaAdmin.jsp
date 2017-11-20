@@ -27,6 +27,7 @@
 					 <form action="listarequipos" method = "get" >
 					 	<input class="btn btn-info" value="Listar Equipo" type="submit">
 					 </form>
+					 
 			</center>
 
 			</div>

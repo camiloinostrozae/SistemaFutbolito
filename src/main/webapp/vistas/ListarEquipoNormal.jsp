@@ -21,13 +21,15 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
-				<h1>Listado de Equipos</h1>
+				<h2>Equipos</h2>
+				<br>
 		        <table class="table table-bordered">
 		            <thead>
 		            <tr>
 		                <th>Nombre</th>
 		                <th>Partidos Jugados</th>
 		                <th>Número de jugadores</th>
+		                <th>Ver Jugadores</th>
 		                
 		                
 		                
@@ -37,11 +39,21 @@
 		            <tr>
 		                <td><c:out value="${equipos.nombre}"/></td>
 		                <td><c:out value="${equipos.nroPartidos}"/></td> 
-		                <td><c:out value="${equipos.nroJugadores}"/></td>  
+		                <td><c:out value="${equipos.nroJugadores}"/></td>
+		                <td> <form action="verJugadoresdelEquipoNormal" method = "POST" >
+		                <input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
+					 	<input class="btn btn-warning" value="ver Jugadores" type="submit">
+					 </form></td>
+		                
 		                
 		            </tr>
 		          </c:forEach>     
 		        </table>
+		        
+		       <br>
+			            <form action="volver" method = "get" >
+					 	<input class="btn btn-warning" value="Volver" type="submit">
+					 </form>
 			</div>
 			<div class="col-md-4"></div>
 		</div>

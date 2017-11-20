@@ -20,40 +20,24 @@
 	<div  class="container-fluid">
 		<div class="row">
 			<div class="col-md-4"></div>
-			<div class="modal fade" id="modal_form_proceso" >
+			<div class="col-md-4" id="login" >
 				<h1>Jugadores</h1>
-		        <table class="table table-inverse">
+		        <table class="table table-bordered">
 		            <thead>
 		            <tr>
 		                <th>Nombre</th>
-		                <th>Apellido</th>
-		                <th>Acción</th>
-		            </tr>
+		                <th>Apellido</th>     
+		                </tr>
 		            </thead>
 		           <c:forEach var="jugadores" items="${listarJugadoresdeEquipo}">
 		            <tr>
 		                <td><c:out value="${jugadores.nombre}"/></td>
 		                <td><c:out value="${jugadores.apellido}"/></td> 
-		                <td>
-		                <form  class="form-horizontal span4 " action="eliminarJugador" method = "post" onSubmit="return enviar()">
-		                <input type="text"  size="1" id="id" name="id" value="${jugadores.idJugador}" required="requerid"  style="visibility:hidden" />
-		            <button class="btn btn-danger"  type="submit"><span class = "glyphicon glyphicon-trash"></span> Eliminar</button>
-			        <input type="hidden" name="idEquipo" value="${jugadores.idEquipo}" />
-			        </form>
-			        </td>
-			        <td>
-		                <form  class="form-horizontal span4 " action="modificarJugador" method = "post" >
-		                <input type="text"  size="1" id="id" name="id" value="${jugadores.idJugador}" required="requerid"  style="visibility:hidden" />
-		            <button class="btn btn-danger"  type="submit"><span class = "glyphicon glyphicon-trash"></span> Actualizar</button>
-			        <input type="hidden" name="idEquipo" value="${jugadores.idEquipo}" />
-			        </form>
-			        </td>
-		            
-		            </tr>
+		                            </tr>
 		          </c:forEach>     
 		        </table>
 		        <br>
-			            <form action="listarequipos" method = "post" >
+			            <form action="listarequiposNormal" method = "post" >
 					 	<input class="btn btn-info" value="Volver" type="submit">
 					 </form>
 			</div>

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
-
 import com.futbolito.persistencia.EquipoDAO;
 import com.futbolito.persistencia.UsuarioDAO;
 import com.futbolito.to.EquipoTO;
@@ -19,7 +18,7 @@ import com.futbolito.to.UsuarioTO;
 
 
 @Controller
-@SessionAttributes("user")
+@SessionAttributes({"user"})
 public class EquipoControlador {
 	@RequestMapping(value = "/crearequipo",method=RequestMethod.GET)
 	public String crearEquipo() {
@@ -119,35 +118,32 @@ public class EquipoControlador {
 		dao.actualizarEquipo(equipo);
 		
 		
-		return "vistas/mensajeActualizar.jsp";
+		return "vistas/vistaAdministrador.jsp";
 	} 
-	//
-	@RequestMapping(value = "/solicitud")
-	public String solicitud(Model model) throws SQLException {
-		
-		return "vistas/solicitud.jsp";
-	}
-	@RequestMapping(value = "/CrearSolicitud", method=RequestMethod.POST)
-	public String CrearSolicitud(@RequestParam(value="nombreEquipo",
-	required=false, defaultValue="World") String nombreEquipo,Model model) throws SQLException {
-		
-		EquipoDAO equipo = new EquipoDAO();
-		model.addAttribute("nombreEquipo",nombreEquipo);
-		return "vistas/solicitud.jsp";
-	} 
+	
 	
 	@RequestMapping(value = "/listarequiposPropios", method=RequestMethod.POST)
 	public String listarequiposPropios(ModelMap model,@ModelAttribute("user") UsuarioTO usuario) throws SQLException {
 		
 		EquipoDAO equipo = new EquipoDAO();
 		model.addAttribute("listaMisEquipos",equipo.listarEquiposPropios(usuario.getId()));
+		if(usuario.getIdRol()==1) {
+			return "vistas/listarEquipos.jsp";
+		}else {
 		return "vistas/ListarMisEquiposNormal.jsp";
+		}
 	} 
 	
 	@RequestMapping(value = "/volver", method=RequestMethod.GET)
 	public String atras() {
 		return "vistas/vistaNormal.jsp";
 	} 
+	
+	@RequestMapping(value = "/volver2", method=RequestMethod.GET)
+	public String atras2() {
+		return "vistas/vistaAdministrador.jsp";
+	} 
+	
 	
 	
 	

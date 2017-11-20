@@ -19,7 +19,7 @@
 					<h3>Registrar Usuario</h3>
 			        <br>
 			        
-			        <form class="form-horizontal span4 " action="ingresar" method = "POST" >
+			        <form class="form-horizontal span4 " action="ingresar" method = "POST" onSubmit="return enviar()" >
 			            <div class="control-group">
 			                <label class="control-label" >Nombre</label>
 			                <div class="controls">
@@ -42,7 +42,7 @@
 			            <div class="control-group">
 			                <label class="control-label" >Teléfono</label>
 			                <div class="controls">
-			                    <input class="form-control" type="tel" name="telefono" required style="width: 300px"/>
+			                    <input class="form-control" type="tel" name="telefono" required style="width: 300px" maxlength="12"/>
 			                </div>
 			            </div>
 			            <div class="control-group">
@@ -55,12 +55,22 @@
 			            <br>
 			            <input class="btn btn-success" value="Registrar" type="submit">
 			        </form>
+			        <br>
+			            <form action="volverlogin" method = "get" >
+					 	<input class="btn btn-info" value="Volver" type="submit">
+					 </form>
 				</center>
 	
 				</div>
 				<div class="col-md-4"></div>
 			</div>
 		</div>
+			<script type="text/javascript"> 
+			function enviar(){
+				alert("Registro Exitoso");
+				return true;
+			}
+	</script>
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
     </body>

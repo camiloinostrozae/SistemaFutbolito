@@ -10,7 +10,7 @@
 <title>Futbolito</title>
 </head>
 <body>
- ${user.nombre}
+ 
 	<div class="color-fondo-login">
 	    <div class="imagen-fondo"></div>
 	</div>
@@ -20,7 +20,8 @@
 				<div class="col-md-4" id="login" >
 				
 				<center>
-					<h3>Fubolito</h3>
+					<h1>Vista Usuario</h1>
+					<br>
 				    <form class="form-horizontal span4 " action="listarequiposNormal" method = "POST" >
 			            <input class="btn btn-info" value="Listar Todos los Equipos" type="submit">
 			        </form>
@@ -40,6 +41,16 @@
 			            <input class="btn btn-info" value="Solicitud para Crear Equipo" type="submit">
 			        </form>
 				</center>
+				<br>
+				<center>
+					
+				    <form class="form-horizontal span4 " action="contenidoLogin" method = "get" >
+				   
+			            <input class="btn btn-danger" value="Salir" type="submit">
+			        </form>
+				</center>
+				
+				
 				
 					<br>
 				<center>

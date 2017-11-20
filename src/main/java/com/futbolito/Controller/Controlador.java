@@ -48,7 +48,7 @@ public class Controlador {
 		tic.setContraseña(contrasena);
 	    dao.insertar(tic);
 	    
-	    return "vistas/mensaje.jsp";
+	    return "vistas/login.jsp";
 
 	}
 
@@ -61,6 +61,12 @@ public class Controlador {
 		model.addAttribute("pass", pass);
 	return "greeting.jsp";
 	}
+	
+	@RequestMapping(value = "/volverlogin", method=RequestMethod.GET)
+	public String atraslogin() {
+		return "vistas/login.jsp";
+	} 
+	
 
 }
 

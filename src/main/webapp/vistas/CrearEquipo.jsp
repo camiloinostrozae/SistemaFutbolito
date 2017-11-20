@@ -26,10 +26,7 @@
 				<center>
 					<h3>Crear Equipo</h3>
 			        <br>
-			         ${user.nombre}<br>
-			          ${user.apellido}<br>
-			           ${user.email}<br>
-			            ${user.telefono}<br>
+			         
 			        <form class="form-horizontal span4 " action="crear" method = "POST" onSubmit="return enviar()">
 			            <div class="control-group">
 			                <label class="control-label" >Nombre Equipo</label>
@@ -72,6 +69,10 @@
 			            <br>
 			            <input class="btn btn-warning" value="Crear Equipo" type="submit">
 			        </form>
+			        <br>
+			            <form action="volver2" method = "get" >
+					 	<input class="btn btn-info" value="Volver" type="submit">
+					 </form>
 				</center>
 
 			</div>
