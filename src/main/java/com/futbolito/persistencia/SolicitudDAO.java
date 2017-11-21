@@ -15,7 +15,7 @@ import com.mysql.jdbc.Connection;
 
 public class SolicitudDAO {
 	private static final String INSERT_QUERY = "INSERT INTO `solicitud`( `nombre_equipo`,accion,descripcion,estado,`id_usuario`) VALUES (?,?,?,?,?)";
-    private static final String READ_SOLICITUD ="SELECT * FROM solicitud";
+    private static final String READ_SOLICITUD ="SELECT * FROM solicitud where estado = ?";
     private static final String UPDATE="UPDATE solicitud SET estado=? WHERE id_solicitud=?";
 	private static final String DB_NAME = "futbolito";
     private static final String PORT="3306";
@@ -64,6 +64,7 @@ public class SolicitudDAO {
         try {
             conn = getConnection();
             PreparedStatement ps = conn.prepareStatement(READ_SOLICITUD);
+            ps.setString(1, "pendiente");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 result= new SolicitudTO();
@@ -82,14 +83,14 @@ public class SolicitudDAO {
         return list;
     }
     
-    public void  actualizarState(SolicitudTO tic) throws SQLException{
+    public void  actualizarState(int id) throws SQLException{
         Connection conn=null;
         
         try{
             conn=getConnection();
             PreparedStatement ps=conn.prepareStatement(UPDATE);
-            ps.setString(1, tic.getEstado());
-            ps.setInt(2, tic.getId_solicitud());
+            ps.setString(1, "realizado");
+            ps.setInt(2, id);
             
             ps.executeUpdate();
             

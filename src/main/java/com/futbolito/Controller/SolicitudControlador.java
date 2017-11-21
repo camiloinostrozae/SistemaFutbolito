@@ -52,23 +52,12 @@ public class SolicitudControlador {
 		return "vistas/verSolicitudes.jsp";
 	} 
 	
-	@RequestMapping(value = "/cambiarEstado",method=RequestMethod.POST)
-	public String cambiarEstado(@RequestParam(value="id") String id, Model model) {
-		int idS = Integer.parseInt(id);
-		model.addAttribute("idSolicitud", idS);
-		return "vistas/cambiarEstado.jsp";
-	} 
-	
 	@RequestMapping(value="/actualizarEstado", method=RequestMethod.POST)
-	public String actualizarEstado(@RequestParam(value="idSolicitud") String id,Model model
-			,@RequestParam(value="state")String estado) throws SQLException {
+	public String actualizarEstado(@RequestParam(value="idSolicitud") String id,Model model) throws SQLException {
 		int idSolicitud = Integer.parseInt(id);
 		SolicitudDAO dao=new SolicitudDAO();
-		SolicitudTO solicitud= new SolicitudTO();
-		solicitud.setId_solicitud(idSolicitud);
-		solicitud.setEstado(estado);
-		dao.actualizarState(solicitud);
-		return "vistas/cambiarEstado.jsp";
+		dao.actualizarState(idSolicitud);
+		return "vistas/vistaAdministrador.jsp";
 	} 
 	
 }

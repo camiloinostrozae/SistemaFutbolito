@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
-				<h2>Solicitudes</h2>
+				<h2>Solicitudes Pendientes</h2>
 		        <table class="table table-bordered">
 		            <thead>
 		            <tr>
@@ -41,12 +41,10 @@
 		                <td><c:out value="${sol.accion}"/></td> 
 		                <td><c:out value="${sol.descripcion}"/></td>
 		                <td><c:out value="${sol.estado}"/></td>
-		               
-		                
 		                <td>
-		                <form  class="form-horizontal span4 " action="cambiarEstado" method = "post">
-		                <input type="text"  size="1" id="id" name="id" value="${sol.id_solicitud}" required="required"  style="visibility:hidden" />
-		                <button class="btn btn-info" type="submit">Actualizar Estado</button>
+		                <form  class="form-horizontal span4 " action="actualizarEstado" method = "post" onSubmit="return enviar()">
+		                <input type="text"  size="1" id="id" name="idSolicitud" value="${sol.id_solicitud}" required="required"  style="visibility:hidden" />
+		                <button class="btn btn-info" type="submit">Realizado</button>
 			            </form>
 			            </td>
 		                
@@ -61,6 +59,25 @@
 			<div class="col-md-4"></div>
 		</div>
 	</div>
+	<script type="text/javascript"> 
+	function enviar(){
+		//Ingresamos un mensaje a mostrar
+		
+		var mensaje = confirm("¿Está seguro?");
+		//var dato = formulario[0];
+		//Detectamos si el usuario acepto el mensaje
+		if (mensaje) {	
+		//formulario.submit();
+		alert("Estado Actualizado")
+		return true;
+		}		
+		
+		else {
+			return false;
+		exit()
+		}
+		}
+	</script>
 	
     <script src="js/jquery.js"></script>
 	
