@@ -36,10 +36,17 @@
 		                            </tr>
 		          </c:forEach>     
 		        </table>
-		        <br>
-			            <form action="listarequiposNormal" method = "post" >
+		        <br>   <c:if test = "${usuario.idRol!=1}">
+		         <form action="listarequiposNormal" method = "post" >
 					 	<input class="btn btn-info" value="Volver" type="submit">
 					 </form>
+		        		</c:if>
+		        		<c:if test = "${usuario.idRol==1}">
+		        		<form action="listarequipos" method = "post" >
+					 	<input class="btn btn-info" value="VolverALFuturo" type="submit">
+					 </form>
+		        		</c:if>
+			           
 			</div>
 			<div class="col-md-4"></div>
 		</div>
