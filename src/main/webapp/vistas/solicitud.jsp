@@ -30,7 +30,7 @@
 			                <div class="controls">
 			                    <input class="form-control" type="text" name="nombreEquipo" required style="width: 300px"/>
 			                </div>
-			            </div>
+			                
 			            <br>
 			             <div class="control-group">
 			                <label class="control-label" >Seleccione la Acción a realizar</label>

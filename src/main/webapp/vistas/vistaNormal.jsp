@@ -41,6 +41,10 @@
 			            <input class="btn btn-info" value="Solicitud de Manejo de Mis Equipos" type="submit">
 			        </form>
 				</center>
+<<<<<<< HEAD
+=======
+				
+>>>>>>> d1b59d85debf1495ad3fcdf135603fd778fac4b4
 				
 				
 				
@@ -61,6 +65,15 @@
 			            <input class="btn btn-info" value="Ver reservas" type="submit">
 			        </form>
 				</center>
+				<br>
+				<center>
+					
+				    <form class="form-horizontal span4 " action="contenidoLogin" method = "get" >
+				   
+			            <input class="btn btn-danger" value="Salir" type="submit">
+			        </form>
+				</center>
+				
 				<br>
 				<center>
 					
