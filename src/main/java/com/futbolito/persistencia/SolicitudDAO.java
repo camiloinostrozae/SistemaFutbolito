@@ -21,7 +21,7 @@ public class SolicitudDAO {
     private static final String PORT="3306";
     private static final String URL="jdbc:mysql://localhost:"+PORT+"/"+DB_NAME;
     private static final String USER="root";
-    private static final String PASSWORD="188084796g";
+    private static final String PASSWORD="";
     
     public static Connection getConnection(){
         Connection conn=null;

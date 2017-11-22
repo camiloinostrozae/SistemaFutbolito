@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.LinkedList"%>
-
+<%@ include file="/vistas/include.jsp" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,12 +17,14 @@
 	<div class="color-fondo-login">
 	    <div class="imagen-fondo"></div>
 	</div>
+	 <jsp:include page="headerUsuario.jsp" /> 
+	 
 	<div  class="container-fluid">
 		<div class="row">
-			<div class="col-md-4"></div>
-			<div class="col-md-4" id="login" >
+			<div class="col-md-12">
+			<div class="container contenedor" >
 				<h1>Recintos</h1>
-		        <table class="table table-bordered">
+		        <table class="table table-hover">
 		            <thead>
 		            <tr>
 		                <th>Nombre</th>
@@ -49,12 +51,12 @@
 		          </c:forEach>     
 		        </table>
 			</div>
-			<div class="col-md-4"></div>
+			</div>
 		</div>
 	</div>
 	
     <script src="js/jquery.js"></script>
-	
+	<script src="js/bootstrap.min.js"></script>
     </body>
     
 </html>

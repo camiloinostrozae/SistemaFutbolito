@@ -43,7 +43,7 @@
 <title>Equipos</title>
 </head>
 <body>
-
+      <jsp:include page="headerUsuario.jsp" /> 
 	<div id="wrapper-center">
     	<div id="wrapper-bottom">
             <div class="center"> 

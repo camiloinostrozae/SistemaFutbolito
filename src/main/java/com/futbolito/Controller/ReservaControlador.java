@@ -62,15 +62,15 @@ public class ReservaControlador {
 		reserv.setIdCancha(idCancha);
 		reserv.setIdUsuario(usuario.getId());
 		
-	    cancha.actualizarEstadoCancha(can);
+	  
 	    reserva.insertarReserva(reserv);
-	    
+	    reserva.readAll(usuario.getId());
         
 		return "vistas/listarReservas.jsp";
 	} 
 	
 	
-	@RequestMapping(value = "/verReserva",method=RequestMethod.POST)
+	@RequestMapping(value = "/verReserva",method=RequestMethod.GET)
 	public String verReservaUsuario(Model model,
 			ModelMap modelSesion,@ModelAttribute("user") UsuarioTO usuario) throws SQLException  {
 		

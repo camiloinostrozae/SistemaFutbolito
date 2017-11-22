@@ -13,7 +13,7 @@ import com.futbolito.persistencia.RecintoDAO;
 @Controller
 public class RecintoControlador {
 	
-	@RequestMapping(value = "/seleccionarRecinto",method=RequestMethod.POST)
+	@RequestMapping(value = "/seleccionarRecinto",method=RequestMethod.GET)
 	public String verReserva(Model model) throws SQLException {
 		
 		RecintoDAO recinto = new RecintoDAO();
