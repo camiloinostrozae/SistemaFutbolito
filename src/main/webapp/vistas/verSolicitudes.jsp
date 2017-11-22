@@ -11,7 +11,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/ionicons.min.css" rel="stylesheet">
 <link href="css/estilo.css" rel="stylesheet">
-<title>futbolito</title>
+<title>Futbolito</title>
 </head>
 <body>
 	<div class="color-fondo-login">
@@ -21,32 +21,40 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
-				<h1>Jugadores</h1>
+				<h2>Solicitudes Pendientes</h2>
 		        <table class="table table-bordered">
 		            <thead>
 		            <tr>
-		                <th>Nombre</th>
-		                <th>Apellido</th>     
-		                </tr>
+		                <th>Nombre Equipo</th>
+		                <th>Acción</th>
+		                <th>Descripción</th>
+		                <th>Estado</th>
+		                <th>Actualizar</th>
+		                
+		                
+		                
+		            </tr>
 		            </thead>
-		           <c:forEach var="jugadores" items="${listarJugadoresdeEquipo}">
+		           <c:forEach var="sol" items="${listarSolicitud}">
 		            <tr>
-		                <td><c:out value="${jugadores.nombre}"/></td>
-		                <td><c:out value="${jugadores.apellido}"/></td> 
-		                            </tr>
+		                <td><c:out value="${sol.nombre_equipo}"/></td>
+		                <td><c:out value="${sol.accion}"/></td> 
+		                <td><c:out value="${sol.descripcion}"/></td>
+		                <td><c:out value="${sol.estado}"/></td>
+		                <td>
+		                <form  class="form-horizontal span4 " action="actualizarEstado" method = "post" onSubmit="return enviar()">
+		                <input type="text"  size="1" id="id" name="idSolicitud" value="${sol.id_solicitud}" required="required"  style="visibility:hidden" />
+		                <button class="btn btn-info" type="submit">Realizado</button>
+			            </form>
+			            </td>
+		                
+		            </tr>
 		          </c:forEach>     
 		        </table>
-		        <br>   <c:if test = "${usuario.idRol!=1}">
-		         <form action="listarequiposNormal" method = "post" >
-					 	<input class="btn btn-info" value="Volver" type="submit">
+		        <br>
+			            <form action="volver2" method = "get" >
+					 	<input class="btn btn-warning" value="Volver" type="submit">
 					 </form>
-		        		</c:if>
-		        		<c:if test = "${usuario.idRol==1}">
-		        		<form action="listarequipos" method = "post" >
-					 	<input class="btn btn-info" value="VolverALFuturo" type="submit">
-					 </form>
-		        		</c:if>
-			           
 			</div>
 			<div class="col-md-4"></div>
 		</div>
@@ -54,23 +62,23 @@
 	<script type="text/javascript"> 
 	function enviar(){
 		//Ingresamos un mensaje a mostrar
-		//var formulario = document.getElementById("myform");
-		var mensaje = confirm("¿Está seguro de eliminar a este jugador?");
+		
+		var mensaje = confirm("¿Está seguro?");
 		//var dato = formulario[0];
 		//Detectamos si el usuario acepto el mensaje
 		if (mensaje) {	
 		//formulario.submit();
-		alert("Jugador eliminado con éxito");
+		alert("Estado Actualizado")
 		return true;
-		}
+		}		
 		
 		else {
-			;
 			return false;
 		exit()
 		}
 		}
 	</script>
+	
     <script src="js/jquery.js"></script>
 	
     </body>

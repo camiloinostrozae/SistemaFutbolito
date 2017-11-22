@@ -11,7 +11,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/ionicons.min.css" rel="stylesheet">
 <link href="css/estilo.css" rel="stylesheet">
-<title>futbolito</title>
+<title>Reservas</title>
 </head>
 <body>
 	<div class="color-fondo-login">
@@ -21,32 +21,36 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4" id="login" >
-				<h1>Jugadores</h1>
+				<h1>Listado de reservas</h1>
 		        <table class="table table-bordered">
 		            <thead>
 		            <tr>
-		                <th>Nombre</th>
-		                <th>Apellido</th>     
-		                </tr>
+		                <th>Recinto</th>
+		                <th>Direccion</th>
+		                <th>Número de cancha</th>
+		                <th>Fecha</th>
+		                <th>Hora</th>
+		                <th>Accion</th>
+		                
+		                
+		            </tr>
 		            </thead>
-		           <c:forEach var="jugadores" items="${listarJugadoresdeEquipo}">
+		           <c:forEach var="reserv" items="${listaReservas}">
 		            <tr>
-		                <td><c:out value="${jugadores.nombre}"/></td>
-		                <td><c:out value="${jugadores.apellido}"/></td> 
-		                            </tr>
+		                <td><c:out value="${reserv.nombreRecinto}"/></td>
+		                <td><c:out value="${reserv.direccion}"/></td> 
+		                <td><c:out value="${reserv.numeroCancha}"/></td>
+		                <td><c:out value="${reserv.fecha}"/></td>
+		                <td><c:out value="${reserv.hora}"/></td>
+		                <td>
+		                  <form  class="form-horizontal span4 " action="cancelarReserva" method = "post" onSubmit="return enviar()">
+		                   <input class="btn btn-info" value="Cancelar reserva" type="submit">
+			               </form>
+			            </td>
+		                
+		            </tr>
 		          </c:forEach>     
 		        </table>
-		        <br>   <c:if test = "${usuario.idRol!=1}">
-		         <form action="listarequiposNormal" method = "post" >
-					 	<input class="btn btn-info" value="Volver" type="submit">
-					 </form>
-		        		</c:if>
-		        		<c:if test = "${usuario.idRol==1}">
-		        		<form action="listarequipos" method = "post" >
-					 	<input class="btn btn-info" value="VolverALFuturo" type="submit">
-					 </form>
-		        		</c:if>
-			           
 			</div>
 			<div class="col-md-4"></div>
 		</div>
@@ -55,12 +59,12 @@
 	function enviar(){
 		//Ingresamos un mensaje a mostrar
 		//var formulario = document.getElementById("myform");
-		var mensaje = confirm("¿Está seguro de eliminar a este jugador?");
+		var mensaje = confirm("¿Está seguro?");
 		//var dato = formulario[0];
 		//Detectamos si el usuario acepto el mensaje
 		if (mensaje) {	
 		//formulario.submit();
-		alert("Jugador eliminado con éxito");
+		alert("Reserva cancelada");
 		return true;
 		}
 		

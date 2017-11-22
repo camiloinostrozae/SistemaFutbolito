@@ -18,7 +18,7 @@ import com.futbolito.to.UsuarioTO;
 
 
 @Controller
-@SessionAttributes({"user"})
+@SessionAttributes("user")
 public class EquipoControlador {
 	@RequestMapping(value = "/crearequipo",method=RequestMethod.GET)
 	public String crearEquipo() {
@@ -127,11 +127,9 @@ public class EquipoControlador {
 		
 		EquipoDAO equipo = new EquipoDAO();
 		model.addAttribute("listaMisEquipos",equipo.listarEquiposPropios(usuario.getId()));
-		if(usuario.getIdRol()==1) {
-			return "vistas/listarEquipos.jsp";
-		}else {
+		
 		return "vistas/ListarMisEquiposNormal.jsp";
-		}
+		
 	} 
 	
 	@RequestMapping(value = "/volver", method=RequestMethod.GET)

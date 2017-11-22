@@ -13,6 +13,10 @@
                         <ul class="dropdown-menu">
                             <li><a href="crearequipo">Agregar Equipo</a></li>
                             <li><a href="listarequipos">Listar Equipos</a></li>
+
+                            <li><a href="verSolicitudes">Ver Solicitudes</a></li>
+
+
                             
                         </ul>
                     </li>

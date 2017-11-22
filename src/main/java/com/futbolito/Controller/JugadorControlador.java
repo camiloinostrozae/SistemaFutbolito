@@ -48,11 +48,16 @@ public class JugadorControlador {
 	}
 	
 	@RequestMapping(value = "/verJugadoresdelEquipo",method=RequestMethod.POST)
-	public String verJugadoresdeEquipo(@RequestParam(value="idequipo", required=false, defaultValue="World") int idequipo,ModelMap model) throws SQLException {
+	public String verJugadoresdeEquipo(@RequestParam(value="idequipo") String idequipo,@ModelAttribute("user") UsuarioTO usuario,ModelMap model) throws SQLException {
+		int idd = Integer.parseInt(idequipo);
 		JugadorDAO jug = new JugadorDAO();
-		model.addAttribute("listarJugadoresdeEquipo",jug.listarJugadoresEquipo(idequipo));
+		model.addAttribute("listarJugadoresdeEquipo",jug.listarJugadoresEquipo(idd));
+		model.addAttribute("usuario", usuario);
+		if(usuario.getIdRol()==1) {
+			return "vistas/listarJugadoresNormal.jsp";
+		}else {
 	    return "vistas/listarJugadoresPorEquipo.jsp";
-	}
+	}}
 	
 	@RequestMapping(value = "/eliminarJugador",method=RequestMethod.POST)
 	public String eliminarJugador(@RequestParam(value="id", required=false, defaultValue="World") String id,ModelMap model
