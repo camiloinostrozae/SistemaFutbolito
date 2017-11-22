@@ -22,7 +22,7 @@ import com.futbolito.to.UsuarioTO;
 @SessionAttributes("user")
 public class SolicitudControlador {
 
-	@RequestMapping(value="/solicitud", method=RequestMethod.POST)
+	@RequestMapping(value="/solicitud", method=RequestMethod.GET)
     public String handleRequest(ModelMap model,@ModelAttribute("user") UsuarioTO usuario){
         model.addAttribute("nombre", usuario.getId());
         System.out.println(usuario.getId());

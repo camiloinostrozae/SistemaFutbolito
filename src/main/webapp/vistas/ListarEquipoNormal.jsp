@@ -17,6 +17,121 @@
 	<div class="color-fondo-login">
 	    <div class="imagen-fondo"></div>
 	</div>
+	<nav class="navbar navbar-inverse">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">Futbolito</a>
+	    </div>
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav navbar-right">
+	      	 <li><a href="#" data-toggle="modal" data-target="#myModal">Crear equipo</a></li>
+	      	 <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listar Equipo<span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="listarequiposPropios">Mi equipo</a></li>
+	            <li><a href="listarequiposNormal">Todos</a></li>
+	          </ul>
+	        </li>
+	        <li><a href="#">Perfil</a></li>
+	        <li><a href="index.jsp">Cerrar Sesión</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div  class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="container contenedor">
+					<h1>Equipo</h1>
+					<br>
+			        <table class="table table-hover">
+			            <thead>
+			            <tr>
+			                <th>Nombre</th>
+			                <th>Partidos Jugados</th>
+			                <th>Número de jugadores</th>
+			                <th>Ver Jugadores</th>
+			            </tr>
+			            </thead>
+			            <c:forEach var="equipos" items="${listaEquipos}">
+			            <tr>
+			                <td><c:out value="${equipos.nombre}"/></td>
+			                <td><c:out value="${equipos.nroPartidos}"/></td> 
+			                <td><c:out value="${equipos.nroJugadores}"/></td>
+			                <td> <form action="verJugadoresdelEquipoNormal" method = "POST" >
+			                <input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
+						 	<input class="btn btn-warning" value="ver Jugadores" type="submit">
+						 </form></td>
+			                
+			                
+			            </tr>
+			          </c:forEach>     
+			        </table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Modal Solicitud de Manejo de Equipo-->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h2>Solicitud de Manejo de Equipo</h2>
+	      </div>
+	      <div class="modal-body">
+	      	<form class="form-horizontal" action="CrearSolicitud" method = "POST" onSubmit="return enviar()">
+	             <div class="form-group">
+	                <label class="col-sm-3 control-label" >Nombre de su Equipo</label>
+	                <div class="col-sm-9">
+	                    <input class="form-control" type="text" name="nombreEquipo" required/>
+	                </div>
+	             </div>
+	             <div class="form-group">
+	                <label class="col-sm-3 control-label" >Acción</label>
+	                <div class="col-sm-9">
+	                    <select class="form-control" name="accion" required>
+	                      <option value=" "></option>
+						  <option value="Crear">Crear</option> 
+						  <option value="Eliminar">Eliminar</option>
+						  <option value="Modificar">Modificar</option>
+						</select>
+	                </div>
+	            </div>
+	             <div class="form-group">
+	                <label class="col-sm-3 control-label" >Descripción (Solo si es Modificación)</label>
+	                <div class="col-sm-9">
+	                    <textarea rows="4" cols="50" name="descripcion">
+	                    
+	                    </textarea>
+	                </div>
+	            </div>
+	            <button  id="ingresarSesion" class="btn btn-md btn-success btn-block btn-lg" type="submit"><Span class = "glyphicon glyphicon-envelope"></span> Enviar</button>
+	        </form>
+	      
+	        <button type="button" class="btn btn-md btn-danger btn-block btn-lg" data-dismiss="modal">Cerrar</button>
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>
+	<script type="text/javascript"> 
+		function enviar(){
+			alert("Usted a Enviado una Solicitud");
+			return true;
+		}
+	</script>
+	<!-- 
 	<div  class="container-fluid">
 		<div class="row">
 			<div class="col-md-4"></div>
@@ -58,7 +173,7 @@
 			<div class="col-md-4"></div>
 		</div>
 	</div>
-
+	 -->
     <script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
     </body>

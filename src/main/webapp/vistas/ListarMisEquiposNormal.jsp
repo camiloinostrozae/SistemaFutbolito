@@ -59,9 +59,6 @@
 			                <th>Número de jugadores</th>
 			                <th>Agregar Jugadores</th>
 			                <th>Ver jugadores</th>
-			                
-			                
-			                
 			            </tr>
 			            </thead>
 			           <c:forEach var="equipos" items="${listaMisEquipos}">
@@ -70,18 +67,15 @@
 			                <td><c:out value="${equipos.nroPartidos}"/></td> 
 			                <td><c:out value="${equipos.nroJugadores}"/></td> 
 			                <td><form  class="form-horizontal span4 " action="agregarJugador" method = "post">
-			                <input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
-			                
-			            <button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-plus"></span></button>
-			            
-				        </form> </td>
-				           <td><form  class="form-horizontal span4 " action="verJugadoresdelEquipo" method = "post">
-			                <input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
-			                
-			            <button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-eye-open"></span></button>
-			            
-				        </form> </td>
-			                
+			                	<input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
+			           			<button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-plus"></span></button>
+			            		</form>
+			            	</td>
+				           	<td><form  class="form-horizontal span4 " action="verJugadoresdelEquipo" method = "post">
+			                	<input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
+			                	<button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-eye-open"></span></button>
+			            		</form>
+			            	</td>     
 			            </tr>
 			          </c:forEach>     
 			        </table>
