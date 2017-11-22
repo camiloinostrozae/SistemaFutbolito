@@ -122,7 +122,7 @@ public class EquipoControlador {
 	} 
 	
 	
-	@RequestMapping(value = "/listarequiposPropios", method=RequestMethod.POST)
+	@RequestMapping(value = "/listarequiposPropios", method=RequestMethod.GET)
 	public String listarequiposPropios(ModelMap model,@ModelAttribute("user") UsuarioTO usuario) throws SQLException {
 		
 		EquipoDAO equipo = new EquipoDAO();

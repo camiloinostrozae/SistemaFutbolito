@@ -20,6 +20,7 @@
     left: 0;
     top: 0;
 }
+
 #login{
 	background-color: #d3eff5;
     border: 2px solid #7e7d91;
@@ -32,4 +33,30 @@
     margin-left: 20px;
     margin-right: 20px;
 	
+}
+/*nuevo estilo*/
+#autenticacion{
+	top: 100px;
+}
+#tituloLogin{
+	color:white;
+}
+#ingresarSesion{
+    margin-bottom: 5px;
+}
+nav.navbar.navbar-inverse{
+    margin-bottom: 0px;
+    -webkit-box-shadow: 0px 8px 18px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 8px 18px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 8px 18px 0px rgba(0,0,0,0.75);
+}
+.contenedor{
+	color:white;
+	background: #2d572c;
+	-webkit-box-shadow: 0px 8px 18px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 8px 18px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 8px 18px 0px rgba(0,0,0,0.75);
+}
+.table-hover>tbody>tr:hover{
+	background-color:#2f8020;
 }
