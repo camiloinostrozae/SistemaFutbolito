@@ -33,7 +33,7 @@
 					        <h3>Actualizar Jugador</h3>
 					        <hr/>
 					    </div>
-				        ${jugador.idJugador}
+				        
 				        <form class="form-horizontal" action="modificarUnJugador" method = "POST" onSubmit="return enviar()">
 				            <div class="form-group">
 				                <label class="col-ms-2 control-label" >Nombre Jugador</label>
@@ -107,9 +107,23 @@
 	  </div>
 	</div>
 	<script type="text/javascript"> 
-		function enviar(){
-			alert("Usted a Enviado una Solicitud");
-			return true;
+	function enviar(){
+		//Ingresamos un mensaje a mostrar
+		//var formulario = document.getElementById("myform");
+		var mensaje = confirm("¿Está seguro de modificar a este jugador?");
+		//var dato = formulario[0];
+		//Detectamos si el usuario acepto el mensaje
+		if (mensaje) {	
+		//formulario.submit();
+		alert("Jugador actualizado con éxito");
+		return true;
+		}
+		
+		else {
+			;
+			return false;
+		exit()
+		}
 		}
 	</script>
 	<!-- 

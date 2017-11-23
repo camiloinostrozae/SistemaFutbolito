@@ -18,11 +18,11 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav navbar-right">
-	      	 <li><a href="#" data-toggle="modal" data-target="#myModal">Crear equipo</a></li>
+	      	 <li><a href="#" data-toggle="modal" data-target="#myModal">Solicitud</a></li>
 	      	 <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Listar Equipo<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
-	            <li><a href="listarequiposPropios">Mi equipo</a></li>
+	            <li><a href="listarequiposPropios">Mis Equipos</a></li>
 	            <li><a href="listarequiposNormal">Todos</a></li>
 	          </ul>
 	        </li>

@@ -48,7 +48,7 @@ public class Controlador {
 		tic.setContraseña(contrasena);
 	    dao.insertar(tic);
 	    
-	    return "vistas/index.jsp";
+	    return "index.jsp";
 
 	}
 
