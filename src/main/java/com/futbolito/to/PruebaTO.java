@@ -3,7 +3,7 @@ package com.futbolito.to;
 import java.sql.Date;
 
 public class PruebaTO {
-	
+	private int idReserva;
 	private String nombreRecinto;
 	private String direccion;
 	private Date fecha;
@@ -11,6 +11,14 @@ public class PruebaTO {
 	private int numeroCancha;
 	
 	
+	
+	
+	public int getIdReserva() {
+		return idReserva;
+	}
+	public void setIdReserva(int idReserva) {
+		this.idReserva = idReserva;
+	}
 	public int getNumeroCancha() {
 		return numeroCancha;
 	}

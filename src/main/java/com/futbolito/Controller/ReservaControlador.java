@@ -51,7 +51,7 @@ public class ReservaControlador {
 		ReservaDAO reserva = new ReservaDAO();
 		CanchaTO can = new CanchaTO();
 		ReservaTO reserv = new ReservaTO();
-		
+		PruebaDAO reservadas = new PruebaDAO();
 		
 		can.setEstado("Reservada");
 		can.setIdCancha(idCancha);
@@ -64,7 +64,7 @@ public class ReservaControlador {
 		
 	  
 	    reserva.insertarReserva(reserv);
-	    reserva.readAll(usuario.getId());
+	    model.addAttribute("listaReservas",reservadas.readAll(usuario.getId())); 
         
 		return "vistas/listarReservas.jsp";
 	} 
@@ -77,6 +77,21 @@ public class ReservaControlador {
 		modelSesion.addAttribute("idUsuario", usuario.getId());
 		PruebaDAO reserva = new PruebaDAO();
 		model.addAttribute("listaReservas",reserva.readAll(usuario.getId()));		
+        return "vistas/listarReservas.jsp";
+	} 
+	
+	@RequestMapping(value = "/cancelarReserva",method=RequestMethod.POST)
+	public String eliminarReserva(Model model,
+			ModelMap modelSesion,@ModelAttribute("user") UsuarioTO usuario,
+			@RequestParam(value="idReserva") int idReserva) throws SQLException  {
+		
+		modelSesion.addAttribute("idUsuario", usuario.getId());
+		
+		ReservaDAO reserva = new ReservaDAO();
+		reserva.cancelarReserva(idReserva);
+		System.out.println(idReserva);
+		PruebaDAO listaReserva = new PruebaDAO();
+		model.addAttribute("listaReservas",listaReserva.readAll(usuario.getId()));		
         return "vistas/listarReservas.jsp";
 	} 
 	

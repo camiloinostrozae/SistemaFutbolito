@@ -11,7 +11,7 @@
 
 
 <link href="css/reserva.css" rel="stylesheet">
-
+<link href="css/estilo.css" rel="stylesheet">
 <link href="css/bootstrap.css" rel="stylesheet">
 
 
@@ -43,14 +43,14 @@
 <title>Equipos</title>
 </head>
 <body>
+     
+	
       <jsp:include page="headerUsuario.jsp" /> 
-	<div id="wrapper-center">
-    	<div id="wrapper-bottom">
-            <div class="center"> 
-	<div id="todo" >
+	
+	<div id="todo"  align="center">
 	<div id="Reserva" style="padding-top: 10px;">
 	<a style="font-size: 20px; text-decoration: none; color: #00998c; font-weight: bolder; padding-top:10px;">Reservas de canchas</a>
-	 <div id="PestaniasContenido">
+	 <div id="PestaniasContenido" >
             <div >
                 <p class="titulo" id="papa" style="width: 550px !important;"> Selecciona la fecha y la hora en que deseas reservar</p>
                 <div class="dib fl" id="calendario">
@@ -143,8 +143,6 @@
        </div>
      </div>   
 	</div>
-  </div>
-  </div>
   </div>
   
 

@@ -11,7 +11,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/ionicons.min.css" rel="stylesheet">
 <link href="css/estilo.css" rel="stylesheet">
-<title>Equipos</title>
+<title>Recintos</title>
 </head>
 <body>
 	<div class="color-fondo-login">

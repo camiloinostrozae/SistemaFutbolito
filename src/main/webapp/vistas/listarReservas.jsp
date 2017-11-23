@@ -33,7 +33,7 @@
 		                <th>Número de cancha</th>
 		                <th>Fecha</th>
 		                <th>Hora</th>
-		                <th>Accion</th>
+		                <th>Cancelar reserva</th>
 		                
 		                
 		            </tr>
@@ -47,7 +47,8 @@
 		                <td><c:out value="${reserv.hora}"/></td>
 		                <td>
 		                  <form  class="form-horizontal span4 " action="cancelarReserva" method = "post" onSubmit="return enviar()">
-		                   <input class="btn btn-info" value="Cancelar reserva" type="submit">
+		                     <button class="btn btn-danger" type="submit"><Span class = "glyphicon glyphicon-trash"></Span> Cancelar</button>
+			                 <input type="hidden" name="idReserva" value="${reserv.idReserva}">
 			               </form>
 			            </td>
 		                

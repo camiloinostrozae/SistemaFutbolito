@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class ReservaTO {
 	
+	private int idReserva;
 	private int idUsuario;
 	private int idCancha;
 	private Date fecha;
@@ -11,6 +12,13 @@ public class ReservaTO {
 	
 	
 	
+	
+	public int getIdReserva() {
+		return idReserva;
+	}
+	public void setIdReserva(int idReserva) {
+		this.idReserva = idReserva;
+	}
 	
 	public String getHora() {
 		return hora;
