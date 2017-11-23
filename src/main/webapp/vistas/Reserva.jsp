@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <br><br><br>
-                    <form action="ingresarReserva" method="post" id="frmDate">
+                    <form action="ingresarReserva" method="post" id="frmDate" onSubmit="return enviar()">
                      <div class="db" style="margin-top: -8px;">
                         <p style="color: #00998c !important;">Seleccione la hora de reserva:
                         
@@ -149,5 +149,12 @@
 	
 	
     </body>
+    
+    <script type="text/javascript"> 
+		function enviar(){
+			alert("Reserva realizada exitosamente");
+			return true;
+		}
+	</script>
     
 </html>
