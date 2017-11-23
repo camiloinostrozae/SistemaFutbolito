@@ -7,8 +7,11 @@
         <link rel="icon" type="image/png" sizes="32x32" href="plugins/favicon.png">
         <meta name="viewport" content="width=device-width, maximum-scale=1">
         <title>Futbolito</title>
-        <link rel="icon" href="favicon.png" type="image/png">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/ionicons.min.css" rel="stylesheet">
+        <link href="css/estiloAdmin.css" rel="stylesheet">
+        
+        <!--  
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <link href="css/linecons.css" rel="stylesheet" type="text/css">
         <link href="css/font-awesome.css" rel="stylesheet" type="text/css">
@@ -20,7 +23,7 @@
         <link href='http://fonts.googleapis.com/css?family=Dosis:400,500,700,800,600,300,200' rel='stylesheet' type='text/css'>
         <link href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.css" rel="stylesheet" type="text/css">
         
-        <!--[if IE]><style type="text/css">.pie {behavior:url(PIE.htc);}</style><![endif]-->
+        [if IE]><style type="text/css">.pie {behavior:url(PIE.htc);}</style><![endif]
             
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -83,9 +86,12 @@
                 $(".divclass").css("font-size", newFontSizeTitle)
             }
         </script>
+        -->
     </head>
     <body>
-           ${user.nombre}
+	    <div class="color-fondo-login">
+		    <div class="imagen-fondo"></div>
+		</div>
         <!--Header_section-->
        <jsp:include page="headerAdministrador.jsp" /> 
             
@@ -96,9 +102,11 @@
         <!--footer-->
         
         <jsp:include page="footer.jsp" /> 
+        
+        <script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>    
             
-            
-            
+        <!-- 
         <script type="text/javascript">
             $(document).ready(function(e) {
                 $('#header_outer').scrollToFixed();
@@ -224,5 +232,6 @@
                 return false;
             });
         </script>
+         -->    
     </body>
 </html>

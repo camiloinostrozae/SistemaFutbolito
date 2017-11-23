@@ -16,7 +16,7 @@
         <title>futbolito</title>
     </head>
     <body>
-<div class="color-fondo-login">
+	<div class="color-fondo-login">
 	    <div class="imagen-fondo"></div>
 	</div>
 	
