@@ -41,7 +41,7 @@ public class SolicitudControlador {
 		to.setId_usuario(usuario.getId());
 		dao.CrearSolicitud(to); 
 		
-		return "vistas/solicitud.jsp";
+		return "vistas/vistaNormal.jsp";
 	}
 	
 	@RequestMapping(value = "/verSolicitudes")

@@ -47,7 +47,7 @@
 		     	</form>
 		     	 -->	
 		     	<!-- Trigger the modal with a button -->
-				<button type="button" class="btn btn-md btn-success btn-block btn-lg" data-toggle="modal" data-target="#myModal">Registro</button>
+				<button type="button" class="btn btn-md btn-danger btn-block btn-lg" data-toggle="modal" data-target="#myModal">Registro</button>
 
 			</div>
 			<div class="col-md-4"></div>

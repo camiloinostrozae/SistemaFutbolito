@@ -36,7 +36,7 @@ public class LoginControlador {
 		resultado = dao.login(tic);
 		
 	    if(resultado == null) {
-	    	return "vistas/login.jsp";
+	    	return "index.jsp";
 	    }else {
 	    	if(resultado.getIdRol()==1){
 	    		model.addAttribute("user", resultado);
