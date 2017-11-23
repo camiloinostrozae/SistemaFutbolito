@@ -54,7 +54,7 @@
 			                <td>
 			                	<form class="form-horizontal" action="verJugadoresdelEquipo" method = "post" >
 					                <input type="text" size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required="requerid"  style="visibility:hidden" />
-					            	<button class="btn btn-info" type="submit"><Span class = "glyphicon glyphicon-pencil"></Span>Ver Jugadores</button>
+					            	<button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-eye-open"></Span> Ver Jugadores</button>
 				        		</form>
 			                </td>
 			            </tr>

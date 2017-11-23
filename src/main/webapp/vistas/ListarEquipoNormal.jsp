@@ -40,7 +40,7 @@
 			                <td><c:out value="${equipos.nroJugadores}"/></td>
 			                <td> <form action="verJugadoresdelEquipoNormal" method = "POST" >
 			                <input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
-						 	<button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-eye-open"></span></button>
+						 	<button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-eye-open"></span> Ver Jugadores</button>
 						 </form></td>
 			                
 			                

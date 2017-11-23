@@ -47,7 +47,7 @@
 	        		</c:if>
 	        		<c:if test = "${usuario.idRol==1}">
 		        		<form action="listarequipos" method = "post" >
-					 		<input class="btn btn-info" value="VolverALFuturo" type="submit">
+					 		<input class="btn btn-info" value="Volver" type="submit">
 					 	</form>
         			</c:if>
         			<br/>
