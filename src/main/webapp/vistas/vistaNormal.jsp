@@ -128,9 +128,48 @@
 	
 	  </div>
 	</div>
+	<!-- Modal Crear torneo-->
+	<div id="myModal2" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h2>Crear Torneo</h2>
+	      </div>
+	      <div class="modal-body">
+	      	<form class="form-horizontal" action="crearTorneo" method = "POST" onSubmit="return enviar()">
+	      	     <div class="form-group">
+	                <label class="col-sm-3 control-label" >Nombre Torneo</label>
+	                <div class="col-sm-9">
+	                    <input class="form-control" type="text" name="nomTorneo" required/>
+	                </div>
+	             </div>
+	             <div class="form-group">
+	                <label class="col-sm-3 control-label" >Fecha de Inicio</label>
+	                <div class="col-sm-9">
+	                    <input class="form-control" type="date" name="finicio" required/>
+	                </div>
+	             </div>
+	             <div class="form-group">
+	                <label class="col-sm-3 control-label" >Número de Participantes</label>
+	                <div class="col-sm-9">
+	                    <input class="form-control" type="number" name="numParticipantes" required/>
+	                </div>
+	             </div>
+	            <button  id="ingresarSesion" class="btn btn-md btn-success btn-block btn-lg" type="submit">Crear</button>
+	        </form>
+	      
+	        <button type="button" class="btn btn-md btn-danger btn-block btn-lg" data-dismiss="modal">Cerrar</button>
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>
 	<script type="text/javascript"> 
 		function enviar(){
-			alert("Usted a Enviado una Solicitud");
+			alert("Realizado Exitosamente");
 			return true;
 		}
 	</script>

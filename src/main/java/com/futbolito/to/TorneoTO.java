@@ -4,6 +4,7 @@ import java.sql.Date;
 
 public class TorneoTO {
 	private int idTorneo;
+	private String nombreTorneo;
 	private Date FechaInicio;
 	private int numeroParticipantes;
 	private int idCampeon;
@@ -13,6 +14,15 @@ public class TorneoTO {
 	}
 	public void setIdTorneo(int idTorneo) {
 		this.idTorneo = idTorneo;
+		
+	}
+	
+	
+	public String getNombreTorneo() {
+		return nombreTorneo;
+	}
+	public void setNombreTorneo(String nombreTorneo) {
+		this.nombreTorneo = nombreTorneo;
 	}
 	public Date getFechaInicio() {
 		return FechaInicio;

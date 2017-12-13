@@ -18,40 +18,36 @@
 	    <div class="imagen-fondo"></div>
 	</div>
 	 <jsp:include page="headerUsuario.jsp" /> 
+	
 	<div  class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
 				<div class="container contenedor">
 					<h1>Torneos</h1>
-					<br>
-					
-			         <table class="table table-hover">
+					<table class="table table-hover">
 			            <thead>
 			            <tr>
-			                
 			                <th>Nombre Torneo</th>
 			                <th>Fecha Inicio</th>
-			                <th>Equipos Participantes</th>
-			                <th>Acción</th>
+			                <th>Número de Equipos participantes</th>
+			                <th>Agregar Equipos</th>
 			                
 			            </tr>
 			            </thead>
-			            <c:forEach var="torneo" items="${torneos}">
+			           <c:forEach var="torneos" items="${listarMisTorneos}">
 			            <tr>
-			                <td><c:out value="${torneo.nombreTorneo}"/></td>
-			                <td><c:out value="${torneo.fechaInicio}"/></td> 
-			                <td><c:out value="${torneo.numeroParticipantes}"/></td>
-			                
-			                <td> 
-			           		   <form  class="form-horizontal" action="verTorneo" method = "get">
-			                     <button class="btn btn-info" type="submit"><Span class = "glyphicon glyphicon-eye-open"></Span> Ver</button>
-				                 <input type="hidden" name="idTorneo" value="${torneo.idTorneo}">
-				               </form>
-						 	</td>
+			                <td><c:out value="${torneos.nombreTorneo}"/></td>
+			                <td><c:out value="${torneos.fechaInicio}"/></td> 
+			                <td><c:out value="${torneos.numeroParticipantes}"/></td> 
+			                <td><form  class="form-horizontal span4 " action="agregarEquipo" method = "post">
+			            	<input type="text"  size="1" id="id" name="idtorneo" value="${torneos.idTorneo}" required  style="visibility:hidden" />
+			           			<button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-plus"></span> Agregar Equipo</button>
+			            		</form>
+			            	</td>
+				           
 			            </tr>
 			          </c:forEach>     
 			        </table>
-			         
 				</div>
 			</div>
 		</div>
