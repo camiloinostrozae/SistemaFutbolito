@@ -34,8 +34,7 @@
 	            <li><a href="verReserva">Ver Reservas</a></li>
 	          </ul>
 	        </li>
-	        
-	        <li><a href="#">Perfil</a></li>
+	        <li><a href="torneo">Torneo</a></li>
 	        <li><a href="index.jsp">Cerrar Sesión</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->

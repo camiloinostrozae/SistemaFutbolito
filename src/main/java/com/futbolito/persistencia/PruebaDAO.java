@@ -15,7 +15,7 @@ import com.mysql.jdbc.Connection;
 public class PruebaDAO {
 	
 	
-	private static final String READ = "SELECT DISTINCT R.idReserva, REC.Nombre, REC.Direccion,C.Numero , R.Fecha, R.Hora FROM Reserva as R JOIN Cancha as C ON R.Cancha_idCancha = C.idCancha JOIN Recinto AS REC ON C.idRecinto=REC.idRecinto WHERE R.Usuario_idUsuario = ?";
+	private static final String READ = "SELECT DISTINCT REC.Nombre, REC.Direccion,C.Numero , R.Fecha, R.Hora FROM Reserva as R JOIN Cancha as C ON R.Cancha_idCancha = C.idCancha JOIN Recinto AS REC ON C.idRecinto=REC.idRecinto WHERE R.Usuario_idUsuario = ?";
     private static final String DB_NAME = "futbolito";
     private static final String PORT="3306";
     private static final String URL="jdbc:mysql://localhost:"+PORT+"/"+DB_NAME;
@@ -34,7 +34,6 @@ public class PruebaDAO {
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 result= new PruebaTO();
-                result.setIdReserva(rs.getInt("idReserva"));
                 result.setNombreRecinto(rs.getString("Nombre"));
                 result.setDireccion(rs.getString("Direccion"));
                 result.setFecha(rs.getDate("fecha"));
