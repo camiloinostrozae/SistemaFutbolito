@@ -10,14 +10,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/ionicons.min.css" rel="stylesheet">
-<link href="css/estiloAdmin.css" rel="stylesheet">
+<link href="css/estilo.css" rel="stylesheet">
 <title>Equipos</title>
 </head>
 <body>
 	<div class="color-fondo-login">
 	    <div class="imagen-fondo"></div>
 	</div>
-	<jsp:include page="headerAdministrador.jsp" /> 
+	 <jsp:include page="headerUsuario.jsp" /> 
+	
 	<div  class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -89,6 +90,7 @@
 		}
 	</script>
     <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	
     </body>
     

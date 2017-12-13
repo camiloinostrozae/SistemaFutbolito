@@ -19,6 +19,7 @@ import com.futbolito.to.UsuarioTO;
 
 @Controller
 @SessionAttributes("user")
+
 public class EquipoControlador {
 	@RequestMapping(value = "/crearequipo",method=RequestMethod.GET)
 	public String crearEquipo() {
