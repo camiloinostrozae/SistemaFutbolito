@@ -14,6 +14,8 @@ import com.mysql.jdbc.Connection;
 public class TorneoDAO {
 	
 	private static final String READ_ALL = "select * from torneo";
+	private static final String READ_PROPIOS = "select * from torneo where idUsuario=?";
+	private static final String INSERT_QUERY="insert into torneo (Nombre,FechaInicio,numeroParticipantes,idCampeon,idUsuario) values (?,?,?,?,?)";
 	private static final String READ_TORNEO = "select * from cancha where idTorneo=?";
 	//private static final String UPDATE_ESTADO_CANCHA = "UPDATE cancha SET Estado = ? WHERE idCancha = ?";
     private static final String DB_NAME = "futbolito";
@@ -35,6 +37,60 @@ public class TorneoDAO {
             while(rs.next()){
                 result= new TorneoTO();
                 result.setIdTorneo(rs.getInt("idTorneo"));
+                result.setNombreTorneo(rs.getString("Nombre"));
+                result.setFechaInicio(rs.getDate("FechaInicio"));
+                result.setNumeroParticipantes(rs.getInt("numeroParticipantes"));
+                result.setIdCampeon(rs.getInt("idCampeon"));
+                result.setIdUsuario(rs.getInt("idUsuario"));
+                list.add(result);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(TorneoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            conn.close();
+        }
+        return list;
+    }
+    
+    public void  CrearTorneo(TorneoTO tic) throws SQLException{
+        Connection conn=null;
+        
+        try{
+            conn=getConnection();
+            PreparedStatement ps=conn.prepareStatement(INSERT_QUERY);
+            ps.setString(1, tic.getNombreTorneo());
+            ps.setDate(2, tic.getFechaInicio());
+            ps.setInt(3, tic.getNumeroParticipantes());
+            ps.setNull(4, tic.getIdCampeon());
+            ps.setInt(5, tic.getIdUsuario());
+            
+            ps.executeUpdate();
+            
+            
+        }catch(SQLException ex){
+            Logger.getLogger(TorneoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(conn!=null){
+                conn.close();
+            }
+        }
+       
+        
+    }
+    
+    public LinkedList<TorneoTO> listarTorneosPropios(int id) throws SQLException{
+        LinkedList<TorneoTO> list = new LinkedList<>();
+        TorneoTO result = null;
+        Connection conn=null;
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(READ_PROPIOS);
+            ps.setInt(1, id );
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result= new TorneoTO();
+                result.setIdTorneo(rs.getInt("idTorneo"));
+                result.setNombreTorneo(rs.getString("Nombre"));
                 result.setFechaInicio(rs.getDate("FechaInicio"));
                 result.setNumeroParticipantes(rs.getInt("numeroParticipantes"));
                 result.setIdCampeon(rs.getInt("idCampeon"));
