@@ -16,10 +16,10 @@ import com.mysql.jdbc.Connection;
 public class ReservaDAO {
 	
 	
-	private static final String READ_ALL = "select * from horario";
 	private static final String READ_RESERVA_USUARIO = "select * from reserva where idUsuario=?";
 	private static final String INSERT_RESERVA="insert into reserva (Usuario_idUsuario,Cancha_idCancha,fecha,Hora) values (?,?,?,?)";
     private static final String DB_NAME = "futbolito";
+    private static final String DELETE_RESERVA = "delete from reserva where idReserva = ?";
     private static final String PORT="3306";
     private static final String URL="jdbc:mysql://localhost:"+PORT+"/"+DB_NAME;
     private static final String USER="root";
@@ -62,9 +62,11 @@ public class ReservaDAO {
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 result= new ReservaTO();
+                result.setIdReserva(rs.getInt("idReserva"));
                 result.setIdUsuario(rs.getInt("idUsuario"));
                 result.setIdCancha(rs.getInt("idCancha"));
                 result.setFecha(rs.getDate("fecha"));
+                result.setHora(rs.getString("hora"));
                 list.add(result);
             }
         } catch (SQLException ex) {
@@ -74,6 +76,24 @@ public class ReservaDAO {
         }
         return list;
     }
+    
+    
+    
+    public void cancelarReserva(int id) throws SQLException {
+    	   	Connection conn=null;
+    	    	
+    	    	try {
+    	    		conn = getConnection();
+    	    		 PreparedStatement ps = conn.prepareStatement(DELETE_RESERVA);
+    	    		 ps.setInt(1,id);
+    	    		 ps.executeUpdate();
+    	    		
+    	    	}catch(Exception e) {
+    	    		 Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, e);
+    	    	}finally{
+    	            conn.close();
+    	        }
+    	    }
     
     
 
