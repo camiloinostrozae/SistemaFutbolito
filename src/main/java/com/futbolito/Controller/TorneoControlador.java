@@ -25,11 +25,13 @@ public class TorneoControlador {
 	
 	@RequestMapping(value = "/torneo",method=RequestMethod.GET)
 	public String torneo(Model model) throws SQLException {
-		System.out.println("entre");
 		TorneoDAO torneo = new TorneoDAO();
-		System.out.println("pase el dao");
 		model.addAttribute("torneos",torneo.readAll());
-		System.out.println("pase el model y retorno la vista");
+		return "vistas/torneo.jsp";
+	}
+	@RequestMapping(value = "/verTorneo",method=RequestMethod.GET)
+	public String verTorneo(Model model,@RequestParam(value="idTorneo")int idTorneo) throws SQLException {
+		
 		return "vistas/torneo.jsp";
 	}
 	
