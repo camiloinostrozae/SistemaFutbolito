@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.util.LinkedList"%>
 
 
@@ -23,31 +24,36 @@
 				<div class="container contenedor">
 					<h1>Torneos</h1>
 					<br>
-					<!-- 
+					
 			         <table class="table table-hover">
 			            <thead>
 			            <tr>
-			                <th>Nombre</th>
-			                <th>Partidos Jugados</th>
-			                <th>Número de jugadores</th>
-			                <th>Ver Jugadores</th>
+			                <th>idTorneo</th>
+			                <th>Fecha Inicio</th>
+			                <th>Equipos Participantes</th>
+			                <th>idCampeon</th>
+			                <th>idUsuario</th>
+			                <th>Acción</th>
+			                
 			            </tr>
 			            </thead>
-			            <c:forEach var="equipos" items="${listaEquipos}">
+			            <c:forEach var="torneo" items="${torneos}">
 			            <tr>
-			                <td><c:out value="${equipos.nombre}"/></td>
-			                <td><c:out value="${equipos.nroPartidos}"/></td> 
-			                <td><c:out value="${equipos.nroJugadores}"/></td>
-			                <td> <form action="verJugadoresdelEquipoNormal" method = "POST" >
-			                <input type="text"  size="1" id="id" name="idequipo" value="${equipos.idEquipo}" required  style="visibility:hidden" />
-						 	<button class="btn btn-success" type="submit"><Span class = "glyphicon glyphicon-eye-open"></span> Ver Jugadores</button>
-						 </form></td>
-			                
-			                
+			                <td><c:out value="${torneo.idTorneo}"/></td>
+			                <td><c:out value="${torneo.fechaInicio}"/></td> 
+			                <td><c:out value="${torneo.numeroParticipantes}"/></td>
+			                <td><c:out value="${torneo.idCampeon}"/></td>
+			                <td><c:out value="${torneo.idUsuario}"/></td>
+			                <td> 
+			           		   <form  class="form-horizontal" action="verTorneo" method = "get">
+			                     <button class="btn btn-info" type="submit"><Span class = "glyphicon glyphicon-eye-open"></Span> Ver</button>
+				                 <input type="hidden" name="idTorneo" value="${torneo.idTorneo}">
+				               </form>
+						 	</td>
 			            </tr>
 			          </c:forEach>     
 			        </table>
-			         -->
+			         
 				</div>
 			</div>
 		</div>

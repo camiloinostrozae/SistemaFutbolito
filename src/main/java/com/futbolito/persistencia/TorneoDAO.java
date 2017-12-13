@@ -8,8 +8,7 @@ import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.futbolito.to.CanchaTO;
-import com.futbolito.to.EquipoTO;
+import com.futbolito.to.TorneoTO;
 import com.mysql.jdbc.Connection;
 
 public class TorneoDAO {
@@ -25,25 +24,25 @@ public class TorneoDAO {
     
     
     
-    public LinkedList<CanchaTO> readAll(int id) throws SQLException{
-        LinkedList<CanchaTO> list = new LinkedList<>();
-        CanchaTO result = null;
+    public LinkedList<TorneoTO> readAll() throws SQLException{
+        LinkedList<TorneoTO> list = new LinkedList<>();
+        TorneoTO result = null;
         Connection conn=null;
         try {
             conn = getConnection();
-            PreparedStatement ps = conn.prepareStatement(READ_TORNEO);
-            ps.setInt(1,id);
+            PreparedStatement ps = conn.prepareStatement(READ_ALL);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                result= new CanchaTO();
-                result.setIdCancha(rs.getInt("idCancha"));
-                result.setNumero(rs.getInt("Numero"));
-                result.setEstado(rs.getString("Estado"));
-                result.setIdRecinto(rs.getInt("idRecinto"));
+                result= new TorneoTO();
+                result.setIdTorneo(rs.getInt("idTorneo"));
+                result.setFechaInicio(rs.getDate("FechaInicio"));
+                result.setNumeroParticipantes(rs.getInt("numeroParticipantes"));
+                result.setIdCampeon(rs.getInt("idCampeon"));
+                result.setIdUsuario(rs.getInt("idUsuario"));
                 list.add(result);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TorneoDAO.class.getName()).log(Level.SEVERE, null, ex);
         } finally{
             conn.close();
         }
