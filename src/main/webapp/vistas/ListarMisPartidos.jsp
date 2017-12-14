@@ -58,14 +58,19 @@
 			                 <td>
 				                <form  class="form-horizontal" action="" method = "get" onSubmit="return enviar()">
 					                <input type="text"  size="1" id="id" name="id" value="${partidos.idPartido}" required="requerid"  style="visibility:hidden" />
+					                 <input type="text"  size="1" id="id" name="idEquipo1" value="${partidos.idEquipo1}" required="requerid"  style="visibility:hidden" />
+					                  <input type="text"  size="1" id="id" name="idEquipo2" value="${partidos.idEquipo2}" required="requerid"  style="visibility:hidden" />
 					            	 <button class="btn btn-info" type="submit"><Span class = "glyphicon glyphicon-pencil"></Span> Modificar</button>
 				            	</form>
 				             </td>
 			                 <td>
-				                <form  class="form-horizontal" action="" method = "post" onSubmit="return enviar()">
+				                <form  class="form-horizontal" action="agregarResultados" method = "post" onSubmit="return enviar()">
 					                <input type="text"  size="1" id="id" name="id" value="${partidos.idPartido}" required="requerid"  style="visibility:hidden" />
+					                <input type="text"  size="1" id="id" name="idEquipo1" value="${partidos.idEquipo1}" required="requerid"  style="visibility:hidden" />
+					                  <input type="text"  size="1" id="id" name="idEquipo2" value="${partidos.idEquipo2}" required="requerid"  style="visibility:hidden" />
 					            	<button class="btn btn-danger" type="submit"><Span class = "glyphicon glyphicon-pencil"></Span> Agregar Resultados</button>
 				            	</form>
+				           
 				             </td>
 			                
 			            </tr>

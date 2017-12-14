@@ -110,6 +110,7 @@ public class TorneoControlador {
 		}
 		model.addAttribute("tablaDetalle",matriz2);
 		model.addAttribute("torneo",torneo.buscarPorId(idTorneo));
+
 		return "vistas/tablaPosiciones.jsp";
 	}
 	

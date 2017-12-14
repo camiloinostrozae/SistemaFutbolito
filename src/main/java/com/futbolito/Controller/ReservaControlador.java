@@ -23,6 +23,7 @@ import com.futbolito.to.CanchaTO;
 import com.futbolito.to.HorarioTO;
 import com.futbolito.to.ReservaTO;
 import com.futbolito.to.UsuarioTO;
+import com.futbolito.to.verificarTO;
 
 @Controller
 @SessionAttributes("user")
@@ -52,17 +53,17 @@ public class ReservaControlador {
 		CanchaTO can = new CanchaTO();
 		ReservaTO reserv = new ReservaTO();
 		PruebaDAO reservadas = new PruebaDAO();
-		
+		verificarTO ve = new verificarTO();
 		can.setEstado("Reservada");
 		can.setIdCancha(idCancha);
 		cancha.actualizarEstadoCancha(can);
+		int i;
 		
 		reserv.setFecha(sqlDate);
 		reserv.setHora(hora);
-		reserv.setIdCancha(idCancha);
+		int idHora = Integer.parseInt(hora);
+		reserv.setIdHorario(idHora);
 		reserv.setIdUsuario(usuario.getId());
-		
-	  
 	    reserva.insertarReserva(reserv);
 	    model.addAttribute("listaReservas",reservadas.readAll(usuario.getId())); 
         
