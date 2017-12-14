@@ -17,7 +17,7 @@ public class PartidoDAO {
 	private static final String READ_ALL = "select * from partido";
 	private static final String READ_PARTIDO_TORNEO = "select * from partido where idTorneo = ?";
 	private static final String READ_PROPIOS = "select * from partido where idUsuario=?";
-	private static final String UPDATE="UPDATE `equipo` SET `Nombre`=?,`numeroPartidos`=?,`numeroJugadores`=? ,`idUsuario`=? WHERE `idEquipo`=?";
+	private static final String UPDATE="UPDATE `partido` SET `horaInicio`=?,`horaFin`=?,`Estado`=? ,`golesEquipo1`=?,`golesEquipo2`=? WHERE `idPartido`=?";
 	private static final String DELETE ="DELETE FROM `equipo` WHERE `idEquipo`=?";
 	private static final String INSERT_QUERY = "insert into equipo (Nombre,numeroPartidos,numeroJugadores,idUsuario) values (?,?,?,?)";
 	private static final String BUSCAR_POR_ID = "select * from equipo where `idEquipo`=?";
@@ -134,6 +134,33 @@ public class PartidoDAO {
             conn.close();
         }
         return list;
+    }
+    
+    public void  AgregarResultados(PartidoTO tic) throws SQLException{
+        Connection conn=null;
+        
+        try{
+            conn=getConnection();
+            PreparedStatement ps=conn.prepareStatement(UPDATE);
+            ps.setTime(1, tic.getHoraInicio());
+            ps.setTime(2, tic.getHoraFin());
+            ps.setString(3, tic.getEstado());
+            ps.setInt(4, tic.getGolesEquipo1());
+            ps.setInt(5, tic.getGolesEquipo2());
+            ps.setInt(6, tic.getIdPartido());
+            
+            ps.executeUpdate();
+            
+            
+        }catch(SQLException ex){
+            Logger.getLogger(PartidoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            if(conn!=null){
+                conn.close();
+            }
+        }
+       
+        
     }
     
     
