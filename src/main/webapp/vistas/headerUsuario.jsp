@@ -34,7 +34,16 @@
 	            <li><a href="verReserva">Ver Reservas</a></li>
 	          </ul>
 	        </li>
-	        <li><a href="torneo">Torneo</a></li>
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Torneos<span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#" data-toggle="modal" data-target="#myModal2">Crear Torneo</a></li>
+	            <li><a href="verTorneos">Ver Torneos Creados</a></li>
+	            <li><a href="torneo">Ver Todos</a></li>
+	            
+	            
+	                      </ul>
+	        </li>
 	        <li><a href="index.jsp">Cerrar Sesión</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
