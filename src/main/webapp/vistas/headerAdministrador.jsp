@@ -21,7 +21,7 @@
              <li><a href="crearequipo">Agregar Equipo</a></li>
              <li><a href="listarequipos">Listar Equipos</a></li>
              <li><a href="verSolicitudes">Ver Solicitudes</a></li>
-             <li><a href="verPartidos">Ver Partidos</a></li>
+             
              <li><a href="index.jsp">Cerrar Sesión</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->

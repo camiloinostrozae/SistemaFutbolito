@@ -1,5 +1,6 @@
 package com.futbolito.Controller;
 
+import java.sql.Date;
 import java.sql.SQLException;
 import java.sql.Time;
 
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.futbolito.persistencia.EquipoDAO;
 import com.futbolito.persistencia.PartidoDAO;
+import com.futbolito.persistencia.TorneoDAO;
 import com.futbolito.persistencia.UsuarioDAO;
 import com.futbolito.to.EquipoTO;
 import com.futbolito.to.PartidoTO;
@@ -23,9 +25,38 @@ import com.futbolito.to.UsuarioTO;
 @SessionAttributes("user")
 public class PartidoControlador {
 	@RequestMapping(value = "/crearPartidos",method=RequestMethod.GET)
-	public String crearEquipo() {
+	public String crearEquipo(Model model) throws SQLException {
+		EquipoDAO dao = new EquipoDAO();
+		TorneoDAO torneos = new TorneoDAO();
+		
+		model.addAttribute("equipos", dao.readAll());
+		model.addAttribute("torneos", torneos.readAll());
+		
 		return "vistas/crearPartidos.jsp";
 	} 
+	@RequestMapping(value="/insertarPartidos", method=RequestMethod.POST)
+	public String insertarPartidos(ModelMap model,@ModelAttribute("user") UsuarioTO usuario,@RequestParam(value="fecha", required=false,defaultValue="World")Date fecha
+			,@RequestParam(value="Equipo1")int Equipo1
+			,@RequestParam(value="Equipo2")int Equipo2
+			,@RequestParam(value="Cancha")int Cancha
+			,@RequestParam(value="Torneo")int Torneo
+			) throws SQLException {
+		
+		
+		PartidoDAO dao = new PartidoDAO();
+		PartidoTO tic = new PartidoTO();
+	    tic.setFecha(fecha);
+	    tic.setEstado("pendiente");
+	    tic.setIdEquipo1(Equipo1);
+	    tic.setIdEquipo2(Equipo2);
+	    tic.setIdCancha(Cancha);
+	    tic.setIdUsuario(usuario.getId());
+	    tic.setIdTorneo(Torneo);
+	
+	   dao.insertarPartido(tic);
+	    
+	    return "vistas/crearPartidos.jsp";
+	}
 	
 		
 		@RequestMapping(value = "/listarPartidosPropios", method=RequestMethod.GET)
@@ -34,6 +65,7 @@ public class PartidoControlador {
 			PartidoDAO partidos = new PartidoDAO();
 			
 			model.addAttribute("misPartidos",partidos.listarPartidosP(usuario.getId()));
+			
 			
 			return "vistas/ListarMisPartidos.jsp";
 			

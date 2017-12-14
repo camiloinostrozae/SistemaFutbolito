@@ -29,26 +29,66 @@
 					<div class="col-md-4"></div>
 					<div class="col-md-4">
 						<div class="text-center">
-					        <h2>Agregar Jugador</h2>
+					        <h2>Agregar Partido</h2>
 					        <hr/>
 					    </div>
-				        <form class="form-horizontal" action="agregarJugadores" method = "POST" onSubmit="return enviarJugador()">
+				        <form class="form-horizontal" action="insertarPartidos" method = "POST" onSubmit="return enviarJugador()">
 				            <div class="form-group">
-				                <label class="col-sm-2 control-label" >Nombre</label>
+				                <label class="col-sm-2 control-label" >fecha</label>
 				                <div class="col-sm-10">
-				                    <input class="form-control" type="text" name="nombreJugador" required/>
+				                    <input class="form-control" type="date" name="fecha" step="1"  required>
 				                </div>
 				            </div>
 				             <div class="form-group">
-				                <label class="col-sm-2 control-label" >Apellido</label>
+				                <label class="col-sm-2 control-label" >Equipo 1</label>
 				                <div class="col-sm-10">
-				                    <input class="form-control" type="text" name="apellidoJugador" required/>
+				                    <select  class="form-control" name=Equipo1 required>
+ 						 <option value="">Seleccione Equipo</option>  
+				          <c:forEach var="equipos" items="${equipos}">
+			            
+			             
+ 								 <option value="${equipos.idEquipo}">${equipos.nombre}</option>
+ 								 
+			          </c:forEach>
+			          </select>  
 				                </div>
 				            </div>
-				            <input type="hidden" name ="idequipo" value="${idEquipo}"/>
+				            <div class="form-group">
+				                <label class="col-sm-2 control-label" >Equipo 2</label>
+				                <div class="col-sm-10">
+				                   
+				         <select  class="form-control" name="Equipo2" required>
+ 						 <option value="">Seleccione Equipo</option>  
+				          <c:forEach var="equipos" items="${equipos}">
+			            
+			             
+ 								 <option value="${equipos.idEquipo}">${equipos.nombre}</option>
+ 								 
+			          </c:forEach>
+			          </select>  
+				                </div>
+				            </div>
+				            <div class="form-group">
+				                <label class="col-sm-2 control-label" >Cancha</label>
+				                <div class="col-sm-10">
+				                    <input class="form-control" type="text" name="Cancha" required/>
+				                </div>
+				            </div>
+				              <div class="form-group">
+				                <label class="col-sm-2 control-label" >Torneo</label>
+				                <div class="col-sm-10">
+				                    <select  class="form-control" name="Torneo" required>
+ 						 <option value="">Seleccione El Torneo</option>  
+				          <c:forEach var="torneo" items="${torneos}">
+ 								 <option value="${torneo.idTorneo}">${torneo.nombreTorneo}</option>
+ 								 
+			          </c:forEach>
+			          </select> 
+				                </div>
+				            </div>
 				            <input id="ingresarSesion" class="btn btn-warning btn-lg btn-block" value="Agregar" type="submit" />
 				        </form>
-				        <form action="listarequiposPropios" method = "get" >
+				        <form action="insertarPartido" method = "get" >
 						 	<input class="btn btn-info btn-lg btn-block" value="Volver" type="submit">
 						</form>
 						<br/>
@@ -151,7 +191,7 @@
 	</script>
 	<script type="text/javascript"> 
 	function enviarJugador(){
-		alert("Jugador Agregado con éxito");
+		alert("Partido Agregado con éxito");
 		return true;
 	}
 	</script>
