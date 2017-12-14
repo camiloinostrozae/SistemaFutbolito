@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 import com.futbolito.to.HorarioTO;
 import com.futbolito.to.JugadorTO;
 import com.futbolito.to.ReservaTO;
+import com.futbolito.to.verificarTO;
 import com.mysql.jdbc.Connection;
 
 public class ReservaDAO {
@@ -20,6 +21,7 @@ public class ReservaDAO {
 	private static final String INSERT_RESERVA="insert into reserva (Usuario_idUsuario,Horario_idHorario,fecha,Hora) values (?,?,?,?)";
     private static final String DB_NAME = "futbolito";
     private static final String DELETE_RESERVA = "delete from reserva where idReserva = ?";
+    private static final String RESERVADAS = "SELECT R.fecha, R.Horario_idHorario FROM reserva AS R JOIN horario AS H ON R.Horario_idHorario=H.idHorario ";
     private static final String PORT="3306";
     private static final String URL="jdbc:mysql://localhost:"+PORT+"/"+DB_NAME;
     private static final String USER="root";
@@ -94,6 +96,33 @@ public class ReservaDAO {
     	            conn.close();
     	        }
     	    }
+    
+    
+    
+    
+    
+    public LinkedList<verificarTO> readReservadas() throws SQLException{
+        LinkedList<verificarTO> list = new LinkedList<>();
+        verificarTO result = null;
+        Connection conn=null;
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(RESERVADAS);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result= new verificarTO();
+                result.setFecha(rs.getDate("fecha"));
+                result.setIdHorario(rs.getInt("Horario_idHorario"));
+                list.add(result);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            conn.close();
+        }
+        return list;
+    }
+    
     
     
 
