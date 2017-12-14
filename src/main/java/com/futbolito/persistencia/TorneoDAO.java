@@ -14,7 +14,7 @@ import com.mysql.jdbc.Connection;
 public class TorneoDAO {
 	
 	private static final String READ_ALL = "select * from torneo";
-	private static final String READ_TORNEO = "select * from cancha where idTorneo=?";
+	private static final String READ_ = "select * from cancha where idTorneo=?";
 	//private static final String UPDATE_ESTADO_CANCHA = "UPDATE cancha SET Estado = ? WHERE idCancha = ?";
     private static final String DB_NAME = "futbolito";
     private static final String PORT="3306";
