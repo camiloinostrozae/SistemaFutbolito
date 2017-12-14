@@ -32,36 +32,36 @@
 					        <h2>Agregar Resultados</h2>
 					        <hr/>
 					    </div>
-				        <form class="form-horizontal" action="agregarResultados" method = "POST" onSubmit="return enviarJugador()">
+				        <form class="form-horizontal" action="agregaResultados" method = "POST" onSubmit="return enviarJugador()">
 				            <div class="form-group">
 				                <label class="col-sm-2 control-label" >Hora de Inicio</label>
 				                <div class="col-sm-10">
-				                    <input class="form-control" type="time" name="nombreJugador" required/>
-				                </div>
+				                    <input class="form-control" type="time" name="horaI" value="00:00:00" max="24" step="2" required>
+				            </div>
 				            </div>
 				             <div class="form-group">
 				                <label class="col-sm-2 control-label" >Hora de termino</label>
 				                <div class="col-sm-10">
-				                    <input class="form-control" type="time" name="apellidoJugador" required/>
+				                    <input class="form-control" type="time" name="horaT" value="11:45:00" max="22:30:00" min="10:00:00" step="1" required>
 				                </div>
 				            </div>
 				         
 				            <div class="form-group">
 				                <label class="col-sm-2 control-label" >Estado</label>
 				                <div class="col-sm-10">
-				                    <input class="form-control" type="text" name="apellidoJugador" required/>
+				                    <input class="form-control" type="text" name="Estado" required/>
 				                </div>
 				            </div>
 				             <div class="form-group">
 				                <label class="col-sm-2 control-label" >Goles de ${requestScope.Equipo1.nombre}</label>
 				                <div class="col-sm-10">
-				                    <input class="form-control" type="text" name="apellidoJugador" required/>
+				                    <input class="form-control" type="number" name="goles1" required/>
 				                </div>
 				            </div>
 				             <div class="form-group">
 				                <label class="col-sm-2 control-label" >Goles de ${requestScope.Equipo2.nombre}</label>
 				                <div class="col-sm-10">
-				                    <input class="form-control" type="text" name="apellidoJugador" required/>
+				                    <input class="form-control" type="number" name="goles2" required/>
 				                </div>
 				            </div>
 				            

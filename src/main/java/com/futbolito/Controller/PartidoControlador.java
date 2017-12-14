@@ -1,6 +1,7 @@
 package com.futbolito.Controller;
 
 import java.sql.SQLException;
+import java.sql.Time;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,6 +51,23 @@ public class PartidoControlador {
 			model.addAttribute("Equipo1",to1);
 			model.addAttribute("Equipo2",to2);
 			model.addAttribute("idPartido",id);
+			
+			return "vistas/AgregarResultadosPartido.jsp";
+		} 
+		@RequestMapping(value = "/agregaResultados",method=RequestMethod.POST)
+		public String agregaResultados(@RequestParam(value="idequipo", required=false, defaultValue="World") int id,Model model,
+				@RequestParam(value="horaI", required=false, defaultValue="World") Time horaI,
+				@RequestParam(value="horaT", required=false, defaultValue="World") Time horaT,
+				@RequestParam(value="Estado", required=false, defaultValue="World") String estado,
+				@RequestParam(value="goles1", required=false, defaultValue="World") int goles1,
+				@RequestParam(value="goles2", required=false, defaultValue="World") int goles2
+				) throws SQLException {
+			
+			System.out.println(id);
+			System.out.println(horaI+ "   "+horaT);
+			System.out.println(estado);
+			System.out.println(goles1+ "   "+goles2);
+			
 			
 			return "vistas/AgregarResultadosPartido.jsp";
 		} 
