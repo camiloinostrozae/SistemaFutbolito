@@ -27,42 +27,35 @@
 			        <table class="table table-hover">
 			            <thead>
 			            <tr>
-			                <th>Fecha</th>
-			                <th>Hora de Inicio</th>
-			                <th>Hora de Termino</th>
-			                <th>Estado</th>
-			                <th>Goles de Equipo 1</th>
-			                <th>Goles de Equipo 2</th>
+			                
+			                
 			                <th>Equipo 1</th>
+			                
 			                <th>Equipo 2</th>
-			                <th>Cancha</th>
-			                <th>Usuario</th>
-			                <th>Torneo</th>
+							<th>Estado</th>
+			                
 			               
 			                
 			            </tr>
 			            </thead>
 			            <c:forEach var="partidos" items="${misPartidos}">
-			            <tr>
-			                <td><c:out value="${partidos.fecha}"/></td>
-			                <td><c:out value="${partidos.horaInicio}"/></td> 
-			                <td><c:out value="${partidos.horaFin}"/></td>
+			            <tr> 
+			                <td><c:out value="${partidos.idEquipo1}: ${partidos.golesEquipo1} goles"/></td> 
+			                <td><c:out value="${partidos.idEquipo2}: ${partidos.golesEquipo2} goles"/></td>
 			                <td><c:out value="${partidos.estado}"/></td>
-			                <td><c:out value="${partidos.golesEquipo1}"/></td> 
-			                <td><c:out value="${partidos.golesEquipo2}"/></td>
-			                <td><c:out value="${partidos.idEquipo1}"/></td>
-			                <td><c:out value="${partidos.idEquipo2}"/></td> 
-			                <td><c:out value="${partidos.idCancha}"/></td>
-			                <td><c:out value="${user.nombre} ${user.apellido}"/></td>
-			                <td><c:out value="${partidos.idTorneo}"/></td>
+			                
 			                 <td>
-				                <form  class="form-horizontal" action="" method = "get" onSubmit="return enviar()">
+				                <form  class="form-horizontal" action="detallesPartido" method = "get" onSubmit="return enviar()">
 					                <input type="text"  size="1" id="id" name="id" value="${partidos.idPartido}" required="requerid"  style="visibility:hidden" />
 					                 <input type="text"  size="1" id="id" name="idEquipo1" value="${partidos.idEquipo1}" required="requerid"  style="visibility:hidden" />
 					                  <input type="text"  size="1" id="id" name="idEquipo2" value="${partidos.idEquipo2}" required="requerid"  style="visibility:hidden" />
-					            	 <button class="btn btn-info" type="submit"><Span class = "glyphicon glyphicon-pencil"></Span> Modificar</button>
+					            	 <button class="btn btn-info" type="submit"><Span class = "glyphicon glyphicon-pencil"></Span> detalles</button>
 				            	</form>
 				             </td>
+				             
+				             <c:if test = "${partidos.estado.equals('pendiente')}">
+        
+      
 			                 <td>
 				                <form  class="form-horizontal" action="agregarResultados" method = "post" onSubmit="return enviar()">
 					                <input type="text"  size="1" id="id" name="id" value="${partidos.idPartido}" required="requerid"  style="visibility:hidden" />
@@ -72,6 +65,7 @@
 				            	</form>
 				           
 				             </td>
+				             </c:if>
 			                
 			            </tr>
 			          	</c:forEach>     

@@ -53,13 +53,13 @@
 				                </div>
 				            </div>
 				             <div class="form-group">
-				                <label class="col-sm-2 control-label" >Goles de ${requestScope.Equipo1.nombre}</label>
+				                <label class="col-sm-2 control-label" >Goles de ${requestScope.Equipo1}</label>
 				                <div class="col-sm-10">
 				                    <input class="form-control" type="number" name="goles1" required/>
 				                </div>
 				            </div>
 				             <div class="form-group">
-				                <label class="col-sm-2 control-label" >Goles de ${requestScope.Equipo2.nombre}</label>
+				                <label class="col-sm-2 control-label" >Goles de ${requestScope.Equipo2}</label>
 				                <div class="col-sm-10">
 				                    <input class="form-control" type="number" name="goles2" required/>
 				                </div>

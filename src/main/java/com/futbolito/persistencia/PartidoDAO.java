@@ -1,5 +1,6 @@
 package com.futbolito.persistencia;
 
+import java.awt.List;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +11,7 @@ import java.util.logging.Logger;
 
 import com.futbolito.to.EquipoTO;
 import com.futbolito.to.PartidoTO;
+import com.futbolito.to.PartidoTOA;
 import com.mysql.jdbc.Connection;
 
 public class PartidoDAO {
@@ -162,6 +164,41 @@ public class PartidoDAO {
        
         
     }
-    
+    public LinkedList<PartidoTOA> listarPartidosP(int id) throws SQLException{
+        LinkedList<PartidoTOA> list = new LinkedList<>();
+        PartidoTOA result = null;
+        Connection conn=null;
+        EquipoTO equipo= null;
+        EquipoDAO dao =new EquipoDAO();
+        
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(READ_PROPIOS);
+            ps.setInt(1, id );
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result= new PartidoTOA();
+                equipo = new EquipoTO();
+                result.setIdPartido(rs.getInt("idPartido"));
+                result.setFecha(rs.getDate("Fecha"));
+                result.setHoraInicio(rs.getTime("horaInicio"));
+                result.setHoraFin(rs.getTime("horaFin"));
+                result.setEstado(rs.getString("Estado"));
+                result.setGolesEquipo1(rs.getInt("golesEquipo1"));
+                result.setGolesEquipo2(rs.getInt("golesEquipo2"));
+                result.setIdEquipo1(dao.buscarPorId(rs.getInt("idEquipo1")).getNombre());
+                result.setIdEquipo2(dao.buscarPorId(rs.getInt("idEquipo2")).getNombre());
+                result.setIdCancha(rs.getInt("idCancha"));
+                result.setIdUsuario(rs.getInt("idUsuario"));
+                result.setIdTorneo(rs.getInt("idTorneo"));
+                list.add(result);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PartidoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            conn.close();
+        }
+        return list;
+    }
     
 }

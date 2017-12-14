@@ -29,7 +29,7 @@ public class PartidoControlador {
 			
 			PartidoDAO partidos = new PartidoDAO();
 			
-			model.addAttribute("misPartidos",partidos.listarPartidosPropios(usuario.getId()));
+			model.addAttribute("misPartidos",partidos.listarPartidosP(usuario.getId()));
 			
 			return "vistas/ListarMisPartidos.jsp";
 			
@@ -38,18 +38,11 @@ public class PartidoControlador {
 
 		@RequestMapping(value = "/agregarResultados",method=RequestMethod.POST)
 		public String agregarResultados(@RequestParam(value="id", required=false, defaultValue="World") int id,Model model,
-				@RequestParam(value="idEquipo1", required=false, defaultValue="World") int idEquipo1,
-				@RequestParam(value="idEquipo2", required=false, defaultValue="World") int idEquipo2
+				@RequestParam(value="idEquipo1", required=false, defaultValue="World") String idEquipo1,
+				@RequestParam(value="idEquipo2", required=false, defaultValue="World") String idEquipo2
 				) throws SQLException {
-			
-			EquipoDAO dao = new EquipoDAO();
-			EquipoTO to1 = new EquipoTO();
-			EquipoTO to2 = new EquipoTO();
-			to1 = dao.buscarPorId(idEquipo1);
-			to2 = dao.buscarPorId(idEquipo2);
-			System.out.println(to1.getNombre()+ "   "+ to2.getNombre());
-			model.addAttribute("Equipo1",to1);
-			model.addAttribute("Equipo2",to2);
+			model.addAttribute("Equipo1",idEquipo1);
+			model.addAttribute("Equipo2",idEquipo2);
 			model.addAttribute("idPartido",id);
 			
 			return "vistas/AgregarResultadosPartido.jsp";
