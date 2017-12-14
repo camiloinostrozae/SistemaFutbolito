@@ -32,7 +32,7 @@
 			                <th>Apellido</th>     
 			             </tr>
 			            </thead>
-			           <c:forEach var="jugadores" items="${listarJugadoresdeEquipo}">
+			           <c:forEach var="jugador" items="${listarJugadoresdeEquipo}">
 			            <tr>
 			                <td><c:out value="${jugadores.nombre}"/></td>
 			                <td><c:out value="${jugadores.apellido}"/></td> 

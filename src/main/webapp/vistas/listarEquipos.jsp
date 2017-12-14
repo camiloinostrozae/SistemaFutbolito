@@ -17,7 +17,8 @@
 	<div class="color-fondo-login">
 	    <div class="imagen-fondo"></div>
 	</div>
-	<jsp:include page="headerAdministrador.jsp" /> 
+	 <jsp:include page="headerAdministrador.jsp" /> 
+	
 	<div  class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -89,6 +90,7 @@
 		}
 	</script>
     <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	
     </body>
     

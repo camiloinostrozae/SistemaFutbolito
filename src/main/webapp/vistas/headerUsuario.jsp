@@ -33,7 +33,9 @@
 	            <li><a href="seleccionarRecinto">Realizar reservas</a></li>
 	            <li><a href="verReserva">Ver Reservas</a></li>
 	          </ul>
-	        </li>
+	        </li> <li><a href="listarPartidosPropios">Mis Partidos</a></li>
+	        
+
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Torneos<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
@@ -44,6 +46,7 @@
 	            
 	                      </ul>
 	        </li>
+
 	        <li><a href="index.jsp">Cerrar Sesión</a></li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
