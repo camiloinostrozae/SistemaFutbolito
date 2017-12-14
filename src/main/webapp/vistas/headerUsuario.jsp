@@ -40,6 +40,7 @@
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Torneos<span class="caret"></span></a>
 	          <ul class="dropdown-menu">
 	            <li><a href="#" data-toggle="modal" data-target="#myModal2">Agregar Resultados</a></li>
+	            <li><a href="#" data-toggle="modal" data-target="#myModal2">Crear Torneo</a></li>
 	            <li><a href="verTorneos">Ver Torneos Creados</a></li>
 	            <li><a href="torneo">Ver Todos</a></li>
 	            
