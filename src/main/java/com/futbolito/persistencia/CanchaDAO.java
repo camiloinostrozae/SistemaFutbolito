@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 
 import com.futbolito.to.CanchaTO;
 import com.futbolito.to.EquipoTO;
+import com.futbolito.to.PartidoTO;
 import com.mysql.jdbc.Connection;
 
 public class CanchaDAO {
@@ -17,6 +18,7 @@ public class CanchaDAO {
 	private static final String READ_ALL = "select * from cancha";
 	private static final String READ_CANCHA = "select * from cancha where idRecinto=?";
 	private static final String UPDATE_ESTADO_CANCHA = "UPDATE cancha SET Estado = ? WHERE idCancha = ?";
+	private static final String BUSCAR_POR_ID = "select * from cancha where `idCancha`= ?";
     private static final String DB_NAME = "futbolito";
     private static final String PORT="3306";
     private static final String URL="jdbc:mysql://localhost:"+PORT+"/"+DB_NAME;
@@ -86,6 +88,30 @@ public class CanchaDAO {
         return conn;
     }
     
+    public CanchaTO buscarPorId(int id) throws SQLException{
+        
+    	CanchaTO result = null;
+           Connection conn=null;
+           try {
+               conn = getConnection();
+               PreparedStatement ps = conn.prepareStatement(BUSCAR_POR_ID);
+               ps.setInt(1,id);
+               ResultSet rs = ps.executeQuery();
+               while(rs.next()){
+               	 result= new CanchaTO();
+               	 result.setIdCancha(rs.getInt("idCancha"));
+               	 result.setNumero(rs.getInt("Numero"));
+               	 result.setEstado(rs.getString("Estado"));
+               	 result.setIdRecinto(rs.getInt("idRecinto"));
+                   
+               }
+           } catch (SQLException ex) {
+               Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+           } finally{
+               conn.close();
+           }
+           return result;
+       }
 	
 
 

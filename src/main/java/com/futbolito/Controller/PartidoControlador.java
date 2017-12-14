@@ -22,6 +22,10 @@ import com.futbolito.to.UsuarioTO;
 @Controller
 @SessionAttributes("user")
 public class PartidoControlador {
+	@RequestMapping(value = "/crearPartidos",method=RequestMethod.GET)
+	public String crearEquipo() {
+		return "vistas/crearPartidos.jsp";
+	} 
 	
 		
 		@RequestMapping(value = "/listarPartidosPropios", method=RequestMethod.GET)
@@ -78,4 +82,18 @@ public class PartidoControlador {
 			
 			return "vistas/ListarMisPartidos.jsp";
 		} 
+		@RequestMapping(value = "/detallesPartido", method=RequestMethod.GET)
+		public String detallesPartido(ModelMap model,@ModelAttribute("user") UsuarioTO usuario,
+				@RequestParam(value="id", required=false, defaultValue="World") int id,
+				@RequestParam(value="idEquipo1", required=false, defaultValue="World") String idEquipo1,
+				@RequestParam(value="idEquipo2", required=false, defaultValue="World") String idEquipo2
+				) throws SQLException {
+			PartidoDAO partido = new PartidoDAO();
+			
+			model.addAttribute("partido",partido.buscarPorIdP(id));
+			
+			return "vistas/detallesPartido.jsp";
+			
+		} 
+		
 }

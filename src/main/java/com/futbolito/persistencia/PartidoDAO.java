@@ -9,9 +9,11 @@ import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.futbolito.to.CanchaTO;
 import com.futbolito.to.EquipoTO;
 import com.futbolito.to.PartidoTO;
 import com.futbolito.to.PartidoTOA;
+import com.futbolito.to.TorneoTO;
 import com.mysql.jdbc.Connection;
 
 public class PartidoDAO {
@@ -22,7 +24,7 @@ public class PartidoDAO {
 	private static final String UPDATE="UPDATE `partido` SET `horaInicio`=?,`horaFin`=?,`Estado`=? ,`golesEquipo1`=?,`golesEquipo2`=? WHERE `idPartido`=?";
 	private static final String DELETE ="DELETE FROM `equipo` WHERE `idEquipo`=?";
 	private static final String INSERT_QUERY = "insert into equipo (Nombre,numeroPartidos,numeroJugadores,idUsuario) values (?,?,?,?)";
-	private static final String BUSCAR_POR_ID = "select * from equipo where `idEquipo`=?";
+	private static final String BUSCAR_POR_ID = "select * from partido where `idPartido`= ?";
 	private static final String ACTUALIZA_CANTJUG = "UPDATE `equipo` SET `numeroJugadores`=? WHERE `idEquipo`=?";
     private static final String DB_NAME = "futbolito";
     private static final String PORT="3306";
@@ -171,6 +173,10 @@ public class PartidoDAO {
         EquipoTO equipo= null;
         EquipoDAO dao =new EquipoDAO();
         
+        CanchaDAO canchadao =new CanchaDAO();
+       
+        TorneoDAO torneodao =new TorneoDAO();
+        
         try {
             conn = getConnection();
             PreparedStatement ps = conn.prepareStatement(READ_PROPIOS);
@@ -188,9 +194,9 @@ public class PartidoDAO {
                 result.setGolesEquipo2(rs.getInt("golesEquipo2"));
                 result.setIdEquipo1(dao.buscarPorId(rs.getInt("idEquipo1")).getNombre());
                 result.setIdEquipo2(dao.buscarPorId(rs.getInt("idEquipo2")).getNombre());
-                result.setIdCancha(rs.getInt("idCancha"));
+                result.setIdCancha(canchadao.buscarPorId(rs.getInt("idCancha")).getNumero());
                 result.setIdUsuario(rs.getInt("idUsuario"));
-                result.setIdTorneo(rs.getInt("idTorneo"));
+                result.setIdTorneo(torneodao.buscarPorId(rs.getInt("idTorneo")).getNombreTorneo());
                 list.add(result);
             }
         } catch (SQLException ex) {
@@ -199,6 +205,73 @@ public class PartidoDAO {
             conn.close();
         }
         return list;
+    }
+ public PartidoTOA buscarPorIdP(int id) throws SQLException{
+        
+	 PartidoTOA result = null;
+	 CanchaDAO canchadao =new CanchaDAO();
+	 EquipoDAO dao =new EquipoDAO();
+     TorneoDAO torneodao =new TorneoDAO();
+        Connection conn=null;
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(BUSCAR_POR_ID);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+            	 result= new PartidoTOA();
+            	 result.setIdPartido(rs.getInt("idPartido"));
+                 result.setFecha(rs.getDate("Fecha"));
+                 result.setHoraInicio(rs.getTime("horaInicio"));
+                 result.setHoraFin(rs.getTime("horaFin"));
+                 result.setEstado(rs.getString("Estado"));
+                 result.setGolesEquipo1(rs.getInt("golesEquipo1"));
+                 result.setGolesEquipo2(rs.getInt("golesEquipo2"));
+                 result.setIdEquipo1(dao.buscarPorId(rs.getInt("idEquipo1")).getNombre());
+                 result.setIdEquipo2(dao.buscarPorId(rs.getInt("idEquipo2")).getNombre());
+                 result.setIdCancha(canchadao.buscarPorId(rs.getInt("idCancha")).getNumero());
+                 result.setIdUsuario(rs.getInt("idUsuario"));
+                 result.setIdTorneo(torneodao.buscarPorId(rs.getInt("idTorneo")).getNombreTorneo());
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            conn.close();
+        }
+        return result;
+    }
+ public PartidoTO buscarPorId(int id) throws SQLException{
+     
+	 PartidoTO result = null;
+        Connection conn=null;
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(BUSCAR_POR_ID);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+            	 result= new PartidoTO();
+            	 result.setIdPartido(rs.getInt("idPartido"));
+                 result.setFecha(rs.getDate("Fecha"));
+                 result.setHoraInicio(rs.getTime("horaInicio"));
+                 result.setHoraFin(rs.getTime("horaFin"));
+                 result.setEstado(rs.getString("Estado"));
+                 result.setGolesEquipo1(rs.getInt("golesEquipo1"));
+                 result.setGolesEquipo2(rs.getInt("golesEquipo2"));
+                 result.setIdEquipo1(rs.getInt("idEquipo1"));
+                 result.setIdEquipo2(rs.getInt("idEquipo2"));
+                 result.setIdCancha(rs.getInt("idCancha"));
+                 result.setIdUsuario(rs.getInt("idUsuario"));
+                 result.setIdTorneo(rs.getInt("idTorneo"));
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            conn.close();
+        }
+        return result;
     }
     
 }

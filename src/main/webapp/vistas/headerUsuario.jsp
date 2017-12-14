@@ -33,8 +33,17 @@
 	            <li><a href="seleccionarRecinto">Realizar reservas</a></li>
 	            <li><a href="verReserva">Ver Reservas</a></li>
 	          </ul>
-	        </li> <li><a href="listarPartidosPropios">Mis Partidos</a></li>
 	        
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Partidos<span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	          </li> <li><a href="crearPartidos">Crear Partidos</a></li>
+	            </li> <li><a href="listarPartidosPropios">Mis Partidos</a></li>
+	            
+	            
+	            
+	                      </ul>
+	        </li>
 
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Torneos<span class="caret"></span></a>

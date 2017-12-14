@@ -16,7 +16,7 @@ public class PartidoTOA {
 	private String idEquipo2;
 	private int idCancha;
 	private int idUsuario;
-	private int idTorneo;
+	private String idTorneo;
 	public int getIdPartido() {
 		return idPartido;
 	}
@@ -83,10 +83,10 @@ public class PartidoTOA {
 	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-	public int getIdTorneo() {
+	public String getIdTorneo() {
 		return idTorneo;
 	}
-	public void setIdTorneo(int idTorneo) {
+	public void setIdTorneo(String idTorneo) {
 		this.idTorneo = idTorneo;
 	}
 	
