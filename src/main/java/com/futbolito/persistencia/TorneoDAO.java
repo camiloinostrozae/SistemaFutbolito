@@ -18,12 +18,12 @@ public class TorneoDAO {
 	private static final String READ_PROPIOS = "select * from torneo where idUsuario=?";
 	private static final String INSERT_QUERY="insert into torneo (Nombre,FechaInicio,numeroParticipantes,idCampeon,idUsuario) values (?,?,?,?,?)";
 	private static final String READ_TORNEO = "select * from cancha where idTorneo=?";
-<<<<<<< HEAD
+
 	private static final String BUSCAR_POR_ID = "select numeroParticipantes from torneo where `idTorneo`=?";
 	private static final String ACTUALIZA_CANTEQUI = "UPDATE `torneo` SET `numeroParticipantes`=? WHERE `idTorneo`=?";
-=======
-	private static final String BUSCAR_POR_ID = "select * from torneo where idTorneo=?";
->>>>>>> 667d60775c2fa5a53ae35dd6bc48c36faafd22c0
+
+	//private static final String BUSCAR_POR_ID = "select * from torneo where idTorneo=?";
+
 	//private static final String UPDATE_ESTADO_CANCHA = "UPDATE cancha SET Estado = ? WHERE idCancha = ?";
     private static final String DB_NAME = "futbolito";
     private static final String PORT="3306";
@@ -112,7 +112,7 @@ public class TorneoDAO {
         return list;
     }
     
-    public TorneoTO buscarPorId(int id) throws SQLException{
+   /* public TorneoTO buscarPorId(int id) throws SQLException{
         TorneoTO result = null;
         Connection conn=null;
         try {
