@@ -20,6 +20,7 @@ public class EquipoDAO {
 	private static final String INSERT_QUERY = "insert into equipo (Nombre,numeroPartidos,numeroJugadores,idUsuario) values (?,?,?,?)";
 	private static final String BUSCAR_POR_ID = "select * from equipo where `idEquipo`=?";
 	private static final String ACTUALIZA_CANTJUG = "UPDATE `equipo` SET `numeroJugadores`=? WHERE `idEquipo`=?";
+	private static final String BUSCAR_POR_PARTICIPAR_TORNEO = "SELECT * FROM equipo join competir on equipo.idEquipo = competir.idEquipo where competir.idTorneo = ?;";
     private static final String DB_NAME = "futbolito";
     private static final String PORT="3306";
     private static final String URL="jdbc:mysql://localhost:"+PORT+"/"+DB_NAME;
@@ -257,5 +258,29 @@ public class EquipoDAO {
         }
         return list;
     }
-    
+    public LinkedList<EquipoTO> buscarParticipacionTorneo(int id) throws SQLException{
+        LinkedList<EquipoTO> list = new LinkedList<>();
+        EquipoTO result = null;
+        Connection conn=null;
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(BUSCAR_POR_PARTICIPAR_TORNEO);
+            ps.setInt(1,id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result= new EquipoTO();
+                result.setIdEquipo(rs.getInt("idEquipo"));
+                result.setNombre(rs.getString("Nombre"));
+                result.setNroPartidos(rs.getInt("numeroPartidos"));
+                result.setNroJugadores(rs.getInt("numeroJugadores"));
+                result.setIdUsuario(rs.getInt("idUsuario"));
+                list.add(result);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            conn.close();
+        }
+        return list;
+    }
 }
