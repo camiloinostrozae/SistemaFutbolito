@@ -31,8 +31,9 @@ public class TorneoControlador {
 	}
 	@RequestMapping(value = "/verTorneo",method=RequestMethod.GET)
 	public String verTorneo(Model model,@RequestParam(value="idTorneo")int idTorneo) throws SQLException {
-		
-		return "vistas/torneo.jsp";
+		TorneoDAO torneo = new TorneoDAO();
+		model.addAttribute("torneo",torneo.buscarPorId(idTorneo));
+		return "vistas/tablaPosiciones.jsp";
 	}
 	
 	@RequestMapping(value = "/crearTorneo", method=RequestMethod.POST)
