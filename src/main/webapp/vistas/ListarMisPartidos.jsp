@@ -64,7 +64,7 @@
 			                 <td>
 				                <form  class="form-horizontal" action="" method = "post" onSubmit="return enviar()">
 					                <input type="text"  size="1" id="id" name="id" value="${partidos.idPartido}" required="requerid"  style="visibility:hidden" />
-					            	<button class="btn btn-danger" type="submit"><Span class = "glyphicon glyphicon-trash"></Span> Agregar Resultados</button>
+					            	<button class="btn btn-danger" type="submit"><Span class = "glyphicon glyphicon-pencil"></Span> Agregar Resultados</button>
 				            	</form>
 				             </td>
 			                
