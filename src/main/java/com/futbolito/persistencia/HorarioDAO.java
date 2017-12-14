@@ -14,7 +14,7 @@ import com.mysql.jdbc.Connection;
 public class HorarioDAO {
 	
 	private static final String READ_ALL = "select * from horario";
-	private static final String READ_HORARIO = "select * from horario where idRecinto=?";
+	private static final String READ_HORARIO = "SELECT * FROM horario AS H JOIN Cancha AS C ON H.idCancha=C.idCancha WHERE C.idRecinto = ? ";
 	
     private static final String DB_NAME = "futbolito";
     private static final String PORT="3306";

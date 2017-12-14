@@ -59,7 +59,8 @@ public class ReservaControlador {
 		
 		reserv.setFecha(sqlDate);
 		reserv.setHora(hora);
-		reserv.setIdCancha(idCancha);
+		int idHora = Integer.parseInt(hora);
+		reserv.setIdHorario(idHora);
 		reserv.setIdUsuario(usuario.getId());
 		
 	  
