@@ -13,6 +13,7 @@ import com.mysql.jdbc.Connection;
 public class EquipoDAO {
 	
 	private static final String READ_ALL = "select * from equipo";
+	private static final String READ_NOMBRES="select idEquipo,Nombre from equipo";
 	private static final String READ_PROPIOS = "select * from equipo where idUsuario=?";
 	private static final String UPDATE="UPDATE `equipo` SET `Nombre`=?,`numeroPartidos`=?,`numeroJugadores`=? ,`idUsuario`=? WHERE `idEquipo`=?";
 	private static final String DELETE ="DELETE FROM `equipo` WHERE `idEquipo`=?";
@@ -233,5 +234,28 @@ public class EquipoDAO {
       
    	
    }
+    
+    public LinkedList<EquipoTO> listarNombresEquipos() throws SQLException{
+        LinkedList<EquipoTO> list = new LinkedList<>();
+        EquipoTO result = null;
+        Connection conn=null;
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(READ_NOMBRES);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result= new EquipoTO();
+                result.setIdEquipo(rs.getInt("idEquipo"));
+                result.setNombre(rs.getString("Nombre"));
+                
+                list.add(result);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EquipoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            conn.close();
+        }
+        return list;
+    }
     
 }
