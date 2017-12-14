@@ -37,11 +37,9 @@
 			                
 			            </tr>
 			            </thead>
-			            <c:forEach var="torneo" items="${torneos}">
+			            <c:forEach var="e" items="${partido}">
 			            <tr>
-			                <td><c:out value="${torneo.nombreTorneo}"/></td>
-			                <td><c:out value="${torneo.fechaInicio}"/></td> 
-			                <td><c:out value="${torneo.numeroParticipantes}"/></td>
+			                <td><c:out value="${e.idPartido}"/></td>
 			                
 			                <td> 
 			           		   <form  class="form-horizontal" action="verTorneo" method = "get">

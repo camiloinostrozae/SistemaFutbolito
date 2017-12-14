@@ -15,6 +15,7 @@ import com.mysql.jdbc.Connection;
 public class PartidoDAO {
 
 	private static final String READ_ALL = "select * from partido";
+	private static final String READ_PARTIDO_TORNEO = "select * from partido where idTorneo = ?";
 	private static final String READ_PROPIOS = "select * from partido where idUsuario=?";
 	private static final String UPDATE="UPDATE `equipo` SET `Nombre`=?,`numeroPartidos`=?,`numeroJugadores`=? ,`idUsuario`=? WHERE `idEquipo`=?";
 	private static final String DELETE ="DELETE FROM `equipo` WHERE `idEquipo`=?";
@@ -71,7 +72,37 @@ public class PartidoDAO {
         }
         return list;
     }
-    
+    public LinkedList<PartidoTO> readPartidoTorneo(int id) throws SQLException{
+        LinkedList<PartidoTO> list = new LinkedList<>();
+        PartidoTO result = null;
+        Connection conn=null;
+        try {
+            conn = getConnection();
+            PreparedStatement ps = conn.prepareStatement(READ_PARTIDO_TORNEO);
+            ps.setInt(1, id );
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                result= new PartidoTO();
+                result.setIdPartido(rs.getInt("idPartido"));
+                result.setFecha(rs.getDate("Fecha"));
+                result.setHoraInicio(rs.getTime("horaInicio"));
+                result.setHoraFin(rs.getTime("horaFin"));
+                result.setEstado(rs.getString("Estado"));
+                result.setGolesEquipo1(rs.getInt("golesEquipo1"));
+                result.setGolesEquipo2(rs.getInt("golesEquipo2"));
+                result.setIdEquipo1(rs.getInt("idEquipo1"));
+                result.setIdEquipo2(rs.getInt("idEquipo2"));
+                result.setIdCancha(rs.getInt("idCancha"));
+                result.setIdUsuario(rs.getInt("idUsuario"));
+                list.add(result);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PartidoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+            conn.close();
+        }
+        return list;
+    }
     public LinkedList<PartidoTO> listarPartidosPropios(int id) throws SQLException{
         LinkedList<PartidoTO> list = new LinkedList<>();
         PartidoTO result = null;

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.futbolito.persistencia.EquipoDAO;
+import com.futbolito.persistencia.PartidoDAO;
 import com.futbolito.persistencia.TorneoDAO;
 import com.futbolito.to.TorneoTO;
 import com.futbolito.to.UsuarioTO;
@@ -33,9 +34,11 @@ public class TorneoControlador {
 	@RequestMapping(value = "/verTorneo",method=RequestMethod.GET)
 	public String verTorneo(Model model,@RequestParam(value="idTorneo")int idTorneo) throws SQLException {
 		EquipoDAO equipo = new EquipoDAO();
+		PartidoDAO partido = new PartidoDAO();
 		TorneoDAO torneo = new TorneoDAO();
 		model.addAttribute("torneo",torneo.buscarPorId2(idTorneo));
 		model.addAttribute("equipo",equipo.buscarParticipacionTorneo(idTorneo));
+		model.addAttribute("partido",partido.readPartidoTorneo(idTorneo));
 		return "vistas/tablaPosiciones.jsp";
 	}
 	
