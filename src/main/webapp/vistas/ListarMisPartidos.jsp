@@ -76,9 +76,7 @@
 			            </tr>
 			          	</c:forEach>     
 			        </table>
-		            <form action="" method = "get" >
-					 	<input class="btn btn-warning" value="Volver" type="submit">
-					</form>
+		          
 					<br>
 				</div>
 			</div>

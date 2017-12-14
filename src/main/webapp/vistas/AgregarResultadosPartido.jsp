@@ -66,7 +66,7 @@
 				            </div>
 				            
 				            </div>
-				            <input type="hidden" name ="idequipo" value="${requestScope.idPArtido}"/>
+				            <input type="hidden" name ="idepartido" value="${requestScope.idPartido}"/>
 				            <input id="ingresarSesion" class="btn btn-warning btn-lg btn-block" value="Agregar Resultados" type="submit" />
 				        </form>
 				        <form action="listarPartidosPropios" method = "get" >

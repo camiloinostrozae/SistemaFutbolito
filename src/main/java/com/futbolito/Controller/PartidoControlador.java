@@ -55,7 +55,7 @@ public class PartidoControlador {
 			return "vistas/AgregarResultadosPartido.jsp";
 		} 
 		@RequestMapping(value = "/agregaResultados",method=RequestMethod.POST)
-		public String agregaResultados(@RequestParam(value="idequipo", required=false, defaultValue="World") int id,Model model,
+		public String agregaResultados(@RequestParam(value="idepartido", required=false, defaultValue="World") int id ,Model model,
 				@RequestParam(value="horaI", required=false, defaultValue="World") Time horaI,
 				@RequestParam(value="horaT", required=false, defaultValue="World") Time horaT,
 				@RequestParam(value="Estado", required=false, defaultValue="World") String estado,
@@ -69,6 +69,6 @@ public class PartidoControlador {
 			System.out.println(goles1+ "   "+goles2);
 			
 			
-			return "vistas/AgregarResultadosPartido.jsp";
+			return "vistas/ListarMisPartidos.jsp";
 		} 
 }
