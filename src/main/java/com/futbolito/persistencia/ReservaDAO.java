@@ -17,7 +17,7 @@ public class ReservaDAO {
 	
 	
 	private static final String READ_RESERVA_USUARIO = "select * from reserva where idUsuario=?";
-	private static final String INSERT_RESERVA="insert into reserva (Usuario_idUsuario,Cancha_idCancha,fecha,Hora) values (?,?,?,?)";
+	private static final String INSERT_RESERVA="insert into reserva (Usuario_idUsuario,Horario_idHorario,fecha,Hora) values (?,?,?,?)";
     private static final String DB_NAME = "futbolito";
     private static final String DELETE_RESERVA = "delete from reserva where idReserva = ?";
     private static final String PORT="3306";
@@ -34,7 +34,7 @@ public class ReservaDAO {
             conn=getConnection();
             PreparedStatement ps=conn.prepareStatement(INSERT_RESERVA);
             ps.setInt(1, tic.getIdUsuario());
-            ps.setInt(2, tic.getIdCancha());
+            ps.setInt(2, tic.getIdHorario());
             ps.setDate(3, tic.getFecha());
             ps.setString(4, tic.getHora());
             ps.executeUpdate();
@@ -64,7 +64,7 @@ public class ReservaDAO {
                 result= new ReservaTO();
                 result.setIdReserva(rs.getInt("idReserva"));
                 result.setIdUsuario(rs.getInt("idUsuario"));
-                result.setIdCancha(rs.getInt("idCancha"));
+                result.setIdHorario(rs.getInt("idHorario"));
                 result.setFecha(rs.getDate("fecha"));
                 result.setHora(rs.getString("hora"));
                 list.add(result);

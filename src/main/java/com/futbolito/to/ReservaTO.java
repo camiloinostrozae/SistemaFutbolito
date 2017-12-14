@@ -6,7 +6,7 @@ public class ReservaTO {
 	
 	private int idReserva;
 	private int idUsuario;
-	private int idCancha;
+	private int idHorario;
 	private Date fecha;
 	private String hora;
 	
@@ -32,11 +32,11 @@ public class ReservaTO {
 	public void setIdUsuario(int idUsuario) {
 		this.idUsuario = idUsuario;
 	}
-	public int getIdCancha() {
-		return idCancha;
+	public int getIdHorario() {
+		return idHorario;
 	}
-	public void setIdCancha(int idCancha) {
-		this.idCancha = idCancha;
+	public void setIdHorario(int idHorario) {
+		this.idHorario = idHorario;
 	}
 	public Date getFecha() {
 		return fecha;

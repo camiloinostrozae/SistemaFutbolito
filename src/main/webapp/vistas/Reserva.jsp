@@ -29,6 +29,7 @@
 	   	            showOtherMonths: true,
 	   	           dateFormat:"dd-mm-yy",
 	   	            dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+	   	            minDate: 0,
 	   	            altField: "#d"
 	   	            
 	   	    });
@@ -79,7 +80,7 @@
                         <select  name="hora">
                               <c:forEach var="reserv" items="${misReservas}">
 		            			
-		                		<option value="${reserv.horaInicio}"><c:out value="${reserv.horaInicio}"/></option>
+		                		<option value="${reserv.idHorario}"><c:out value="${reserv.horaInicio}"/></option>
 		                		
 		                		
 		          			</c:forEach>
@@ -151,9 +152,23 @@
     </body>
     
     <script type="text/javascript"> 
-		function enviar(){
-			alert("Reserva realizada exitosamente");
-			return true;
+    function enviar(){
+		//Ingresamos un mensaje a mostrar
+		//var formulario = document.getElementById("myform");
+		var mensaje = confirm("¿Está seguro de realizar esta reserva?");
+		//var dato = formulario[0];
+		//Detectamos si el usuario acepto el mensaje
+		if (mensaje) {	
+		//formulario.submit();
+		alert("Reserva realizada exitosamente");
+		return true;
+		}
+		
+		else {
+			;
+			return false;
+		exit()
+		}
 		}
 	</script>
     
