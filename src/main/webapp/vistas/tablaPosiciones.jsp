@@ -14,6 +14,7 @@
 <title>Torneos</title>
 </head>
 <body>
+
 	<div class="color-fondo-login">
 	    <div class="imagen-fondo"></div>
 	</div>
@@ -30,23 +31,23 @@
 			            <thead>
 			            <tr>
 			                
-			                <th>Nombre Torneo</th>
-			                <th>Fecha Inicio</th>
-			                <th>Equipos Participantes</th>
-			                <th>Acción</th>
-			                
+			                <th>Nombre</th>
+			                <th>Goles a favor</th>
+			                <th>Goles en contra</th>
+			                <th>Goles</th>
+			                <th>Puntaje</th>
+			             
 			            </tr>
 			            </thead>
-			            <c:forEach var="e" items="${partido}">
+
+			            <c:forEach var="e" items="${tablaDetalle}">
 			            <tr>
-			                <td><c:out value="${e.idPartido}"/></td>
-			                
-			                <td> 
-			           		   <form  class="form-horizontal" action="verTorneo" method = "get">
-			                     <button class="btn btn-info" type="submit"><Span class = "glyphicon glyphicon-eye-open"></Span> Ver</button>
-				                 <input type="hidden" name="idTorneo" value="${torneo.idTorneo}">
-				               </form>
-						 	</td>
+			                <td><c:out value="${e[5]}"/></td>
+			                <td><c:out value="${e[1]}"/></td>
+			                <td><c:out value="${e[2]}"/></td>
+			                <td><c:out value="${e[3]}"/></td>
+			                <td><c:out value="${e[4]}"/></td>
+
 			            </tr>
 			          </c:forEach>     
 			        </table>
