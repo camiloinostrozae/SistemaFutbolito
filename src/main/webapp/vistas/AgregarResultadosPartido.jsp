@@ -56,18 +56,20 @@
 				                <div class="col-sm-10">
 				                    <input class="form-control" type="text" name="apellidoJugador" required/>
 				                </div>
-				                <div class="form-group">
-				                <label class="col-sm-2 control-label" >Goles de: ${requestScope.Equipo1.nombre}</label>
-				                <div class="col-sm-10">
-				                    <input class="form-control" type="text" name="apellidoJugador" required/>
-				                </div>
-				                <div class="form-group">
-				                <label class="col-sm-2 control-label" >Goles de: ${requestScope.Equipo2.nombre}</label>
+				            </div>
+				             <div class="form-group">
+				                <label class="col-sm-2 control-label" >Goles de ${requestScope.Equipo1.nombre}</label>
 				                <div class="col-sm-10">
 				                    <input class="form-control" type="text" name="apellidoJugador" required/>
 				                </div>
 				            </div>
+				             <div class="form-group">
+				                <label class="col-sm-2 control-label" >Goles de ${requestScope.Equipo2.nombre}</label>
+				                <div class="col-sm-10">
+				                    <input class="form-control" type="text" name="apellidoJugador" required/>
+				                </div>
 				            </div>
+				            
 				            </div>
 				            <input type="hidden" name ="idequipo" value="${idEquipo}"/>
 				            <input id="ingresarSesion" class="btn btn-warning btn-lg btn-block" value="Agregar" type="submit" />
