@@ -49,6 +49,7 @@ public class PartidoControlador {
 			System.out.println(to1.getNombre()+ "   "+ to2.getNombre());
 			model.addAttribute("Equipo1",to1);
 			model.addAttribute("Equipo2",to2);
+			model.addAttribute("idPartido",id);
 			
 			return "vistas/AgregarResultadosPartido.jsp";
 		} 

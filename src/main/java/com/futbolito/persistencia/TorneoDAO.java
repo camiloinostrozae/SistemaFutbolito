@@ -119,7 +119,7 @@ public class TorneoDAO {
         return list;
     }
     
-   /* public TorneoTO buscarPorId(int id) throws SQLException{
+    public TorneoTO buscarPorId(int id) throws SQLException{
         TorneoTO result = null;
         Connection conn=null;
         try {
